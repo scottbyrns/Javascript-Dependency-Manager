@@ -1,0 +1,28 @@
+{
+	
+	"name": "Aspect Oriented Logger",
+	"groupId": "com.scottbyrns",
+	"artifactId": "AspectLogger",
+	"version": "1.0.0-SNAPSHOT",
+	
+	"developers": [
+		{
+			"name":"Scott Byrns"
+		}
+	],
+	
+	"dependencies": [
+		
+	],
+	
+	"sources": [
+		
+		"AspectLogger.js"
+		
+	],
+	
+	"configuration": {
+		
+	}
+	
+}

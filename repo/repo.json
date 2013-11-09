@@ -1,0 +1,49 @@
+{
+	packages: [
+		{
+			"groupId": "com.scottbyrns",
+			"artifactId": "JavascriptUnit",
+			"versions": ["1.0.0-SNAPSHOT"]
+		},
+		{
+			"groupId": "com.scottbyrns",
+			"artifactId": "AspectLogger",
+			"versions": ["1.0.0-SNAPSHOT"]
+		},
+		{
+			"groupId": "com.scottbyrns",
+			"artifactId": "MessageController",
+			"versions": ["1.0.0-SNAPSHOT"]
+		},
+		{
+			"groupId": "com.scottbyrns",
+			"artifactId": "WebGLNeuralNetwork",
+			"versions": ["1.0.0-SNAPSHOT"]
+		},
+		{
+			"groupId": "com.scottbyrns",
+			"artifactId": "BuildSystem",
+			"versions": ["1.0.0-SNAPSHOT"]
+		},
+		{
+			"groupId": "org.threejs",
+			"artifactId": "ThreeJS",
+			"versions": ["1.0.0-SNAPSHOT"]
+		},
+		{
+			"groupId": "com.scottbyrns",
+			"artifactId": "SpeechRecognition",
+			"version": "1.0.0-SNAPSHOT"
+		},
+		{
+			"groupId": "com.google.code",
+			"artifactId": "dat",
+			"version": "1.0.0-SNAPSHOT",
+		},
+		{
+			"groupId": "com.github.mrdoob",
+			"artifactId": "stats",
+			"version": "1.0.0-SNAPSHOT",
+		}
+	]
+}

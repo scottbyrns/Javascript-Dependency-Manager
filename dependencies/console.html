@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Javascript Dependency Manager Repository Console</title>
+
+    <!-- Requirements
+
+		A user can browser the repository.
+		A user can add packages to the repository.
+		A user can export packages from the repository.
+		A user can remove packages from the repository.
+
+		-->
+
+
+    <style>
+        article {
+            padding:10px;
+        }
+        section {
+            padding:5px;
+        }
+        article#options {
+        }
+        article#options ul {
+            list-style:none;
+            margin:0px;
+            padding:10px;
+        }
+        article#options li {
+            padding:10px;
+            background:#0099FF;
+            margin:10px;
+        }
+    </style>
+    <script src='https://localhost:3000/socket.io/socket.io.js'></script>
+    <script src='//code.jquery.com/jquery-1.7.2.min.js'></script>
+    <script src='https://localhost:3000/socket.io/socket.io.js'></script>
+    <script src='https://localhost:3000/DependencyManager.js'></script>
+	<!--script src="https://localhost:3000/brain/brain-0.6.0.js"></script-->
+    <script>
+		
+		
+		
+        socket = io.connect('https://localhost', {
+            secure: true,
+            port: 3000
+        });
+
+        socket.on('notification', function (notification) {
+            // notification.icon
+            // notification.title
+            // notification.format
+            // notification.payload
+        });
+		
+        socket.on('error', function () {
+            console.error(arguments)
+        });
+		
+        socket.on('message', function () {
+            console.log(arguments)
+        });
+		
+		
+    </script>
+
+
+</head>
+
+<body>
+
+
+
+	<article id="modules">
+		
+		<ul id="module-list">
+			
+		</ul>
+		
+	</article>
+
+    <article id="options">
+
+        <ul id="navigation">
+			
+            <li data-widget="event-trigger" data-group="options" data-message="browse-repository">
+				Browse Repository
+            </li>
+			
+			
+			
+			
+			
+			
+			<!-- TODO Move the package controlls to a package view. They are out of context here. -->
+			
+            <li data-widget="event-trigger" data-group="options" data-message="add-package">
+                Add Package
+            </li>
+			
+            <li data-widget="event-trigger" data-group="options" data-message="export-package">
+                Export Package
+            </li>
+			
+			<li data-widget="event-trigger" data-group="options" data-message="remove-package">
+				Remove Package
+			</li>
+			
+			<!-- TODO Move the package controlls to a package view. They are out of context here. -->
+			
+			
+			
+			
+			
+			
+        </ul>
+
+    </article>
+
+    <article id="workspace">
+        <h1>
+			Universe
+		</h1>
+		<section>
+			
+		</section>
+    </article>
+
+    <script>
+        (function () {
+
+            // Check for the various File API support.
+            if (window.File && window.FileReader && window.FileList && window.Blob) {
+                // Great success! All the File APIs are supported.
+            } else {
+                alert('The File APIs are not fully supported in this browser.');
+            }
+
+        }());
+
+         // https://github.com/eligrey/FileSaver.js/blob/master/FileSaver.js
+    </script>
+    <div id="drop_zone">Drop files here</div>
+    <output id="list"></output>
+
+    <script>
+        //  http://www.html5rocks.com/en/tutorials/file/dndfiles/
+        function handleFileSelect(evt) {
+            evt.stopPropagation();
+            evt.preventDefault();
+
+            var files = evt.dataTransfer.files; // FileList object.
+
+            // files is a FileList of File objects. List some properties.
+            var output = [];
+            for (var i = 0, f; f = files[i]; i++) {
+                output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                    f.size, ' bytes, last modified: ',
+                    f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+                    '</li>');
+            }
+            document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+        }
+
+        function handleDragOver(evt) {
+            evt.stopPropagation();
+            evt.preventDefault();
+            evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+        }
+
+         // Setup the dnd listeners.
+        var dropZone = document.getElementById('drop_zone');
+        dropZone.addEventListener('dragover', handleDragOver, false);
+        dropZone.addEventListener('drop', handleFileSelect, false);
+    </script>
+
+    <script src='https://localhost:3000/app.js'></script>
+</body>
+
+</html>

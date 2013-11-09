@@ -1,3 +1,73 @@
+// TODO unravel application manager. Should be DependencyManager.loadDependencies();
+// TODO Obscure package manager.
+
+
+
+
+//
+// Manage file access.
+//
+FileManager = function () {
+	
+	
+	
+	return {
+		//
+		// Load a *.json file and pass it as a JSON
+		// object to the provided callback.
+		//
+		loadJSON: function (path, callback) {
+		
+		    var req = new XMLHttpRequest();
+		    req.open('GET', path, true);
+		    req.onreadystatechange = function(){
+		        if (req.readyState == 4) {
+					callback(JSON.parse(req.responseText));
+		            // var s = document.createElement("script");
+		            // s.appendChild(document.createTextNode(req.responseText));
+		            // document.head.appendChild(s);
+		        }
+		    };
+		    req.send(null);
+			
+		},
+		
+		
+		//
+		// Load the file at the provided path and
+		// pass to the provided callback.
+		//
+		loadFile: function (path, callback) {
+			
+			
+		
+		    var req = new XMLHttpRequest();
+		    req.open('GET', path, true);
+		    req.onreadystatechange = function(callback){
+				return function () {
+			        if (req.readyState == 4) {
+						callback((req.responseText));
+			            // var s = document.createElement("script");
+			            // s.appendChild(document.createTextNode(req.responseText));
+			            // document.head.appendChild(s);
+			        }
+				};
+		    }(callback);
+		    req.send(null);
+
+
+			
+		}
+		
+	};
+	
+}();
+
+
+
+
+
+
 /**
  //  	  Manage javascript packages in the web application.
  //       
@@ -23,15 +93,19 @@ var PackageManager = (function () {
 	// Closure local map of packages.
 	var packagesMap = {};
 	
+	var repositoryMap = {};
+	
 	// Installer for packages.
 	var Installer = {
 		
 		// TODO Fix the pass through and actually validate the POM
 		validatePackage: function (packageObjectModel) {
+			
 			if (packageObjectModel instanceof Object)
 			{
 				return Installer.VALID;
 			}
+			
 		},
 		
 		//
@@ -177,7 +251,7 @@ var PackageManager = (function () {
 				
 				for (var i = 0, len = packageObjectModel.dependencies.length; i < len; i += 1) {
 					var dependency = packageObjectModel.dependencies[i];
-					FileManager.loadJSON("javascript/repo/packages/" + dependency.groupId.split(".").join("/") + "/" + dependency.artifactId + "/" + dependency.version + "/pom.json", function (json) {
+					FileManager.loadJSON("repo/packages/" + dependency.groupId.split(".").join("/") + "/" + dependency.artifactId + "/" + dependency.version + "/pom.json", function (json) {
 						PackageManager.install(json, function () {
 							console.log(arguments);
 						})
@@ -186,7 +260,7 @@ var PackageManager = (function () {
 				}
 				
 				
-				var rootPath = "javascript/repo/packages/" + packageObjectModel.groupId.split(".").join("/") + "/" + packageObjectModel.artifactId + "/" + packageObjectModel.version + "/src/";
+				var rootPath = "repo/packages/" + packageObjectModel.groupId.split(".").join("/") + "/" + packageObjectModel.artifactId + "/" + packageObjectModel.version + "/src/";
 				
 				
 				
@@ -286,6 +360,45 @@ var PackageManager = (function () {
 	
 	return {
 		
+		
+		loadRepository: function (repo) {
+			
+			// Callback for when the repository has been loaded.
+			function success () {
+				FileManager.loadJSON("pom.json", PackageManager.start);
+			}
+			
+			console.log(repo);
+			
+			
+			
+			// Shorter reference to the packages.
+			var dependencies = repo.packages;
+			
+			repositoryMap.src = repo;
+			repositoryMap.packages = {};			
+			repositoryMap.index = {
+				artifacts:{},
+				versions:{}
+			};
+			// Itterate over the packages.
+			for (var i = 0, len = packages.length; i < len; i += 1) {
+					
+				repositoryMap.packages[packages[i].groupId] = repositoryMap.packages[packages[i].groupId] || {
+					artifact: {
+						artifactId: packages[i].artifactId,
+						versions: packages[i].versions
+					}
+				};
+				
+				// TODO index versions and artifacts...
+				
+					
+			}
+			console.log(repositoryMap);
+			success();
+		},
+		
 		start: function (pom) {
 			console.log(pom)
 			var dependencyLoadCallback = function (count, pom) {
@@ -337,7 +450,7 @@ var PackageManager = (function () {
 					// Construct the repository path.
 					// repo/packages/groupId/artifactId/version/pom.xml
 					//
-					"javascript/repo/packages/" + dependencies[i].groupId.split(".").join("/") + "/" + dependencies[i].artifactId + "/" + dependencies[i].version + "/pom.json",
+					"repo/packages/" + dependencies[i].groupId.split(".").join("/") + "/" + dependencies[i].artifactId + "/" + dependencies[i].version + "/pom.json",
 					
 					
 					//
@@ -411,73 +524,14 @@ var PackageManager = (function () {
 				}
 			
 
+		},
+		
+		getRepositoryMap: function () {
+			return repositoryMap;
 		}
 	};
 	
 }());
-
-
-
-//
-// Manage file access.
-//
-FileManager = function () {
-	
-	
-	
-	return {
-		//
-		// Load a *.json file and pass it as a JSON
-		// object to the provided callback.
-		//
-		loadJSON: function (path, callback) {
-		
-		    var req = new XMLHttpRequest();
-		    req.open('GET', path, true);
-		    req.onreadystatechange = function(){
-		        if (req.readyState == 4) {
-					callback(JSON.parse(req.responseText));
-		            // var s = document.createElement("script");
-		            // s.appendChild(document.createTextNode(req.responseText));
-		            // document.head.appendChild(s);
-		        }
-		    };
-		    req.send(null);
-			
-		},
-		
-		
-		//
-		// Load the file at the provided path and
-		// pass to the provided callback.
-		//
-		loadFile: function (path, callback) {
-			
-			
-		
-		    var req = new XMLHttpRequest();
-		    req.open('GET', path, true);
-		    req.onreadystatechange = function(callback){
-				return function () {
-			        if (req.readyState == 4) {
-						callback((req.responseText));
-			            // var s = document.createElement("script");
-			            // s.appendChild(document.createTextNode(req.responseText));
-			            // document.head.appendChild(s);
-			        }
-				};
-		    }(callback);
-		    req.send(null);
-
-
-			
-		}
-		
-	};
-	
-}();
-
-
 
 
 
@@ -540,8 +594,8 @@ ApplicationManager = function () {
 		start: function () {
 			
 			
-			FileManager.loadJSON("javascript/pom.json", PackageManager.start);
-			
+			// FileManager.loadJSON("pom.json", PackageManager.start);
+			FileManager.loadJSON("repo/repo.json", PackageManager.loadRepository);
 			
 		},
 		

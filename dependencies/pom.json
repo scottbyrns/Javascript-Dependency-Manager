@@ -1,0 +1,30 @@
+{
+	
+	"dependencies": [
+		{
+			"groupId": "com.scottbyrns",
+			"artifactId": "JavascriptUnit",
+			"version": "1.0.0-SNAPSHOT"
+		},
+		{
+			"groupId": "com.scottbyrns",
+			"artifactId": "WebGLNeuralNetwork",
+			"version": "1.0.1-SNAPSHOT"
+		},
+		{
+			"groupId": "com.scottbyrns",
+			"artifactId": "MessageController",
+			"version": "1.0.0-SNAPSHOT"
+		},
+		{
+			"groupId": "com.scottbyrns.Elements",
+			"artifactId": "List",
+			"version": "1.0.0-SNAPSHOT"
+		}
+	],
+	
+	"configuration": {
+		
+	}
+	
+}

@@ -3,8 +3,8 @@
 	"name": "Speech Regonition",
 	"description": "Speech recognition wrapper.",
 
-	"groupId": "com.scottbyrns",
-	"artifactId": "SpeechRecognition",
+	"groupId": "com.scottbyrns.HTML5.IO",
+	"artifactId": "File",
 	"version": "1.0.0-SNAPSHOT",
 	
 	"developers": [
@@ -14,10 +14,10 @@
 	],
 	
 	"dependencies": [
-
+		
 	],
 	"sources": [
-		"Recognizer.js"
+		"DragDrop.js"
 	],
 	"configuration": {
 		

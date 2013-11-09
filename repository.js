@@ -2,14 +2,13 @@ var sys = require('sys');
 var express = require ('express');
 var exec = require('child_process').exec;
 var fs = require('fs');
-
 var options = {
     key: fs.readFileSync('SSL/privatekey.pem'),
     cert: fs.readFileSync('SSL/certificate.pem')
 };
 
 // NEVER use a Sync function except at start-up!
-index = fs.readFileSync(__dirname + '/SocketServerClient.html');
+index = fs.readFileSync(__dirname + '/dependencies/console.html');
 
 //Create server
 var app = express(options);
@@ -23,7 +22,9 @@ app.configure(function () {
     //perform route lookup based on url and HTTP method
     app.use(app.router);
     //Where to serve static content
-    app.use(express.static('./repo'));
+    // app.use(express.static('./'));
+	app.use(express.directory('./dependencies'));
+	app.use(express.static('./dependencies'));
 	app.get("/", function(req, res) {
 	    res.writeHead(200, {'Content-Type': 'text/html'});
 	    res.end(index);

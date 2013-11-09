@@ -1,5 +1,5 @@
 {
-	packages: [
+	"packages": [
 		{
 			"groupId": "com.scottbyrns",
 			"artifactId": "JavascriptUnit",
@@ -18,7 +18,7 @@
 		{
 			"groupId": "com.scottbyrns",
 			"artifactId": "WebGLNeuralNetwork",
-			"versions": ["1.0.0-SNAPSHOT"]
+			"versions": ["1.0.0-SNAPSHOT", "1.0.1-SNAPSHOT"]
 		},
 		{
 			"groupId": "com.scottbyrns",
@@ -31,19 +31,29 @@
 			"versions": ["1.0.0-SNAPSHOT"]
 		},
 		{
-			"groupId": "com.scottbyrns",
-			"artifactId": "SpeechRecognition",
-			"version": "1.0.0-SNAPSHOT"
+			"groupId": "com.scottbyrns.HTML5.IO",
+			"artifactId": "Speech",
+			"version": ["1.0.0-SNAPSHOT"]
+		},
+		{
+			"groupId": "com.scottbyrns.HTML5.File",
+			"artifactId": "File",
+			"version": ["1.0.0-SNAPSHOT"]
 		},
 		{
 			"groupId": "com.google.code",
 			"artifactId": "dat",
-			"version": "1.0.0-SNAPSHOT",
+			"version": ["1.0.0-SNAPSHOT"]
 		},
 		{
 			"groupId": "com.github.mrdoob",
 			"artifactId": "stats",
-			"version": "1.0.0-SNAPSHOT",
+			"version": ["1.0.0-SNAPSHOT"]
+		},
+		{
+			"groupId": "com.scottbyrns.Elements",
+			"artifactId": "List",
+			"version": ["1.0.0-SNAPSHOT"]
 		}
 	]
 }

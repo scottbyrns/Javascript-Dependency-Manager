@@ -1,0 +1,23 @@
+{
+	
+	"name": "JavaScript Performance Monitor",
+	"groupId": "com.github.mrdoob",
+	"artifactId": "stats",
+	"version": "1.0.0-SNAPSHOT",
+	
+	"developers": [
+		{
+			"name":"mrdoob"
+		}
+	],
+	
+	"dependencies": [
+	],
+	"sources": [
+		"Stats.js"
+	],
+	"configuration": {
+		
+	}
+	
+}

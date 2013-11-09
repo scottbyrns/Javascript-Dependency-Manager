@@ -1,0 +1,29 @@
+{
+	
+	"name": "HTML Lists",
+	"description": "Various classes for building lists.",
+
+	"groupId": "com.scottbyrns.Elements",
+	"artifactId": "List",
+	"version": "1.0.0-SNAPSHOT",
+	
+	"developers": [
+		{
+			"name":"Scott Byrns"
+		}
+	],
+	
+	"dependencies": [
+		
+	],
+	
+	"sources": [
+		"DynamicList.js",
+		"ListItem.js"
+	],
+	
+	"configuration": {
+		
+	}
+	
+}

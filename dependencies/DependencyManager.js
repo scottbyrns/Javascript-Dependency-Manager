@@ -17,9 +17,9 @@ FileManager = function () {
 		// object to the provided callback.
 		//
 		loadJSON: function (path, callback) {
-		
+			// path = path;
 		    var req = new XMLHttpRequest();
-		    req.open('GET', path, true);
+		    req.open('GET', path, false);
 		    req.onreadystatechange = function(){
 		        if (req.readyState == 4) {
 					callback(JSON.parse(req.responseText));
@@ -39,10 +39,10 @@ FileManager = function () {
 		//
 		loadFile: function (path, callback) {
 			
-			
+			path = "https://localhost:3000/" + path;
 		
 		    var req = new XMLHttpRequest();
-		    req.open('GET', path, true);
+		    req.open('GET', path, false);
 		    req.onreadystatechange = function(callback){
 				return function () {
 			        if (req.readyState == 4) {
@@ -251,7 +251,7 @@ var PackageManager = (function () {
 				
 				for (var i = 0, len = packageObjectModel.dependencies.length; i < len; i += 1) {
 					var dependency = packageObjectModel.dependencies[i];
-					FileManager.loadJSON("repo/packages/" + dependency.groupId.split(".").join("/") + "/" + dependency.artifactId + "/" + dependency.version + "/pom.json", function (json) {
+					FileManager.loadJSON("https://localhost:3000/repo/packages/" + dependency.groupId.split(".").join("/") + "/" + dependency.artifactId + "/" + dependency.version + "/pom.json", function (json) {
 						PackageManager.install(json, function () {
 							console.log(arguments);
 						})
@@ -260,7 +260,7 @@ var PackageManager = (function () {
 				}
 				
 				
-				var rootPath = "repo/packages/" + packageObjectModel.groupId.split(".").join("/") + "/" + packageObjectModel.artifactId + "/" + packageObjectModel.version + "/src/";
+				var rootPath = "repo/packages/" +  packageObjectModel.groupId.split(".").join("/") + "/" + packageObjectModel.artifactId + "/" + packageObjectModel.version + "/src/";
 				
 				
 				
@@ -299,7 +299,7 @@ var PackageManager = (function () {
 						
 					    var script = document.createElement("script");
 					    
-						script.setAttribute("src", rootPath + packageObjectModel.sources[i]);
+						script.setAttribute("src", "https://localhost:3000/" + rootPath + packageObjectModel.sources[i]);
 						
 						
 					    document.body.appendChild(script);
@@ -450,7 +450,7 @@ var PackageManager = (function () {
 					// Construct the repository path.
 					// repo/packages/groupId/artifactId/version/pom.xml
 					//
-					"repo/packages/" + dependencies[i].groupId.split(".").join("/") + "/" + dependencies[i].artifactId + "/" + dependencies[i].version + "/pom.json",
+					"https://localhost:3000/repo/packages/" + dependencies[i].groupId.split(".").join("/") + "/" + dependencies[i].artifactId + "/" + dependencies[i].version + "/pom.json",
 					
 					
 					//
@@ -595,7 +595,7 @@ ApplicationManager = function () {
 			
 			
 			// FileManager.loadJSON("pom.json", PackageManager.start);
-			FileManager.loadJSON("repo/repo.json", PackageManager.loadRepository);
+			FileManager.loadJSON("https://localhost:3000/repo/repo.json", PackageManager.loadRepository);
 			
 		},
 		

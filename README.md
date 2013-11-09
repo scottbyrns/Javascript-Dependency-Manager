@@ -17,28 +17,52 @@ To represent many varying javascript library packages with a uniform interface f
 | ------------- |:-------------:| -----:|
 |name|A human relatable title for the library.|WebGL Neural Network Library|
 |description|A long sentence or two short describing what solution the library provides.|A simple plug and play Sigmoid neural network that runs in GLGS Shaders|
-| ------------- |:-------------:| -----:|
+||||
 |groupId|The reverse domain of the libraries origin.|com.scottbyrns|
 |artifactId|The name of the object your package represents.|WebGLNeuralNetwork|
 |version|Release version number for your artifact. For in-progress work use #.#.#-SNAPSHOT naming.|1.0.0-SNAPSHOT|
-| ------------- |:-------------:| -----:|
+||||
 |configuration|JSON object to be passed to the implimenter during dependency injection of your artifact.|{"foo":"bar"}|
-| ------------- |:-------------:| -----:|
+||||
 |dependencies|||
 |sources|An array of paths to files to be included in your package during injection.|["NeuralNetwork.js", "shaders/neuralnet.frag", "shaders/random_distribution_2d.frag"]|
 
 
-* Name
-* Description
-
-* Group ID
-* Artifact ID
-* Version
-
-* Configuration
-
-* Dependencies
-* Sources
+###### Example
+```json
+{
+	
+	"name": "WebGL Neural Network",
+	"groupId": "com.scottbyrns",
+	"artifactId": "WebGLNeuralNetwork",
+	"version": "1.0.1-SNAPSHOT",
+	
+	"developers": [
+		{
+			"name":"Scott Byrns"
+		}
+	],
+	
+	"dependencies": [
+		{
+			"groupId": "org.threejs",
+			"artifactId": "ThreeJS",
+			"version": "1.0.0-SNAPSHOT"
+		}
+	],
+	"sources": [
+		"shaders/neuralnet.vert",
+		"shaders/neuralnet.frag",
+		"shaders/random_distribution_2d.frag",
+		"shaders/random_distribution_2d.vert",
+		"NeuralNetwork.js"
+	],
+	"configuration": {
+		
+	}
+	
+}
+```
 
 ##### Purpose & Scope
 

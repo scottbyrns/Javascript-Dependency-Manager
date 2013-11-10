@@ -80,6 +80,15 @@ LiveWidgets.addWidget({
 					'</div>',
 					
 					
+					'<div class="artifact-snippet">',
+					
+					"<textarea onClick=\"this.select()\">\n{\n     groupId: " + artifact.groupId,
+					",\n     artifactId: " + artifact.artifactId,
+					",\n     versions: " + artifact.version,
+					"\n}\n</textarea>",
+		
+					'</div>',
+		
 					
 					'<div data-widget="artifact-dependencies-map" data-group="dependencies-browser">',
 

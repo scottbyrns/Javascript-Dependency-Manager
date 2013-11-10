@@ -1,4 +1,8 @@
-
+/*::selection {
+	background: #ffb7b7;
+	}*/
+	
+	
 /*font-face {
   font-family: 'Open Sans';
   font-style: thin;
@@ -400,9 +404,23 @@
 		height:100%;
 	}
 	
+	div.artifact-snippet
+	{
+		padding:50px;
+		text-align:center;
+	}
 	
-	
-	
+	div.artifact-snippet textarea
+	{
+		width:300px;
+		height:70px;
+		background:#25261f;
+		color:#FAFAFA;
+		border:1px solid #20211b;
+		border-radius:10px;
+		padding:25px;
+		box-shadow: inset 0 0px 30px -15px #000;
+	}	
 		
 		
 	

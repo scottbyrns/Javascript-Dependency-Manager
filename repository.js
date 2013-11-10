@@ -98,17 +98,53 @@ io.sockets.on('connection', function(socket) {
 			var group = pom.groupId.split(".").join("/");
 			
 			
-			function puts(error, stdout, stderr) { sys.puts(stdout) }
-			exec("mkdir -p /tmp/" + group, puts);
+			function puts(error, stdout, stderr) { 
+				fs.writeFile('client/repo/test/' + group + "/" + pom.artifactId + "/" + pom.version + "/pom.json", notification.data.data, function(err) {
+				    if(err) {
+				        console.log(err);
+				    } else {
+				        console.log("The file was saved!");
+				    }
+				});
+			}
+			exec("mkdir -p " + 'client/repo/test/' + group + "/" + pom.artifactId + "/" + pom.version + "/src", puts);
 		}
 		
-		fs.writeFile("/tmp/test", notification.data.data, function(err) {
-		    if(err) {
-		        console.log(err);
-		    } else {
-		        console.log("The file was saved!");
-		    }
-		});
+
+	});
+	
+	
+	socket.on("create-project-stub-from-an-existing-pom", function (notification) {
+		// console.log("Mute");
+		// function puts(error, stdout, stderr) { sys.puts(stdout) }
+		// exec("automator Scripts/System/Mute\\ Microphone.workflow", puts);
+		// console.log(notification);
+		console.log(notification.data.file.name);
+		
+		if (notification.data.file.name.indexOf(".js") > -1)
+		{
+			
+		}
+		
+		if (notification.data.file.name == "pom.json")
+		{
+			var pom = JSON.parse(notification.data.data);
+			var group = pom.groupId.split(".").join("/");
+			
+			
+			function puts(error, stdout, stderr) { 
+				fs.writeFile('client/repo/test/' + group + "/" + pom.artifactId + "/" + pom.version + "/pom.json", notification.data.data, function(err) {
+				    if(err) {
+				        console.log(err);
+				    } else {
+				        console.log("The file was saved!");
+				    }
+				});
+			}
+			exec("mkdir -p " + 'client/repo/test/' + group + "/" + pom.artifactId + "/" + pom.version + "/src", puts);
+		}
+		
+
 	});
 });
 

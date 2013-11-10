@@ -21,15 +21,18 @@ LiveWidgets.addWidget({
 					
 					if (artifact.dependencies.length > 0) {
 						
-						dependencies.push("<h4>Dependencies</h4><ul>");
+						dependencies.push('<h3 class="dependencies">Dependencies</h3>');
+						dependencies.push('<table class="dependencies">');
+						dependencies.push('<tr><th>Group</th><th>Artifact</th><th>Version</th></tr>');
+
 						
 						for (var i = 0, len = artifact.dependencies.length; i < len; i += 1) {
 							var dependency = artifact.dependencies[i];
 							console.log(dependency);
-							dependencies.push("<li>" + JSON.stringify(dependency) + "</li>");
+							dependencies.push('<tr><td>' + dependency.groupId + '</td><td>' + dependency.artifactId + '</td><td>' + dependency.version + '</td></tr>');
 						}
 						
-						dependencies.push("</ul>");						
+						dependencies.push('</table>');	
 					}
 					
 
@@ -38,37 +41,57 @@ LiveWidgets.addWidget({
 					var html = [
 						
 					'<div class="artifact-overview">',
-					
+
+					'<div class="artifact-icon"></div>',
+
+
+
+
+
+
+
+
+
+
+						// '<div class="download-icon rounded" data-widget="event-trigger" data-group="repository-control" data-event="click" data-message="export-package"><p></p></div>',
+						// '<div class="delete-icon rounded" data-widget="event-trigger" data-group="repository-control" data-event="click" data-message="remove-package"><p></p></div>',
+					// '<div class="add-icon rounded" data-widget="event-trigger" data-group="repository-control" data-event="click" data-message="add-package"><p></p></div>',
 						'<h3>' + artifact.name + '</h3>',
 						'<p>' + artifact.description + '</p>',
-						'<nav>',
-						
-			            '<button data-widget="event-trigger" data-group="repository-control" data-event="click" data-message="add-package">',
-			            '    Add Package',
-			            '</button>',
+						// '<nav>',
+							// '<div class="download-icon rounded" data-widget="event-trigger" data-group="repository-control" data-event="click" data-message="export-package"><p></p></div>',
+							// '<div class="delete-icon rounded" data-widget="event-trigger" data-group="repository-control" data-event="click" data-message="remove-package"><p></p></div>',
+							// '<div class="add-icon rounded" data-widget="event-trigger" data-group="repository-control" data-event="click" data-message="add-package"><p></p></div>',
+						// '</nav>',
+						'<span>' + artifact.version + '<p class="down-arrow"></p></span>',
 
-						'<button data-widget="event-trigger" data-group="repository-control" data-event="click" data-message="export-package">',
-			            '    Export Package',
-			            '</button>',
-
-						'<button data-widget="event-trigger" data-group="repository-control" data-event="click" data-message="remove-package">',
-						'	Remove Package',
-						'</button>',
-						
-						'</nav>',
-						'<span>' + artifact.version + '</span>',
-					
 					'</div>',
+					
+					
+					'<div>',
+					'<table>',
+					'<tr><th>Group</th><td>' + artifact.groupId + '</td></tr>',
+					'<tr><th>Artifact</th><td>' + artifact.artifactId + '</td></tr>',
+					'<tr><th>Author</th><td>' + artifact.developers[0].name + '</td></tr>',
+					'<tr><th>Homepage</th><td></td></tr>',
+					'<tr><th>Version Control</th><td></td></tr>',
+					'<tr><th>Issue Tracker</th><td></td></tr>',
+					'</table>',
+					'</div>',
+					
 					
 					
 					'<div data-widget="artifact-dependencies-map" data-group="dependencies-browser">',
+
 						dependencies.join(""),
+					
+
 					'</div>',
 					
-					'<div data-widget="code-editor-controls" data-group="editor"></div>',
-					'<div data-widget="code-editor" data-group="editor">',
-						JSON.stringify(artifact, undefined, 4),
-					'</div>',
+					// '<div data-widget="code-editor-controls" data-group="editor"></div>',
+					// '<div data-widget="code-editor" data-group="editor">',
+					// 	JSON.stringify(artifact, undefined, 4),
+					// '</div>',
 					
 					'<div data-widget="artifact-sources-list" data-group="artifact-sources-list"></div>',
 						

@@ -28,11 +28,11 @@ LiveWidgets.addWidget({
 	
 	
 				var listItem = com.scottbyrns.Elements.List.ListItem.createListItem(
-		
-					"<textarea>\n{\n     groupId: " + repoList[i].groupId +
-					",\n     artifactId: " + repoList[i].artifactId +
-					",\n     versions: " + JSON.stringify(repoList[i].versions) +
-					"\n}\n</textarea>"
+					""
+					// "<textarea>\n{\n     groupId: " + repoList[i].groupId +
+					// ",\n     artifactId: " + repoList[i].artifactId +
+					// ",\n     versions: " + JSON.stringify(repoList[i].versions) +
+					// "\n}\n</textarea>"
 		
 				);
 	

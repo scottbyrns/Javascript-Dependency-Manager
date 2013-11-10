@@ -1,0 +1,28 @@
+{
+	
+	"name": "JDM Build System",
+	"description": "Build automation system for JDM managed applications.",
+
+	"groupId": "com.scottbyrns",
+	"artifactId": "BuildSystem",
+	"version": "1.0.0-SNAPSHOT",
+	
+	"developers": [
+		{
+			"name":"Scott Byrns"
+		}
+	],
+	
+	"dependencies": [
+		
+	],
+	
+	"sources": [
+
+	],
+	
+	"configuration": {
+		
+	}
+	
+}

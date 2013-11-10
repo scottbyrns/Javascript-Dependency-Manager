@@ -1,0 +1,26 @@
+{
+	
+	"name": "Ace (Ajax.org Cloud9 Editor)",
+	"description": "Ace is a code editor written in JavaScript.",
+	
+	"groupId": "com.github.ajaxorg",
+	"artifactId": "AceBuilds",
+	"version": "1.0.0-SNAPSHOT",
+	
+	"developers": [
+		{
+			"name":"ajaxorg"
+		}
+	],
+	
+	"dependencies": [
+
+	],
+	"sources": [
+		"ace.js"
+	],
+	"configuration": {
+		
+	}
+	
+}

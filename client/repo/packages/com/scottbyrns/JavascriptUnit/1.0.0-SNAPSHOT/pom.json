@@ -1,0 +1,27 @@
+{
+	
+	"name": "Javascript Unit Test Framework",
+	"description": "Javascript Unit Testing framework for testing small functional units of interchangeable javascript.",
+	"groupId": "com.scottbyrns",
+	"artifactId": "JavascriptUnit",
+	"version": "1.0.0-SNAPSHOT",
+	
+	"developers": [
+		{
+			"name":"Scott Byrns"
+		}
+	],
+	
+	"dependencies": [
+	],
+	"sources": [
+		"Assert.js",
+		"TestSuite.js",
+		"TestCase.js",
+		"ConfigurationError.js"
+	],
+	"configuration": {
+		
+	}
+	
+}

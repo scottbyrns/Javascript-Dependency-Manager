@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Javascript Dependency Manager Repository Console</title>
+
+    <!-- Requirements
+
+		A user can browser the repository.
+		
+		A user can add packages to the repository.
+		A user can export packages from the repository.
+		A user can remove packages from the repository.
+
+		-->
+		
+<link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="app.css">
+
+
+</head>
+
+<body>
+	
+	<div id="wrap">
+		
+		
+
+  	  <aside>
+		  
+		  
+		  
+  	  	<header>
+
+
+
+  	  		<h1>
+  				JDM Repository Console
+  	  		</h1>
+	
+  	  		<!-- <input type="text" value="search..." /> -->
+		
+		
+  <!-- 			<div class="dropzone">
+  				<div data-widget="file-drop-zone" data-group="jdm-package-builder">
+  					Add Package
+  				</div>
+  			</div> -->
+			
+  	            <!-- <button data-widget="event-trigger" data-group="repository-control" data-event="click" data-message="browse-repository">
+  					Browse Repository
+  	            </button>
+  	 -->
+
+
+  			<!-- </div> -->
+		
+		
+		
+  	  	</header>
+		
+		
+
+		
+  	  	<article id="modules">
+		
+			
+            <ul data-widget="module-list" data-group="module-list">
+			  
+            </ul>
+		
+  	  	</article>
+		
+  	  </aside>
+		
+
+	  <article id="workspace">
+		  
+		  <div data-widget="jdm-package-builder" data-group="jdm-package-builder">
+			  
+		  </div>
+		  
+		  <div data-widget="artifact-viewer" data-group="artifact" id="artifact-viewer">
+	  		<article id="introduction">
+			
+	  			<h1>Javascript Dependency Manager Console</h1>
+	  			<p>
+	  				Welcome to the JDM console. This tool will provide you with the tools needed to manage your repository including creating new packages.
+	  			</p>
+		
+				<div class="dropzone">
+					<div data-widget="file-drop-zone" data-group="jdm-package-builder">
+						Add Package
+					</div>
+				</div>
+			
+	  		</article>
+		  </div>
+		  
+<!-- 		<div data-widget="code-editor">
+			
+		</div> -->
+
+
+	      <article id="options">
+		  
+		  
+		  
+	      </article>
+	  
+		  
+	  </article>
+
+	  
+	</div>
+	
+
+
+    
+
+	    
+	    <script src='https://192.168.1.108:3000/socket.io/socket.io.js'></script>
+
+
+	    <script>
+		
+		
+		
+	        socket = io.connect('https://192.168.1.108', {
+	            secure: true,
+	            port: 3000
+	        });
+
+	        socket.on('notification', function (notification) {
+	            // notification.icon
+	            // notification.title
+	            // notification.format
+	            // notification.payload
+	        });
+		
+	        socket.on('error', function () {
+	            console.error(arguments)
+	        });
+		
+	        socket.on('message', function () {
+	            console.log(arguments)
+	        });
+		
+		
+	    </script>
+		
+		
+	    <script src='https://192.168.1.108:3000/DependencyManager.js'></script>
+		
+		
+		
+</body>
+
+</html>

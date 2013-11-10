@@ -8,7 +8,7 @@ var options = {
 };
 
 // NEVER use a Sync function except at start-up!
-index = fs.readFileSync(__dirname + '/dependencies/console.html');
+index = fs.readFileSync(__dirname + '/client/console.html');
 
 //Create server
 var app = express(options);
@@ -33,9 +33,9 @@ app.configure(function () {
     //Where to serve static content
     // app.use(express.static('./'));
 	
-	app.use(express.directory('./dependencies'));
+	app.use(express.directory('./client'));
 	
-	app.use(express.static('./dependencies'));
+	app.use(express.static('./client'));
 	
 
 	
@@ -73,4 +73,46 @@ var server = server.createServer(options, app);
 var io = require('socket.io').listen(server);
 
 
+var newPackage = {
+	hasPom: false,
+	hasSrc: false
+};
+
+
+io.sockets.on('connection', function(socket) {
+	socket.on("file-test", function (notification) {
+		// console.log("Mute");
+		// function puts(error, stdout, stderr) { sys.puts(stdout) }
+		// exec("automator Scripts/System/Mute\\ Microphone.workflow", puts);
+		// console.log(notification);
+		console.log(notification.data.file.name);
+		
+		if (notification.data.file.name.indexOf(".js") > -1)
+		{
+			
+		}
+		
+		if (notification.data.file.name == "pom.json")
+		{
+			var pom = JSON.parse(notification.data.data);
+			var group = pom.groupId.split(".").join("/");
+			
+			
+			function puts(error, stdout, stderr) { sys.puts(stdout) }
+			exec("mkdir -p /tmp/" + group, puts);
+		}
+		
+		fs.writeFile("/tmp/test", notification.data.data, function(err) {
+		    if(err) {
+		        console.log(err);
+		    } else {
+		        console.log("The file was saved!");
+		    }
+		});
+	});
+});
+
 server.listen(3000);
+
+
+

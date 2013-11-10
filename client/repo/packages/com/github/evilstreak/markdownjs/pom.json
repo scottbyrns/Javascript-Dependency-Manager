@@ -1,0 +1,17 @@
+{
+    "name": "Markdown JS",
+    "description": "Markdown to html rendering library",
+    "groupId": "com.github.evilstreak",
+    "artifactId": "markdownjs",
+    "version": "1.0.0-SNAPSHOT",
+    "developers": [
+        {
+            "name": "EvilStreak"
+        }
+    ],
+    "dependencies": [],
+    "sources": [
+        "markdown.js"
+    ],
+    "configuration": {}
+}

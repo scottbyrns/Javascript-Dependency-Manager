@@ -1,0 +1,25 @@
+{
+	
+	"name": "Three JS",
+	"description": "Object oriented WebGL Wrapper",
+	
+	"groupId": "org.threejs",
+	"artifactId": "ThreeJS",
+	"version": "1.0.0-SNAPSHOT",
+	
+	"developers": [
+		{
+			"name":"MrDoob"
+		}
+	],
+	
+	"dependencies": [
+	],
+	"sources": [
+		"three.js"
+	],
+	"configuration": {
+		
+	}
+	
+}

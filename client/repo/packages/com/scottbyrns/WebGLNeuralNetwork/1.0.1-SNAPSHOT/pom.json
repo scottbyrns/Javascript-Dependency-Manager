@@ -1,0 +1,34 @@
+{
+	
+	"name": "WebGL Neural Network",
+	"description": "A neural network that runs in GPU shaders through WebGL.",
+	
+	"groupId": "com.scottbyrns",
+	"artifactId": "WebGLNeuralNetwork",
+	"version": "1.0.1-SNAPSHOT",
+	
+	"developers": [
+		{
+			"name":"Scott Byrns"
+		}
+	],
+	
+	"dependencies": [
+		{
+			"groupId": "org.threejs",
+			"artifactId": "ThreeJS",
+			"version": "1.0.0-SNAPSHOT"
+		}
+	],
+	"sources": [
+		"shaders/neuralnet.vert",
+		"shaders/neuralnet.frag",
+		"shaders/random_distribution_2d.frag",
+		"shaders/random_distribution_2d.vert",
+		"NeuralNetwork.js"
+	],
+	"configuration": {
+		
+	}
+	
+}

@@ -106,6 +106,8 @@ io.sockets.on('connection', function(socket) {
 				var pom = {
 					name: data.name,
 					description: data.description,
+					groupId: data.groupId,
+					artifactId: data.artifactId,
 					version: data.version,
 					developers: [
 					{name:data.author}
@@ -151,6 +153,48 @@ io.sockets.on('connection', function(socket) {
 				    } else {
 				        console.log("The file was saved!");
 				    }
+				});
+				
+				
+				// Update repo index.
+				
+				
+				fs.readFile("./client/repo/repo.json", 'utf8', function (err, repo) {
+				  if (err) {
+				    console.log('Error: ' + err);
+				    return;
+				  }
+ 
+				  repo = JSON.parse(repo);
+ 
+				  console.dir(repo);
+				  
+				  var update = false;
+				  
+				  for (var j = 0, jlen = repo.packages.length; j < jlen; j += 1) {
+					  if (repo.packages[j].groupId == data.groupId && repo.packages[j].artifactId == data.artifactId) {
+						  update = true;
+						  repo.packages[j].versions.push(data.version);
+					  }
+				  }
+				  
+				  if (!update) {
+					  repo.packages.push({
+		  					groupId: data.groupId,
+		  					artifactId: data.artifactId,
+		  					versions: [data.version]
+					  });
+				  }
+				  
+  				fs.writeFile("./client/repo/repo.json", JSON.stringify(repo, null, 4), function(err) {
+  				    if(err) {
+  				        console.log(err);
+  				    } else {
+  				        console.log("The file was saved!");
+  				    }
+  				});
+				  
+				  
 				});
 				
 			}

@@ -1,79 +1,119 @@
 {
-	"packages": [
-		{
-			"groupId": "com.scottbyrns",
-			"artifactId": "JavascriptUnit",
-			"versions": ["1.0.0-SNAPSHOT"]
-		},
-		{
-			"groupId": "com.scottbyrns",
-			"artifactId": "AspectLogger",
-			"versions": ["1.0.0-SNAPSHOT"]
-		},
-		{
-			"groupId": "com.scottbyrns",
-			"artifactId": "MessageController",
-			"versions": ["1.0.0-SNAPSHOT"]
-		},
-		{
-			"groupId": "com.scottbyrns",
-			"artifactId": "LiveWidgets",
-			"versions": ["1.0.0-SNAPSHOT", "1.0.1-SNAPSHOT"]
-		},
-		{
-			"groupId": "com.scottbyrns",
-			"artifactId": "WebGLNeuralNetwork",
-			"versions": ["1.0.0-SNAPSHOT", "1.0.1-SNAPSHOT"]
-		},
-		{
-			"groupId": "com.scottbyrns",
-			"artifactId": "BuildSystem",
-			"versions": ["1.0.0-SNAPSHOT"]
-		},
-		{
-			"groupId": "org.threejs",
-			"artifactId": "ThreeJS",
-			"versions": ["1.0.0-SNAPSHOT"]
-		},
-		{
-			"groupId": "com.scottbyrns.HTML5.IO",
-			"artifactId": "Speech",
-			"versions": ["1.0.0-SNAPSHOT"]
-		},
-		{
-			"groupId": "com.scottbyrns.HTML5.IO",
-			"artifactId": "File",
-			"versions": ["1.0.0-SNAPSHOT"]
-		},
-		{
-			"groupId": "com.google.code",
-			"artifactId": "dat",
-			"versions": ["1.0.0-SNAPSHOT"]
-		},
-		{
-			"groupId": "com.github.mrdoob",
-			"artifactId": "stats",
-			"versions": ["1.0.0-SNAPSHOT"]
-		},
-		{
-			"groupId": "com.scottbyrns.Elements",
-			"artifactId": "List",
-			"versions": ["1.0.0-SNAPSHOT"]
-		},
-		{
-			"groupId": "com.scottbyrns.Elements",
-			"artifactId": "Table",
-			"versions": ["1.0.0-SNAPSHOT"]
-		},
-		{
-			"groupId": "com.github.ajaxorg",
-			"artifactId": "AceBuilds",
-			"versions": ["1.0.0-SNAPSHOT"]
-		},
-		{
-		    "groupId": "com.github.evilstreak",
-		    "artifactId": "markdownjs",
-		    "version": ["1.0.0-SNAPSHOT"]
-		}
-	]
+    "packages": [
+        {
+            "groupId": "com.github.ajaxorg",
+            "artifactId": "AceBuilds",
+            "versions": [
+                "1.0.0-SNAPSHOT"
+            ]
+        },
+        {
+            "groupId": "com.scottbyrns",
+            "artifactId": "JavascriptUnit",
+            "versions": [
+                "1.0.0-SNAPSHOT"
+            ]
+        },
+        {
+            "groupId": "com.scottbyrns",
+            "artifactId": "AspectLogger",
+            "versions": [
+                "1.0.0-SNAPSHOT"
+            ]
+        },
+        {
+            "groupId": "com.scottbyrns",
+            "artifactId": "MessageController",
+            "versions": [
+                "1.0.0-SNAPSHOT"
+            ]
+        },
+        {
+            "groupId": "com.scottbyrns",
+            "artifactId": "LiveWidgets",
+            "versions": [
+                "1.0.0-SNAPSHOT",
+                "1.0.1-SNAPSHOT"
+            ]
+        },
+        {
+            "groupId": "com.scottbyrns",
+            "artifactId": "WebGLNeuralNetwork",
+            "versions": [
+                "1.0.0-SNAPSHOT",
+                "1.0.1-SNAPSHOT"
+            ]
+        },
+        {
+            "groupId": "com.scottbyrns",
+            "artifactId": "BuildSystem",
+            "versions": [
+                "1.0.0-SNAPSHOT"
+            ]
+        },
+        {
+            "groupId": "org.threejs",
+            "artifactId": "ThreeJS",
+            "versions": [
+                "1.0.0-SNAPSHOT"
+            ]
+        },
+        {
+            "groupId": "com.scottbyrns.HTML5.IO",
+            "artifactId": "Speech",
+            "versions": [
+                "1.0.0-SNAPSHOT"
+            ]
+        },
+        {
+            "groupId": "com.scottbyrns.HTML5.IO",
+            "artifactId": "File",
+            "versions": [
+                "1.0.0-SNAPSHOT"
+            ]
+        },
+        {
+            "groupId": "com.google.code",
+            "artifactId": "dat",
+            "versions": [
+                "1.0.0-SNAPSHOT"
+            ]
+        },
+        {
+            "groupId": "com.github.mrdoob",
+            "artifactId": "stats",
+            "versions": [
+                "1.0.0-SNAPSHOT"
+            ]
+        },
+        {
+            "groupId": "com.scottbyrns.Elements",
+            "artifactId": "List",
+            "versions": [
+                "1.0.0-SNAPSHOT"
+            ]
+        },
+        {
+            "groupId": "com.scottbyrns.Elements",
+            "artifactId": "Table",
+            "versions": [
+                "1.0.0-SNAPSHOT"
+            ]
+        },
+        {
+            "groupId": "com.scottbyrns",
+            "artifactId": "WavelenthToRGB",
+            "versions": [
+                "1.0.0-Release",
+                "1.0.0-SNAPSHOT"
+            ]
+        },
+        {
+            "groupId": "com.jquery",
+            "artifactId": "jQuery",
+            "versions": [
+                "2.0.3"
+            ]
+        }
+    ]
 }

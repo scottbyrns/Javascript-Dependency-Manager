@@ -56,8 +56,8 @@ LiveWidgets.addWidget({
 				},
 				
 				saveDataToServer: function () {
-					console.log(this.model.dependencies);
-					console.log(this.model.sources);
+					// console.log(this.model.dependencies);
+					// console.log(this.model.sources);
 					var package = {
 	
 						"name": this.model.name,
@@ -81,7 +81,7 @@ LiveWidgets.addWidget({
 	
 					};
 					
-					console.log("Save Data", package);
+					// console.log("Save Data", package);
 					
 					socket.emit("save-package", {data:JSON.stringify(package)});
 				},
@@ -298,7 +298,7 @@ LiveWidgets.addWidget({
 						
 					}
 					
-					document.getElementById("debug-out").innerHTML = JSON.stringify(this.model);
+					// document.getElementById("debug-out").innerHTML = JSON.stringify(this.model);
 				},
 				handleDrop: function (event) {
 					// console.log(decodeURI(event.dataTransfer.getData("Text")));

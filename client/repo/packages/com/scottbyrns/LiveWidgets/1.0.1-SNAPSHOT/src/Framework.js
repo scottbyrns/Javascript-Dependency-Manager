@@ -399,12 +399,35 @@ com.scottbyrns.LiveWidgets.Framework({
 
 		Monitor = new Monitor(33);
 		Monitor.startScanning();
+		
+		
+		var VisualMode = function () {
+			
+		};
+		
+		VisualMode.prototype = {
+			toggle: function () {
+				var domElements = DOMDocument.getElementsByTagName('*');
+				// if (domElements.length == this.domSize) {
+				// 	return false;
+				// }
+				// this.domSize = domElements.length;
+				for (var el = 0, len = domElements.length; el < len; el += 1) {
+					if (domElements[el].getAttribute('data-widget')) {
+						domElements[el].style.border="3px dotted #0099FF";
+					}
+				}
+			}
+		};
+		
+		var vm = new VisualMode();
 
 		DOMWindow.LiveWidgets = {
 			addWidget: Helpers.bind(LiveWidgets.addWidget, LiveWidgets),
 			extendWidget: Helpers.bind(LiveWidgets.extendWidget, LiveWidgets),
 			stopScanning: Helpers.bind(Monitor.stopScanning, Monitor),
-			startScanning: Helpers.bind(Monitor.startScanning, Monitor)
+			startScanning: Helpers.bind(Monitor.startScanning, Monitor),
+			toggleVisualMode: Helpers.bind(vm.toggle, LiveWidgets)
 		};
 
 	}

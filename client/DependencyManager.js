@@ -662,4 +662,4 @@ ApplicationManager = function () {
 }();
 
 setTimeout(ApplicationManager.start, 10);
-setTimeout(ApplicationManager.start, 800);
+setTimeout(ApplicationManager.start, 100);

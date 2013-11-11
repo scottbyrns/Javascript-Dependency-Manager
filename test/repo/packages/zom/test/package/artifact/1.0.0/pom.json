@@ -1,0 +1,19 @@
+{
+    "name": "asdf",
+    "description": "asdf",
+    "version": "1.0.0",
+    "developers": [
+        {}
+    ],
+    "sources": [
+        "SocketServer.js"
+    ],
+    "dependencies": [
+        {
+            "groupId": "com.scottbyrns",
+            "artifactId": "JavascriptUnit",
+            "version": "1.0.0-SNAPSHOT"
+        }
+    ],
+    "configuration": {}
+}

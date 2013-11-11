@@ -66,28 +66,25 @@ LiveWidgets.addWidget({
 
 							var artifact = [
 							
-							
+							"<div ",
+							'data-widget="drag-data" ',
+							'draggable="true"' ,
+							'data-data="' + encodeURIComponent(JSON.stringify(json)) + '"',
+							">",
 								"<h5>" + json.name + "</h5>",
 								
 								"<p>" + json.description + "</p>",
 								
 								"<span>" + json.version + "</span>",
 								
-								// '<button data-widget="event-trigger" ',
-								// 		'data-event="click" ',
-								// 		'data-group="artifact" ',
-								// 		'data-message="' + encodeURIComponent(JSON.stringify(json)) + '">',
-								// 		
-								// 	'View Package',
-								// 	
-								// '</button>'
-								
+								"</div>"
 								
 							].join("\n");
 				
 							listItem2.element.setAttribute("data-widget", "event-trigger");
 							listItem2.element.setAttribute("data-event", "click");
-							listItem2.element.setAttribute("data-group", "artifact");
+							listItem2.element.setAttribute("data-group", "artifact|repository-control");
+							listItem2.element.setAttribute("data-channel", "show-artifact");
 							listItem2.element.setAttribute("data-message", encodeURIComponent(JSON.stringify(json)));
 							
 							listItem2.element.innerHTML = artifact;// + "\n" + listItem2.element.innerHTML;

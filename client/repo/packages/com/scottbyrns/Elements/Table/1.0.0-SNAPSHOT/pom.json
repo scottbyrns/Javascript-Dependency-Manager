@@ -1,0 +1,31 @@
+{
+	
+	"name": "HTML Tables",
+	"description": "Various classes for building tables.",
+
+	"groupId": "com.scottbyrns.Elements",
+	"artifactId": "Table",
+	"version": "1.0.0-SNAPSHOT",
+	
+	"developers": [
+		{
+			"name":"Scott Byrns"
+		}
+	],
+	
+	"dependencies": [
+		
+	],
+	
+	"sources": [
+		"Table.js",
+		"Column.js",
+		"Row.js",
+		"Cell.js"
+	],
+	
+	"configuration": {
+		
+	}
+	
+}

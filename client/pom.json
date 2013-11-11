@@ -1,16 +1,31 @@
 {
+
+	
+	"name": "Javascript Dependency Manager",
+	"description": "A platform for distiributing dependencies to javascript applications.",
+	
+	"tags": [
+		"dependency injection", "node.js"
+	],
+	
+	"groupId": "com.scottbyrns",
+	"artifactId": "JDM",
+	"version": "1.0.0-SNAPSHOT",
+	
+	"packaging": "none",
+	
+	"url": "https://github.com/scottbyrns/Javascript-Dependency-Manager",
+	
+	"scm": {
+		"url": "https://github.com/scottbyrns/Javascript-Dependency-Manager",
+		"connection": "git@github.com:scottbyrns/Javascript-Dependency-Manager.git"
+	},
+	
+	"repositories": [
+		{ "name": "local", "url": "http://localhost:3000/" }
+	],
 	
 	"dependencies": [
-		{
-			"groupId": "com.scottbyrns",
-			"artifactId": "JavascriptUnit",
-			"version": "1.0.0-SNAPSHOT"
-		},
-		{
-			"groupId": "com.scottbyrns",
-			"artifactId": "WebGLNeuralNetwork",
-			"version": "1.0.1-SNAPSHOT"
-		},
 		{
 			"groupId": "com.scottbyrns",
 			"artifactId": "MessageController",
@@ -22,6 +37,11 @@
 			"version": "1.0.0-SNAPSHOT"
 		},
 		{
+			"groupId": "com.scottbyrns.Elements",
+			"artifactId": "Table",
+			"version": "1.0.0-SNAPSHOT"
+		},
+		{
 			"groupId": "com.github.ajaxorg",
 			"artifactId": "AceBuilds",
 			"version": "1.0.0-SNAPSHOT"
@@ -29,7 +49,7 @@
 		{
 			"groupId": "com.scottbyrns",
 			"artifactId": "LiveWidgets",
-			"version": "1.0.0-SNAPSHOT"
+			"version": "1.0.1-SNAPSHOT"
 		},
 		{
 			"groupId": "com.scottbyrns.HTML5.IO",
@@ -44,11 +64,20 @@
 		"widgets/module-list.js",
 		"widgets/artifact-viewer.js",
 		"widgets/file-drop-zone.js",
-		"widgets/jdm-package-builder.js"
+		"widgets/jdm-package-builder.js",
+		"widgets/activity-workspace.js",
+		"widgets/drag-data.js"
 	],
 	
 	"configuration": {
 		
+	},
+	
+	"build": {
+		
 	}
 	
+	
+	
 }
+

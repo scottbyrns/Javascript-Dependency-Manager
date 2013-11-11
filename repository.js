@@ -80,6 +80,103 @@ var newPackage = {
 
 
 io.sockets.on('connection', function(socket) {
+	
+	
+	
+	
+	
+	
+	socket.on("save-package", function (newPackage) {
+		
+		
+		
+		
+		
+		var data = JSON.parse(newPackage.data);
+		
+		var path = "./client/repo/packages/" + data.groupId.split(".").join("/") + "/" + data.artifactId + "/" + data.version + "/src/"
+		
+		console.log(JSON.stringify(data, null, 5));
+		
+
+			
+			
+			function puts(error, stdout, stderr) { 
+				
+				var pom = {
+					name: data.name,
+					description: data.description,
+					version: data.version,
+					developers: [
+					{name:data.author}
+					],
+					sources: [],
+					dependencies: [],
+					configuration: {}
+				}
+				
+				
+				for (var i = 0, len = data.sources.length; i < len; i += 1) {
+					
+					var fileContent = data.sources[i].data;
+					var fileName = data.sources[i].file.name;
+
+					pom.sources.push(fileName);
+
+					fs.writeFile(path + fileName, fileContent, function(err) {
+					    if(err) {
+					        console.log(err);
+					    } else {
+					        console.log("The file was saved!");
+					    }
+					});
+					
+				}
+				
+				for (var i = 0, len = data.dependencies.length; i < len; i += 1) {
+					
+					var fileContent = data.dependencies[i]
+
+					pom.dependencies.push({
+						groupId: fileContent.groupId,
+						artifactId: fileContent.artifactId,
+						version: fileContent.version
+					});
+					
+				}
+				
+				fs.writeFile(path + "../pom.json", JSON.stringify(pom, null, 4), function(err) {
+				    if(err) {
+				        console.log(err);
+				    } else {
+				        console.log("The file was saved!");
+				    }
+				});
+				
+			}
+			
+			
+			
+			exec("mkdir -p " + path, puts);
+			
+
+		
+		
+		
+	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	socket.on("file-test", function (notification) {
 		// console.log("Mute");
 		// function puts(error, stdout, stderr) { sys.puts(stdout) }

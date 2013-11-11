@@ -18,10 +18,11 @@ LiveWidgets.addWidget({
 				showArtifact: function (artifact) {
 
 					var dependencies = [];
-					
+					dependencies.push('<h3 class="dependencies">Dependencies</h3>');
+										
 					if (artifact.dependencies.length > 0) {
 						
-						dependencies.push('<h3 class="dependencies">Dependencies</h3>');
+
 						dependencies.push('<table class="dependencies">');
 						dependencies.push('<tr><th>Group</th><th>Artifact</th><th>Version</th></tr>');
 
@@ -33,6 +34,24 @@ LiveWidgets.addWidget({
 						}
 						
 						dependencies.push('</table>');	
+					}
+					
+					var sources = [];
+					
+					if (artifact.sources.length > 0) {
+						
+						// sources.push('<h3 class="dependencies">Sources</h3>');
+						sources.push('<table class="dependencies">');
+						sources.push('<tr><th>Source</th></tr>');
+
+						
+						for (var i = 0, len = artifact.sources.length; i < len; i += 1) {
+							var source = artifact.sources[i];
+							console.log(source);
+							sources.push('<tr><td>' + source + '</td></tr>');
+						}
+						
+						sources.push('</table>');	
 					}
 					
 
@@ -80,6 +99,10 @@ LiveWidgets.addWidget({
 					'</div>',
 					
 					
+					'<div>',
+					'<table>',
+					'<tr><td>',
+					
 					'<div class="artifact-snippet">',
 					
 					"<textarea onClick=\"this.select()\">\n{\n     groupId: " + artifact.groupId,
@@ -88,11 +111,29 @@ LiveWidgets.addWidget({
 					"\n}\n</textarea>",
 		
 					'</div>',
+					
+					'</td><td class="download-label">',
+					
+						'<div class="download-icon rounded" data-widget="event-trigger" data-group="repository-control" data-event="click" data-message="export-package"><p></p></div>',
+						'<span>Download Artifact</span>',
+					
+					'</td></tr>',
+					'</table>',
+					'</div>',
+					
+
 		
 					
 					'<div data-widget="artifact-dependencies-map" data-group="dependencies-browser">',
 
 						dependencies.join(""),
+					
+
+					'</div>',
+					
+					'<div data-widget="artifact-dependencies-map" data-group="dependencies-browser">',
+
+						sources.join(""),
 					
 
 					'</div>',

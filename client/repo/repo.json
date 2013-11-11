@@ -18,7 +18,7 @@
 		{
 			"groupId": "com.scottbyrns",
 			"artifactId": "LiveWidgets",
-			"versions": ["1.0.0-SNAPSHOT"]
+			"versions": ["1.0.0-SNAPSHOT", "1.0.1-SNAPSHOT"]
 		},
 		{
 			"groupId": "com.scottbyrns",
@@ -58,6 +58,11 @@
 		{
 			"groupId": "com.scottbyrns.Elements",
 			"artifactId": "List",
+			"versions": ["1.0.0-SNAPSHOT"]
+		},
+		{
+			"groupId": "com.scottbyrns.Elements",
+			"artifactId": "Table",
 			"versions": ["1.0.0-SNAPSHOT"]
 		},
 		{

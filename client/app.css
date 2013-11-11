@@ -42,12 +42,12 @@
 
 		position:fixed;
 		
-		top:0;
+		top:50px;
 		left:0;
 		
 		
 		height:176px;
-		width:30%;
+		width:500px;
 /*		margin-top:-25px;*/
 		
 		
@@ -95,10 +95,34 @@
 	  border-right:1px solid #fff;
 	  height: 100%;
 	  overflow:scroll;
+	  margin:0px;
 /*	  padding-top:176px;*/
 /*	  margin-bottom:125px;*/
 	}
 	
+	aside nav
+	{
+		margin-top:215px;
+	}
+
+	aside nav ul.menu
+	{
+		list-style:none;
+	}
+	
+	aside nav ul.menu li
+	{
+		padding:40px;
+		margin-bottom:25px;
+		margin-right:45px;
+		cursor:pointer;
+	}
+
+	aside nav ul.menu li:hover	
+	{
+		border-radius:100px;
+		background:#EEE;
+	}
 	
     article {
         padding:10px;
@@ -165,6 +189,11 @@
 		opacity:0.25;
 	}
 	
+	
+	table.dependencies
+	{
+	}
+	
 	table.dependencies th
 	{
 		text-align:left;
@@ -172,7 +201,21 @@
 	
 	
 	
-	
+	#toolbar
+	{
+  	  margin: 0 auto;
+  	  position:absolute;
+  	  top:0px;
+  	  left:0;
+  	  right:0;
+/*  	  bottom:0;*/
+	  height:50px;
+	  background:#FFF;
+	  z-index:1000;
+
+
+		box-shadow: inset 0px 5px 38px -10px rgba(0,0,0,1);
+	}
 	
 
 /*	// STRUCTURAL //////////////////////////////////*/	
@@ -180,22 +223,39 @@
 /*		  width: 700px;*/
 	  margin: 0 auto;
 	  position:absolute;
-	  top:0;
+	  top:50px;
 	  left:0;
 	  right:0;
 	  bottom:0;
 	}
 	
 	#wrap #workspace {
+		overflow-y:scroll;
+		overflow-x:hidden;
 		position:absolute;
 		bottom:0;
 		top:0;
 		right:0;
-	  float: right;
-	  width: 68.7%;
+		left:500px;
+		
+		vertical-align:middle;
+		background:#272822;
+		color:#AAA;
+		display:block;
+	  padding:0px;
 /*		  vertical-alignment:middle;*/
 	}
 	
+	
+	#workspace section
+	{
+/*		position:absolute;
+		top:0;
+		right:0;
+		bottom:0;
+		left:500px;*/
+
+	}
 	
 		
 		
@@ -215,6 +275,8 @@
 		margin:0px;
 	}
 	
+	
+	
 	#modules ul li
 	{
 		border-bottom:1px solid #DDD;
@@ -223,12 +285,21 @@
 		position:relative;
 	}
 	
+	#workspace #modules ul li
+	{
+		border-bottom:1px solid #111;
+	}
 	
 	#modules ul li:hover
 	{
 		background:#FFF;
 		color:#333;
 		box-shadow: inset 0 1px 30px -31px #000;
+	}
+	
+	#workspace #modules ul li:hover
+	{
+		background:#333;
 	}
 
 	#modules ul li:active
@@ -356,7 +427,19 @@
 
 
 
-		
+	div#jdm-package-builder
+	{
+
+		position:absolute;
+		top:0;
+		right:0;
+		bottom:0;
+		left:0;
+		vertical-align:middle;
+		background:#272822;
+		color:#AAA;
+			
+	}
 		
 	
 	div#artifact-viewer {
@@ -369,6 +452,7 @@
 		vertical-align:middle;
 		background:#272822;
 		color:#AAA;
+/*		display:none;*/
 		
 	}
 	
@@ -406,8 +490,19 @@
 	
 	div.artifact-snippet
 	{
-		padding:50px;
-		text-align:center;
+/*		padding:50px;*/
+		text-align:right;
+		width:525px;
+	}
+	
+	.download-label
+	{
+		width:700px;
+	}
+	
+	.download-label p
+	{
+		line-height:100px;
 	}
 	
 	div.artifact-snippet textarea
@@ -460,13 +555,13 @@
 	.dropzone
 	{
 		
-		border: 2px dotted #444;
+		border: 1px dotted rgb(65,66,61);
 /*		position:absolute;*/
 /*		right:40px;*/
 /*		top:45px;*/
-		height:280px;
-		width:580px;
-		border-radius:20px;
+		height:130px;
+		width:280px;
+		border-radius:22px;
 		cursor:n-resize;
 		box-shadow: inset 0 0px 30px -55px #000;
 		
@@ -479,17 +574,17 @@
 		
 		border-radius:20px;
 		border:1px solid #2A2A2A;
-		box-shadow: inset 0 0px 30px -10px #000;
+		box-shadow: inset 0 0px 30px -18px #000;
 
-		background:rgb(70,70,65);
-
+/*		background:rgb(70,70,65);*/
+		background: rgb(65,66,61);
 		color:#E0E0E0;
-		height:278px;
-		width:578px;
+		height:128px;
+		width:278px;
 		font-size:15px;
 		text-transform:uppercase;
 		text-align:center;
-		line-height:278px;
+		line-height:128px;
 		
 	}
 	
@@ -529,10 +624,83 @@
 	
 	
 	
+	
+	
+	div.artifact-icon
+	{
+/*		background-image: url(http://dribbble.s3.amazonaws.com/users/35/screenshots/347322/prism-icon.png);*/
+		height: 113px;
+		width: 115px;
+		background-position: -51px, -50px;
+		border-radius: 22px;
+		display: inline-block;
+		float:left;
+		margin-right:30px;
+/*		opacity:0.5;*/
+		background-color:rgb(65,66,61);
+/*		border:1px solid #000;*/
+	}
+	
+	div.logo
+	{
+/*		background-image: url(http://dribbble.s3.amazonaws.com/users/35/screenshots/347322/prism-icon.png);*/
+		height: 113px;
+		width: 115px;
+		background-position: -51px, -50px;
+		border-radius: 20px;
+		display: inline-block;
+		float:left;
+		margin:30px;
+/*		margin-right:30px;*/
+/*		opacity:0.5;*/
+		background-color:#DDD;
+/*		border:1px solid #000;*/
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/* Download icon */
 	
 	.download-icon {
-		float:left;
+		
+ 	   position:relative;
+ 	   width:5px;
+ 	   height:15px;
+ 	   padding:1em 1.0em;
+ 	   color:#fff;
+ 	   background:#97C02F;
+ 	   overflow:hidden;
+ 	   display:inline-block;
+ 	   cursor:pointer;
+ 		box-shadow: inset 0 1px 30px -11px #000;
+ 		margin-right:25px;
+		
+		
+/*		float:left;
 	   position:relative;
 	   width:30px;
 	   height:65px;
@@ -543,7 +711,7 @@
 	   display:inline-block;
 	   cursor:pointer;
 		box-shadow: inset 0 1px 30px -11px #000;
-		margin-right:25px;
+		margin-right:25px;*/
 	}
 	
 	.download-icon:hover
@@ -571,12 +739,12 @@
 
 		width: 0;
 		height: 0;
-		border-left: 20px solid transparent;
-		border-right: 20px solid transparent;
+		border-left: 10px solid transparent;
+		border-right: 10px solid transparent;
 		border-top-left-radius: 5px;
-		border-top: 20px solid #FFF;
-		margin-left: -5px;
-		margin-top: 40px;
+		border-top: 10px solid #FFF;
+		margin-left: -8px;
+		margin-top: 15px;
 		position: relative;
 		border-top-right-radius: 5px;
 		border-radius: 5px;
@@ -586,11 +754,11 @@
 	.download-icon p:before {
 		content: "";
 		background: #FFF;
-		top: -46px;
-		height: 38px;
-		width: 16px;
+		top: -18px;
+		height: 14px;
+		width: 5px;
 		position: absolute;
-		left: -8px;
+		left: -2px;
 		border-radius: 5px;
 	}
 
@@ -609,10 +777,205 @@
 	}
 	
 	
+	
+	
+	/* Upload icon */
+	
+	.upload-icon {
+		
+ 	   position:relative;
+ 	   width:5px;
+ 	   height:15px;
+ 	   padding:1em 1.0em;
+ 	   color:#fff;
+ 	   background:#97C02F;
+ 	   overflow:hidden;
+ 	   display:inline-block;
+ 	   cursor:pointer;
+ 		box-shadow: inset 0 1px 30px -11px #000;
+ 		margin-right:25px;
+		
+		
+/*		float:left;
+	   position:relative;
+	   width:30px;
+	   height:65px;
+	   padding:1em 1.5em;
+	   color:#fff;
+	   background:#97C02F;
+	   overflow:hidden;
+	   display:inline-block;
+	   cursor:pointer;
+		box-shadow: inset 0 1px 30px -11px #000;
+		margin-right:25px;*/
+	}
+	
+	.upload-icon:hover
+	{
+		box-shadow:  0 1px 30px -6px #000;
+	}
+
+	.upload-icon:before {
+	   content:"";
+	   position:absolute;
+	   top:0;
+	   right:0;
+	   border-width:0 16px 16px 0;
+	   border-style:solid;
+	   border-color:#272822 #272822 #658E15 #658E15;
+	   background:#658E15;
+	   -webkit-box-shadow:0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+	   -moz-box-shadow:0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+	   box-shadow:0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+	   display:block; width:0; /* Firefox 3.0 damage limitation */
+	}
+	
+	.upload-icon p
+	{
+		
+		width: 0;
+		height: 0;
+		border-left: 11px solid transparent;
+		border-right: 11px solid transparent;
+/*		border-bottom-left-radius: 5px;*/
+		border-bottom: 11px solid #FFF;
+		margin-left: -9px;
+		margin-top: 3px;
+		position: relative;
+/*		border-top-right-radius: 5px;*/
+		border-radius: 5px;
+
+	}
+	
+	.upload-icon p:before {
+		content: "";
+		background: #FFF;
+		top: 6px;
+		height: 14px;
+		width: 5px;
+		position: absolute;
+		left: -2px;
+		border-radius: 5px;
+	}
+
+	.upload-icon.rounded {
+	   -webkit-border-radius:5px 0 5px 5px;
+	   -moz-border-radius:5px 0 5px 5px;
+	   border-radius:5px 0 5px 5px;
+	}
+
+	.upload-icon.rounded:before {
+	   border-width:8px;
+	   border-color:#272822 #272822 transparent transparent;
+	   -webkit-border-bottom-left-radius:5px;
+	   -moz-border-radius:0 0 0 5px;
+	   border-radius:0 0 0 5px;
+	}
+	
+	
+	
+	
+	
+	/* Back icon */
+	
+	.back-icon {
+		
+ 	   position:relative;
+ 	   width:128px;
+ 	   height:128px;
+ 	   padding:1em 1.0em;
+ 	   color:#fff;
+/* 	   background:#97C02F;*/
+ 	   overflow:hidden;
+ 	   display:inline-block;
+ 	   cursor:pointer;
+		box-shadow:  none !important;
+ 		margin-right:25px;
+		
+		
+/*		float:left;
+	   position:relative;
+	   width:30px;
+	   height:65px;
+	   padding:1em 1.5em;
+	   color:#fff;
+	   background:#97C02F;
+	   overflow:hidden;
+	   display:inline-block;
+	   cursor:pointer;
+		box-shadow: inset 0 1px 30px -11px #000;
+		margin-right:25px;*/
+	}
+	
+	.back-icon:hover
+	{
+		box-shadow:  none !important;
+	}
+
+	.back-icon p
+	{
+		
+		width: 0;
+		height: 0;
+		border-top: 31px solid transparent;
+		border-bottom: 31px solid transparent;
+/*		border-bottom-left-radius: 5px;*/
+		border-right: 31px solid #FFF;
+/*		margin-left: -9px;*/
+		margin-top: 10px;
+		position: relative;
+/*		border-top-right-radius: 5px;*/
+		border-radius: 15px;
+
+	}
+	
+	.back-icon p:before {
+		content: "";
+		background: #FFF;
+		top: -5px;
+		height: 10px;
+		width: 45px;
+		position: absolute;
+		left: 20px;
+		border-radius: 5px;
+	}
+
+	.back-icon.rounded {
+	   -webkit-border-radius:5px 0 5px 5px;
+	   -moz-border-radius:5px 0 5px 5px;
+	   border-radius:5px 0 5px 5px;
+	}
+
+	.back-icon.rounded:before {
+	   border-width:8px;
+	   border-color:#272822 #272822 transparent transparent;
+	   -webkit-border-bottom-left-radius:5px;
+	   -moz-border-radius:0 0 0 5px;
+	   border-radius:0 0 0 5px;
+	}
+	
+	
+	
+	
 	/* Delete icon */
 	
 	.delete-icon {
-		float:left;
+		
+		
+  	   position:relative;
+  	   width:5px;
+  	   height:15px;
+  	   padding:1em 1.0em;
+  	   color:#fff;
+  	   background:#982725;
+  	   overflow:hidden;
+  	   display:inline-block;
+  	   cursor:pointer;
+  		box-shadow: inset 0 1px 30px -11px #000;
+  		margin-right:25px;
+		
+		
+/*		float:left;
 	   position:relative;
 	   width:30px;
 	   height:65px;
@@ -623,7 +986,7 @@
 	   display:inline-block;
 	   cursor:pointer;
 		box-shadow: inset 0 1px 30px -11px #000;
-		margin-right:25px;
+		margin-right:25px;*/
 	}
 	
 	.delete-icon:hover
@@ -651,24 +1014,24 @@
 
 		-webkit-transform: rotate(45deg);
 
-		margin-left: -4px;
-		margin-top: 27px;
+		margin-left: -8px;
+		margin-top: 12px;
 		position: relative;
 
 		background: #FFF;
-		height: 16px;
-		width: 38px;
+		height: 6px;
+		width: 20px;
 		border-radius: 5px;
 	}
 	
 	.delete-icon p:before {
 		content: "";
 		background: #FFF;
-		top: -11px;
-		height: 38px;
-		width: 17px;
+		top: -7px;
+		height: 20px;
+		width: 6px;
 		position: absolute;
-		left: 11px;
+		left: 7px;
 		border-radius: 5px;
 	}
 
@@ -688,14 +1051,32 @@
 	
 	
 	
+	
+	#toolbar
+	{
+  	  margin: 0 auto;
+  	  position:absolute;
+  	  top:0px;
+  	  left:0;
+  	  right:0;
+/*  	  bottom:0;*/
+	  height:50px;
+	  background:#FFF;
+	  z-index:1000;
+
+
+		box-shadow: inset 0px 5px 38px -10px rgba(0,0,0,1);
+		
+		padding:0px;
+	}
 	/* Add icon */
 	
 	.add-icon {
-		float:left;
+/*		float:left;*/
 	   position:relative;
-	   width:30px;
-	   height:65px;
-	   padding:1em 1.5em;
+	   width:5px;
+	   height:15px;
+	   padding:1em 1.0em;
 	   color:#fff;
 	   background:#00CFD6;
 	   overflow:hidden;
@@ -703,6 +1084,7 @@
 	   cursor:pointer;
 		box-shadow: inset 0 1px 30px -11px #000;
 		margin-right:25px;
+
 	}
 	
 	.add-icon:hover
@@ -712,7 +1094,7 @@
 
 	.light:before
 	{
-	   border-color:#FAFAFA #FAFAFA #DDD #CCC !important;
+	   border-color:#FAFAFA #FAFAFA rgba(0,0,0,0.0) rgba(0,0,0,0.0) !important;
 	}
 	
 	.light:hover {
@@ -721,7 +1103,7 @@
 	
 	.light
 	{
-		margin:25px;
+/*		margin:25px;*/
 	}
 
 	.add-icon:before {
@@ -744,24 +1126,24 @@
 
 /*		-webkit-transform: rotate(45deg);*/
 
-		margin-left: -4px;
-		margin-top: 27px;
+		margin-left: -8px;
+		margin-top: 12px;
 		position: relative;
 
 		background: #FFF;
-		height: 16px;
-		width: 38px;
+		height: 6px;
+		width: 20px;
 		border-radius: 5px;
 	}
 	
 	.add-icon p:before {
 		content: "";
 		background: #FFF;
-		top: -11px;
-		height: 38px;
-		width: 17px;
+		top: -7px;
+		height: 20px;
+		width: 6px;
 		position: absolute;
-		left: 11px;
+		left: 7px;
 		border-radius: 5px;
 	}
 
@@ -784,33 +1166,77 @@
 	
 	
 	
-	div.artifact-icon
+	
+	
+	
+	
+	.right-bucket
 	{
-/*		background-image: url(http://dribbble.s3.amazonaws.com/users/35/screenshots/347322/prism-icon.png);*/
-		height: 113px;
-		width: 115px;
-		background-position: -51px, -50px;
-		border-radius: 22px;
-		display: inline-block;
-		float:left;
-		margin-right:30px;
-		opacity:0.5;
-		background-color:#FFF;
-		border:1px solid #000;
+		width:300px;
+	}
+
+#jdm-package-builder
+{
+/*	display:none;*/
+}
+
+	#jdm-package-builder .filled
+	{
+		background:#25261f;
+	}	
+	
+	#jdm-package-builder .filled:focus
+	{
+		background:rgb(65,66,61);
 	}
 	
-	div.logo
+	
+	#jdm-package-builder div.artifact-overview span
 	{
-		background-image: url(http://dribbble.s3.amazonaws.com/users/35/screenshots/347322/prism-icon.png);
-		height: 113px;
-		width: 115px;
-		background-position: -51px, -50px;
-		border-radius: 20px;
-		display: inline-block;
-		float:left;
-		margin:30px;
-/*		margin-right:30px;*/
-/*		opacity:0.5;*/
-		background-color:#FFF;
-/*		border:1px solid #000;*/
+		
+		width:100px;
+		
 	}
+	
+	#jdm-package-builder div.artifact-overview span	input
+	{
+		width:100px;
+		height:30px;
+	}
+	
+	#jdm-package-builder input,
+	#jdm-package-builder textarea
+	{
+/*		background:#25261f;*/
+		background:rgb(65,66,61);
+		padding:3px;
+		margin:0px;
+		border:none;
+		width:300px;
+		color:#FAFAFA;
+		line-height:18px;
+		font-size:18px;
+		font-weight:300;
+	}
+	#jdm-package-builder textarea
+	{
+		width:500px;
+		height:50px;
+	}
+	
+	
+	
+	
+	
+	#jdm-package-builder .dropzone
+	{
+		
+		margin:50px;
+		
+	}
+	
+	
+	
+	
+	
+	

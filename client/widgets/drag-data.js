@@ -1,5 +1,5 @@
 LiveWidgets.addWidget({
-        name: 'file-drop-zone',
+        name: 'drag-data',
         model: {
 
         },
@@ -16,17 +16,22 @@ LiveWidgets.addWidget({
 				fileWasUploaded: function (data) {
 
 					// console.log(data);
-					var chan = this.model.channel || "dropped-file";
-					this.sendMessage(data, chan);
+					// this.sendMessage(data, "dropped-file");
+				},
+				
+				ondragstart: function (event) {
+					// console.log(this.model.data);
+					event.dataTransfer.setData('application/json', decodeURIComponent(this.model.data));
 				}
 				
         },
 		constructor: function () {
-			this.model.dropzone = new com.scottbyrns.HTML5.IO.File.DragDrop(this.element);
-			this.model.dropzone.registerCallback(this.controller.fileWasUploaded.bind(this));
+			// this.model.dropzone = new com.scottbyrns.HTML5.IO.File.DragDrop(this.element);
+			// this.model.dropzone.registerCallback(this.controller.fileWasUploaded.bind(this));
 		},
         reinit: function () {
                 // this.element.removeEventListener(this.model.event, this.controller.dispatchMessageToGroupedWidgets);
                 // this.element.addEventListener(this.model.event, this.controller.dispatchMessageToGroupedWidgets, true);
+				this.element.addEventListener('dragstart', this.controller.ondragstart, true);
         }
 });

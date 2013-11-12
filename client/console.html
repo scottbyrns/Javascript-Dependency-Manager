@@ -27,6 +27,7 @@
 </head>
 
 <body>
+
 	<div id="toolbar">
 		<!-- <div class="download-icon rounded light" data-widget="event-trigger" data-group="repository-control" data-event="click" data-message="export-package"><p></p></div>
 		<div class="delete-icon rounded light" data-widget="event-trigger" data-group="repository-control" data-event="click" data-message="remove-package"><p></p></div>
@@ -45,7 +46,7 @@
 
 <div class="logo" id="passive-control"></div>
 
-  	  		<h1>
+  	  		<h1 id="title">
   				JS Package Repository
   	  		</h1>
 			<!-- <button data-widget="event-trigger" data-group="repository-control" data-event="click" data-message="create-package">Create A Package</button> -->
@@ -196,7 +197,7 @@
 				
 			</div>
 
-            <ul data-widget="module-list" data-group="module-list">
+            <ul data-widget="module-list" data-group="module-list|repo-data-source">
   			  	
             </ul>
 
@@ -434,7 +435,7 @@
 	    <script src='https://localhost:3000/DependencyManager.js'></script>
 		
 		
-		
+		<dataset data-widget="repo-data-source" data-group="repo-data-source"></dataset>	
 </body>
 
 </html>

@@ -538,6 +538,31 @@
 		width:700px;
 	}
 	
+	.download-label .download-button
+	{
+		position:relative;
+		padding-top:18px;
+		padding-bottom:15px;
+		height: 70px;
+		width: 340px;
+		cursor:pointer;
+	}
+
+	.download-label .download-button:hover
+	{
+		background:rgb(65,66,61);
+		color:#AAA;
+		border-radius:100px;
+	}
+	
+	
+	.download-label span
+	{
+		float:left;
+		line-height:66px;
+		font-size:25px;
+	}
+	
 	.download-label p
 	{
 		line-height:100px;
@@ -730,14 +755,14 @@
  	   height:15px;
  	   padding:1em 1.0em;
  	   color:#fff;
- 	   background:#97C02F;
+ 	   background:rgb(65,66,61);
  	   overflow:hidden;
  	   display:inline-block;
  	   cursor:pointer;
  		box-shadow: inset 0 1px 30px -11px #000;
  		margin-right:25px;
 		
-		
+		margin-left:35px;
 /*		float:left;
 	   position:relative;
 	   width:30px;
@@ -764,8 +789,8 @@
 	   right:0;
 	   border-width:0 16px 16px 0;
 	   border-style:solid;
-	   border-color:#272822 #272822 #658E15 #658E15;
-	   background:#658E15;
+	   border-color:#272822 #272822 rgb(65,66,61) rgb(65,66,61);
+	   background:rgb(65,66,61);
 	   -webkit-box-shadow:0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
 	   -moz-box-shadow:0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
 	   box-shadow:0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
@@ -780,9 +805,9 @@
 		border-left: 10px solid transparent;
 		border-right: 10px solid transparent;
 		border-top-left-radius: 5px;
-		border-top: 10px solid #FFF;
+		border-top: 10px solid #AAA;
 		margin-left: -8px;
-		margin-top: 15px;
+		margin-top: 13px;
 		position: relative;
 		border-top-right-radius: 5px;
 		border-radius: 5px;
@@ -791,7 +816,7 @@
 	
 	.download-icon p:before {
 		content: "";
-		background: #FFF;
+		background: #AAA;
 		top: -18px;
 		height: 14px;
 		width: 5px;
@@ -804,6 +829,9 @@
 	   -webkit-border-radius:5px 0 5px 5px;
 	   -moz-border-radius:5px 0 5px 5px;
 	   border-radius:5px 0 5px 5px;
+	   position:relative;
+	   float:left;
+	   margin-top:8px;
 	}
 
 	.download-icon.rounded:before {
@@ -919,8 +947,8 @@
 	.back-icon {
 		
  	   position:relative;
- 	   width:128px;
- 	   height:128px;
+ 	   width:115px;
+ 	   height:113px;
  	   padding:1em 1.0em;
  	   color:#fff;
 /* 	   background:#97C02F;*/
@@ -928,7 +956,7 @@
  	   display:inline-block;
  	   cursor:pointer;
 		box-shadow:  none !important;
- 		margin-right:25px;
+/* 		margin-right:25px;*/
 		
 		
 /*		float:left;
@@ -959,11 +987,11 @@
 		border-bottom: 31px solid transparent;
 /*		border-bottom-left-radius: 5px;*/
 		border-right: 31px solid #FFF;
-/*		margin-left: -9px;*/
+		margin-left: 9px;
 		margin-top: 10px;
 		position: relative;
 /*		border-top-right-radius: 5px;*/
-		border-radius: 15px;
+/*		border-radius: 15px;*/
 
 	}
 	

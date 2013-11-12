@@ -139,10 +139,10 @@ LiveWidgets.addWidget({
 					'</div>',
 					
 					'</td><td class="download-label">',
-					
-						'<div class="download-icon rounded" data-widget="event-trigger" data-group="repository-control" data-event="click" data-message="export-package"><p></p></div>',
-						'<span>Download Artifact</span>',
-					
+						'<div class="download-button" data-widget="event-trigger" data-group="repository-control" data-event="click" data-message="export-package">',
+							'<div class="download-icon rounded"><p></p></div>',
+							'<span>Download Artifact</span>',
+						'</div>',					
 					'</td></tr>',
 					'</table>',
 					'</div>',

@@ -9,6 +9,9 @@ LiveWidgets.addWidget({
         controller: {
 			handleMessage: function (message, channel) {
 				console.log("Activity workspace:", arguments);
+				
+				
+				
 				if (message == "create-package")
 				{
 					document.getElementById("artifact-viewer").style.display="none";
@@ -22,6 +25,7 @@ LiveWidgets.addWidget({
 					document.getElementsByTagName("ul", document.getElementsByTagName("nav")[0])[0].style.display="none";
 					
 					document.getElementById("passive-control").innerHTML = '<div class="back-icon" data-widget="event-trigger" data-event="click" data-group="repository-control" data-message="show-modules"><p></p></div>';
+					document.getElementById("title").innerHTML = "Module List";
 					
 					document.getElementById("modules").style.display = "block";
 					document.getElementById("package-menu").style.display = "none";
@@ -34,6 +38,7 @@ LiveWidgets.addWidget({
 					// document.getElementById("modules").style.display="none";
 					
 					document.getElementById("passive-control").innerHTML = '<div class="back-icon" data-widget="event-trigger" data-event="click" data-group="repository-control" data-message="show-modules"><p></p></div>';
+					document.getElementById("title").innerHTML = "Module List";
 			
 			
 					document.getElementsByTagName("nav")[0].appendChild(document.getElementById("modules"));
@@ -55,6 +60,7 @@ LiveWidgets.addWidget({
 					document.getElementById("artifact-viewer").parentNode.appendChild(document.getElementById("modules"));
 					
 					document.getElementById("passive-control").innerHTML = '';
+					document.getElementById("title").innerHTML = "JS Package Repository";
 					
 					document.getElementById("modules").style.display = "block";
 					document.getElementById("package-menu").style.display = "none";

@@ -12,7 +12,18 @@ LiveWidgets.addWidget({
                 //         event.stopPropagation();
                 //         this.sendMessage(this.model.message, this.model.channel);
                 // }
-				handleMessage: function (message) {
+				handleMessage: function (message, channel) {
+					console.log("repo-data-source", arguments);
+					if (message === "get-artifact-data") {
+						try {
+
+							channel.callback.call(channel.context, this.model.artifacts);
+						}
+						catch (e)
+						{
+							console.error(e);
+						}
+					}
 					if (message == "download-repo-data")
 					{
 						console.log("repo data source");

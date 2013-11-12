@@ -120,6 +120,8 @@ LiveWidgets.addWidget({
 			var repoList = PackageManager.getRepositoryMap().src.packages;
 			this.model.navigationList = new com.scottbyrns.Elements.List.DynamicList(this.element);
 
+
+
 		},
         reinit: function () {
 			
@@ -155,9 +157,19 @@ LiveWidgets.addWidget({
 				true
 			
 			);	
+			
+            document.getElementById("search", this.element).focus();
 		
 			setTimeout(function () {
 				this.sendMessage("download-repo-data");
+				this.sendMessage("get-artifact-data", {
+					context:this,
+					callback: function (term) {
+					return function (data) {
+							this.model.artifactData = data;
+						}.bind(this)
+					}.bind(this)("nop")
+				});
 			}.bind(this), 80);
         }
 });

@@ -66,6 +66,12 @@ LiveWidgets.addWidget({
 						"groupId": this.model.groupId,
 						"artifactId": this.model.artifactId,
 						"version": this.model.version,
+						
+						
+						"url": this.model.homepageUrl,
+			
+						"scm": this.model.versionControl,
+						"issueTracking": this.model.issueTrackerUrl,
 	
 						"developers": [
 							{

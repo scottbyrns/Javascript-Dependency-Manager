@@ -82,9 +82,92 @@ var newPackage = {
 io.sockets.on('connection', function(socket) {
 	
 	
+	socket.on("remove-package", function (message) {
+		
+		// console.log(arguments);
+		
+		var packageToRemove = message;
+		
+		
+		
+		fs.readFile("./client/repo/repo.json", 'utf8', function (err, repo) {
+		  if (err) {
+		    console.log('Error: ' + err);
+		    return;
+		  }
+
+		  repo = JSON.parse(repo);
+
+		  // console.dir(repo);
+		  
+		  console.log(JSON.stringify(packageToRemove));
+		  
+		  // Remove just a version if there are more than one.
+		  var removedAVersionNumber = false;
+		  
+		  for (var j = 0, jlen = repo.packages.length; j < jlen; j += 1) {
+			  
+			  if (repo.packages[j].groupId == packageToRemove.groupId && repo.packages[j].artifactId == packageToRemove.artifactId && repo.packages[j].versions.length > 1) {
+				  
+				  removedAVersionNumber = true;
+				  repo.packages[j].versions.pop(packageToRemove.version);
+				  
+			  }
+			  
+			  if (repo.packages[j].groupId == packageToRemove.groupId && repo.packages[j].artifactId == packageToRemove.artifactId && repo.packages[j].versions.length == 1) {
+				  
+				  removedAVersionNumber = false;
+				  repo.packages.splice(j, 1);
+				  jlen -= 1;
+				  j -= 1;
+				  
+			  }
+			  
+		  }
+		  
+		  
+		  if (!removedAVersionNumber) {
+		  	
+		  }
+		  
+		  console.log(JSON.stringify(repo, null, 8));
+		  
+		  
+		
+		});
+	});
+	
+	socket.on("download-package", function (package) {
 	
 	
-	
+			var path = "client/repo/packages/" + package.groupId.split(".").join("/") + "/" + package.artifactId + "/" + package.version + "/";
+			var cmd = "cd " + path + "../../ ;tar -czvf /tmp/" + package.artifactId + "-" + package.version + ".tar " + "./" + package.artifactId;
+			
+			
+			function puts(error, stdout, stderr) { 
+				
+				fs.readFile("/tmp/" + package.artifactId + "-" + package.version + ".tar", function (err, file) {
+					// console.log(arguments);
+					
+					var base64data = new Buffer(file).toString('base64');
+					
+					socket.emit("output-file", {
+						name: package.artifactId + "-" + package.version + ".tar ",
+						file: "data:application/tar;base64," + base64data
+					});
+					
+				});
+				
+			}
+			exec(cmd, puts);
+		// pom
+		// src/*
+		// readme
+		
+		
+		
+		
+	});
 	
 	socket.on("save-package", function (newPackage) {
 		
@@ -109,6 +192,10 @@ io.sockets.on('connection', function(socket) {
 					groupId: data.groupId,
 					artifactId: data.artifactId,
 					version: data.version,
+					"url": data.url,
+		
+					"scm": data.scm,
+					"issueTracking": data.issueTracking,
 					developers: [
 					{name:data.author}
 					],
@@ -169,29 +256,47 @@ io.sockets.on('connection', function(socket) {
  
 				  console.dir(repo);
 				  
+				  
+				  
+				  // Update version array or add new artifact
 				  var update = false;
 				  
 				  for (var j = 0, jlen = repo.packages.length; j < jlen; j += 1) {
+					  
 					  if (repo.packages[j].groupId == data.groupId && repo.packages[j].artifactId == data.artifactId) {
+						  
 						  update = true;
 						  repo.packages[j].versions.push(data.version);
+						  
 					  }
+					  
 				  }
 				  
 				  if (!update) {
+					  
 					  repo.packages.push({
+						  
 		  					groupId: data.groupId,
 		  					artifactId: data.artifactId,
 		  					versions: [data.version]
+							
 					  });
+					  
 				  }
 				  
   				fs.writeFile("./client/repo/repo.json", JSON.stringify(repo, null, 4), function(err) {
+					
   				    if(err) {
+						
   				        console.log(err);
-  				    } else {
-  				        console.log("The file was saved!");
+						
   				    }
+					else {
+						
+  				        console.log("The file was saved!");
+						
+  				    }
+					
   				});
 				  
 				  

@@ -22,6 +22,9 @@ LiveWidgets.addWidget({
 					document.getElementsByTagName("ul", document.getElementsByTagName("nav")[0])[0].style.display="none";
 					
 					document.getElementById("passive-control").innerHTML = '<div class="back-icon" data-widget="event-trigger" data-event="click" data-group="repository-control" data-message="show-modules"><p></p></div>';
+					
+					document.getElementById("modules").style.display = "block";
+					document.getElementById("package-menu").style.display = "none";
 				}
 				
 				if (channel == "show-artifact")
@@ -35,11 +38,14 @@ LiveWidgets.addWidget({
 			
 					document.getElementsByTagName("nav")[0].appendChild(document.getElementById("modules"));
 					document.getElementsByTagName("ul", document.getElementsByTagName("nav")[0])[0].style.display="none";
+					document.getElementById("modules").style.display = "none";
+					document.getElementById("package-menu").style.display = "block";
 					// document.getElementById("modules").parrentNode.removeChild(document.getElementById("modules"));
 				}
 				
 				if (message == "show-modules")
 				{
+					
 					document.getElementById("artifact-viewer").style.display="none";
 					document.getElementById("jdm-package-builder").style.display="none";
 					document.getElementById("modules").style.display="block";
@@ -49,6 +55,9 @@ LiveWidgets.addWidget({
 					document.getElementById("artifact-viewer").parentNode.appendChild(document.getElementById("modules"));
 					
 					document.getElementById("passive-control").innerHTML = '';
+					
+					document.getElementById("modules").style.display = "block";
+					document.getElementById("package-menu").style.display = "none";
 				}
 			}
         },

@@ -4,21 +4,47 @@
 LiveWidgets.addWidget({
         name: 'artifact-viewer',
         model: {
-
+			// activeArtifact: []
         },
         controller: {
 
-				handleMessage: function (artifact) {
-					artifact = decodeURIComponent(artifact);
-					artifact = JSON.parse(artifact);
-					console.log(artifact);
-					this.controller.showArtifact(artifact);
+				handleMessage: function (artifact, channel) {
+					
+					
+					if (artifact == "export-package")
+					{
+						socket.emit("download-package", {
+							groupId: this.model.activeArtifact.groupId,
+							artifactId: this.model.activeArtifact.artifactId,
+							version: this.model.activeArtifact.version
+						});
+					}
+					
+					console.log("artifact-viewer", arguments);
+					if (channel == "remove-package")
+					{
+						socket.emit("remove-package", {
+							groupId: this.model.activeArtifact.groupId,
+							artifactId: this.model.activeArtifact.artifactId,
+							version: this.model.activeArtifact.version
+						});
+					}
+					else if (channel == "show-artifact")
+					{
+						artifact = decodeURIComponent(artifact);
+						artifact = JSON.parse(artifact);
+						console.log(artifact);
+						this.controller.showArtifact(artifact);
+					}
 				},
 				
 				showArtifact: function (artifact) {
 
+					this.model.activeArtifact = artifact;
+
 					var dependencies = [];
 					dependencies.push('<h3 class="dependencies">Dependencies</h3>');
+									
 										
 					if (artifact.dependencies.length > 0) {
 						
@@ -148,10 +174,34 @@ LiveWidgets.addWidget({
 					].join("");
 					
 					this.element.innerHTML = html;
+				},
+				
+				downloadFile: function (file) {
+					
+					com.scottbyrns.HTML5.IO.DownloadDataURL(file.name, file.file);
+					
+				    // 
+				    // function eventFire(el, etype){
+				    //     if (el.fireEvent) {
+				    //         (el.fireEvent('on' + etype));
+				    //     } else {
+				    //         var evObj = document.createEvent('Events');
+				    //         evObj.initEvent(etype, true, false);
+				    //         el.dispatchEvent(evObj);
+				    //     }
+				    // }
+				    // 
+				    // var link = document.createElement("a");
+				    // link.download = file.name;
+				    // link.href = file.file;
+				    // eventFire(link, "click");
+
+					
+					// window.location = file.file;
 				}
         },
 		constructor: function () {
-
+			socket.on("output-file", this.controller.downloadFile);
 		},
         reinit: function () {
                 // this.element.removeEventListener(this.model.event, this.controller.dispatchMessageToGroupedWidgets);

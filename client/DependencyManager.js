@@ -39,7 +39,7 @@ FileManager = function () {
 		//
 		loadFile: function (path, callback) {
 			
-			path = "https://192.168.1.108:3000/" + path;
+			path = "https://localhost:3000/" + path;
 		
 		    var req = new XMLHttpRequest();
 		    req.open('GET', path, false);
@@ -251,7 +251,7 @@ var PackageManager = (function () {
 				
 				for (var i = 0, len = packageObjectModel.dependencies.length; i < len; i += 1) {
 					var dependency = packageObjectModel.dependencies[i];
-					FileManager.loadJSON("https://192.168.1.108:3000/repo/packages/" + dependency.groupId.split(".").join("/") + "/" + dependency.artifactId + "/" + dependency.version + "/pom.json", function (json) {
+					FileManager.loadJSON("https://localhost:3000/repo/packages/" + dependency.groupId.split(".").join("/") + "/" + dependency.artifactId + "/" + dependency.version + "/pom.json", function (json) {
 						PackageManager.install(json, function () {
 							console.log(arguments);
 						})
@@ -299,7 +299,7 @@ var PackageManager = (function () {
 						
 					    var script = document.createElement("script");
 					    
-						script.setAttribute("src", "https://192.168.1.108:3000/" + rootPath + packageObjectModel.sources[i]);
+						script.setAttribute("src", "https://localhost:3000/" + rootPath + packageObjectModel.sources[i]);
 						
 						
 					    document.body.appendChild(script);
@@ -502,7 +502,7 @@ var PackageManager = (function () {
 					// Construct the repository path.
 					// repo/packages/groupId/artifactId/version/pom.xml
 					//
-					"https://192.168.1.108:3000/repo/packages/" + dependencies[i].groupId.split(".").join("/") + "/" + dependencies[i].artifactId + "/" + dependencies[i].version + "/pom.json",
+					"https://localhost:3000/repo/packages/" + dependencies[i].groupId.split(".").join("/") + "/" + dependencies[i].artifactId + "/" + dependencies[i].version + "/pom.json",
 					
 					
 					//
@@ -649,7 +649,7 @@ ApplicationManager = function () {
 			
 			
 			// FileManager.loadJSON("pom.json", PackageManager.start);
-			FileManager.loadJSON("https://192.168.1.108:3000/repo/repo.json", PackageManager.loadRepository);
+			FileManager.loadJSON("https://localhost:3000/repo/repo.json", PackageManager.loadRepository);
 			
 		},
 		
@@ -662,4 +662,4 @@ ApplicationManager = function () {
 }();
 
 setTimeout(ApplicationManager.start, 10);
-setTimeout(ApplicationManager.start, 100);
+setTimeout(ApplicationManager.start, 300);

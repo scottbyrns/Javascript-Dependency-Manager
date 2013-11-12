@@ -1,0 +1,19 @@
+{
+    "name": "File Handling",
+    "description": "File handling classes.",
+    "groupId": "com.scottbyrns.HTML5.IO",
+    "artifactId": "File",
+    "version": "1.0.1-SNAPSHOT",
+    "url": "http://scottbyrns.com",
+    "scm": "",
+    "issueTracking": "",
+    "developers": [
+        {}
+    ],
+    "sources": [
+        "DownloadDataURL.js",
+        "DragDrop.js"
+    ],
+    "dependencies": [],
+    "configuration": {}
+}

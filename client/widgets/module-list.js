@@ -49,7 +49,7 @@ LiveWidgets.addWidget({
 					// Construct the repository path.
 					// repo/packages/groupId/artifactId/version/pom.xml
 					//
-					"https://192.168.1.108:3000/repo/packages/" + repoList[i].groupId.split(".").join("/") + "/" + repoList[i].artifactId + "/" + repoList[i].versions[(-1) + repoList[i].versions.length] + "/pom.json",
+					"https://localhost:3000/repo/packages/" + repoList[i].groupId.split(".").join("/") + "/" + repoList[i].artifactId + "/" + repoList[i].versions[(-1) + repoList[i].versions.length] + "/pom.json",
 	
 	
 					//

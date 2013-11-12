@@ -20,7 +20,7 @@
 
 		-->
 		
-<link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
+<!-- <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'> -->
 	<link rel="stylesheet" href="app.css">
 
 
@@ -74,7 +74,7 @@
   	  	</header>
 		<nav>
 			<div class="spacer"></div>
-			<ul class="menu">
+			<ul class="menu" id="main-menu">
 				
 				<!-- <div class="download-icon rounded light" data-widget="event-trigger" data-group="repository-control" data-event="click" data-message="export-package"><p></p></div>
 				<div class="delete-icon rounded light" data-widget="event-trigger" data-group="repository-control" data-event="click" data-message="remove-package"><p></p></div>
@@ -110,6 +110,45 @@
 					
 				</li> -->
 			</ul>
+
+
+			<ul class="menu" id="package-menu">
+				
+				<!-- <div class="download-icon rounded light" data-widget="event-trigger" data-group="repository-control" data-event="click" data-message="export-package"><p></p></div>
+				<div class="delete-icon rounded light" data-widget="event-trigger" data-group="repository-control" data-event="click" data-message="remove-package"><p></p></div>
+				<div class="add-icon rounded light" data-widget="event-trigger" data-group="repository-control" data-event="click" data-message="add-package"><p></p></div> -->		
+				
+				<li data-widget="event-trigger" data-group="repository-control" data-event="click" data-message="edit-package">
+					
+					<div class="add-icon rounded light"><p></p></div>
+					
+					<span>
+						Edit Package
+					</span>
+					
+				</li>
+				
+				<li data-widget="event-trigger" data-group="repository-control" data-event="click" data-message="remove-package" data-channel="remove-package">
+					
+					<div class="delete-icon rounded light"><p></p></div>
+					
+					<span>
+						Remove Package
+					</span>
+					
+				</li>
+				
+				<!-- <li data-widget="event-trigger" data-group="repository-control" data-event="click" data-message="create-package">
+					
+					<div class="export-icon rounded light"><p></p></div>
+					
+					<span>
+						Export Package Template
+					</span>
+					
+				</li> -->
+			</ul>
+
 		</nav>
 
 
@@ -176,9 +215,9 @@
 		
 		  
 		  
-		  <section name="package-builder" id="jdm-package-builder">
+		  <section name="package-builder" id="jdm-package-builder" data-widget="jdm-package-builder" data-group="jdm-package-builder|repository-control">
 			  
-			  <div data-widget="jdm-package-builder" data-group="jdm-package-builder|repository-control">
+			  <!-- <div data-widget="jdm-package-builder" data-group="jdm-package-builder|repository-control"> -->
 			  
 				<div class="artifact-overview">
 
@@ -314,9 +353,9 @@
 					
 					
 				</div>
-				<div id="debug-out"></div>
+				<!-- <div id="debug-out"></div> -->
 				
-			  </div>
+			  <!-- </div> -->
 			  
 		  </section>
 		  
@@ -344,11 +383,11 @@
 		</div> -->
 
 
-	      <article id="options">
+	      <!-- <article id="options">
 		  
 		  
 		  
-	      </article>
+	      </article> -->
 	  
 		  
 	  </article>
@@ -361,14 +400,14 @@
     
 
 	    
-	    <script src='https://192.168.1.108:3000/socket.io/socket.io.js'></script>
+	    <script src='https://localhost:3000/socket.io/socket.io.js'></script>
 
 
 	    <script>
 		
 		
 		
-	        socket = io.connect('https://192.168.1.108', {
+	        socket = io.connect('https://localhost', {
 	            secure: true,
 	            port: 3000
 	        });
@@ -392,7 +431,7 @@
 	    </script>
 		
 		
-	    <script src='https://192.168.1.108:3000/DependencyManager.js'></script>
+	    <script src='https://localhost:3000/DependencyManager.js'></script>
 		
 		
 		

@@ -69,7 +69,8 @@
             "groupId": "com.scottbyrns.HTML5.IO",
             "artifactId": "File",
             "versions": [
-                "1.0.0-SNAPSHOT"
+                "1.0.0-SNAPSHOT",
+                "1.0.1-SNAPSHOT"
             ]
         },
         {
@@ -113,6 +114,14 @@
             "artifactId": "jQuery",
             "versions": [
                 "2.0.3"
+            ]
+        },
+        {
+            "groupId": "com.scottbyrns.math",
+            "artifactId": "Algorithm",
+            "versions": [
+                "1.0.0-SNAPSHOT",
+                "1.0.0-SNAPSHOT"
             ]
         }
     ]

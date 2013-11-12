@@ -1,4 +1,4 @@
-{
+/*{
 	
 	"dependencies": [
 		{
@@ -20,11 +20,17 @@
 			"groupId": "com.scottbyrns",
 			"artifactId": "SpeechRecognition",
 			"version": "1.0.0-SNAPSHOT"
+		},
+		{
+		     "groupId": "com.scottbyrns.HTML5.IO",
+		     "artifactId": "File",
+		     "versions": "1.0.1-SNAPSHOT"
 		}
+
 	],
 	
 	"configuration": {
 		
 	}
 	
-}
+}*/

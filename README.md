@@ -82,3 +82,37 @@ In general the internet is ready for a fresh evolution of the aged web 2.0 ajax 
 * └ express
 * Google Chrome w/ WebGL Support
 * SSL Certificate // TODO Append Cert Generation Instructions
+
+
+
+
+## Spec
+
+### Group ID
+| Property        | Limit           |
+| ------------- |:-------------:|
+| length | [5, 128] |
+| characters | Aa-Zz, 0-9, . |
+#### Dependency Namespacing
+
+### Activity ID
+
+| Property        | Limit           |
+| ------------- |:-------------:|
+| length | [5, 64] |
+
+### Version
+
+| Property        | Limit           |
+| ------------- |:-------------:|
+| length | [3, 16] |
+| characters | Aa-Zz, 0-9, - |
+
+
+#### Convention
+
+### SCM
+
+### URL
+
+### IssueTracking

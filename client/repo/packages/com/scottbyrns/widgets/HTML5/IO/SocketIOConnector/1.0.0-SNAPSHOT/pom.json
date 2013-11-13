@@ -1,0 +1,29 @@
+{
+    "name": "Socket.IO Connector",
+    "description": "Live Widget for connecting to a socket server through socket.io",
+    "groupId": "com.scottbyrns.widgets.HTML5.io",
+    "artifactId": "SocketIOConnector",
+    "version": "1.0.0-SNAPSHOT",
+    "url": "a",
+    "scm": "a",
+    "issueTracking": "a",
+    "developers": [
+        {}
+    ],
+    "sources": [
+        "socket-io-connector.js"
+    ],
+    "dependencies": [
+        {
+            "groupId": "com.scottbyrns",
+            "artifactId": "LiveWidgets",
+            "version": "1.0.1-SNAPSHOT"
+        },
+        {
+            "groupId": "io.socket",
+            "artifactId": "SocketIO",
+            "version": "1.0.0-LOCALHOST"
+        }
+    ],
+    "configuration": {}
+}

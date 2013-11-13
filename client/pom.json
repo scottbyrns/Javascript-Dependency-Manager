@@ -30,6 +30,11 @@
 	
 	"dependencies": [
 		{
+		    "groupId": "com.scottbyrns.widgets.HTML5.io",
+		    "artifactId": "SocketIOConnector",
+		    "version": "1.0.0-SNAPSHOT"
+		},
+		{
 			"groupId": "com.scottbyrns.Elements",
 			"artifactId": "List",
 			"version": "1.0.0-SNAPSHOT"
@@ -43,11 +48,6 @@
 			"groupId": "com.github.ajaxorg",
 			"artifactId": "AceBuilds",
 			"version": "1.0.0-SNAPSHOT"
-		},
-		{
-			"groupId": "com.scottbyrns",
-			"artifactId": "LiveWidgets",
-			"version": "1.0.1-SNAPSHOT"
 		},
 		{
 			"groupId": "com.scottbyrns.HTML5.IO",

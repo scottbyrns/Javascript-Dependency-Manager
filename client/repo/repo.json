@@ -165,6 +165,20 @@
             "versions": [
                 "1.0.0-SNAPSHOT"
             ]
+        },
+        {
+            "groupId": "io.socket",
+            "artifactId": "SocketIO",
+            "versions": [
+                "1.0.0-LOCALHOST"
+            ]
+        },
+        {
+            "groupId": "com.scottbyrns.widgets.HTML5.io",
+            "artifactId": "SocketIOConnector",
+            "versions": [
+                "1.0.0-SNAPSHOT"
+            ]
         }
     ]
 }

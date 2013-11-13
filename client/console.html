@@ -27,6 +27,7 @@
 </head>
 
 <body>
+	<dataset data-widget="socket-io-connector" data-host="https://localhost" data-port="3000" data-secure="true"></dataset>
 
 	<div id="toolbar">
 		<!-- <div class="download-icon rounded light" data-widget="event-trigger" data-group="repository-control" data-event="click" data-message="export-package"><p></p></div>
@@ -402,38 +403,6 @@
 
     
 
-	    
-	    <script src='https://localhost:3000/socket.io/socket.io.js'></script>
-
-
-	    <script>
-		
-		
-		
-	        socket = io.connect('https://localhost', {
-	            secure: true,
-	            port: 3000
-	        });
-
-	        socket.on('notification', function (notification) {
-	            // notification.icon
-	            // notification.title
-	            // notification.format
-	            // notification.payload
-	        });
-		
-	        socket.on('error', function () {
-	            console.error(arguments)
-	        });
-		
-	        socket.on('message', function () {
-	            console.log(arguments)
-	        });
-		
-		
-	    </script>
-		
-		
 	    <script src='https://localhost:3000/DependencyManager.js'></script>
 		
 		

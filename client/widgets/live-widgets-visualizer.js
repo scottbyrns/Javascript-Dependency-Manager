@@ -8,7 +8,7 @@ LiveWidgets.addWidget({
 			console.warn("Live Widgets Visualizer", arguments);
 			this.model.activeNodes = this.model.activeNodes || {};
 			this.model.activeNodes[id] = {
-				life: 2,
+				life: 1,
 				broadcast: arguments
 			};
 		},
@@ -93,7 +93,7 @@ LiveWidgets.addWidget({
 						{
 							if (this.model.activeNodes && (this.model.activeNodes[relationshipMap[relationship][i].id] || this.model.activeNodes[relationshipMap[relationship][j].id])) {
 								if (this.model.activeNodes[relationshipMap[relationship][i].id]) {
-									this.model.activeNodes[relationshipMap[relationship][i].id].life -= 0.01
+									this.model.activeNodes[relationshipMap[relationship][i].id].life -= 0.003
 									if (this.model.activeNodes[relationshipMap[relationship][i].id].life < 0) {
 										delete this.model.activeNodes[relationshipMap[relationship][i].id];
 									}
@@ -101,57 +101,80 @@ LiveWidgets.addWidget({
 									{
 
 										// console.log("rgba(" + (this.model.activeNodes[relationshipMap[relationship][i].id].life * 255) + ",0,0,255);");
-										this.model.ctx.strokeStyle = "rgb(0," + Math.floor(this.model.activeNodes[relationshipMap[relationship][i].id].life * 153) + "," + Math.floor(this.model.activeNodes[relationshipMap[relationship][i].id].life * 255) + ")"//"#FF0099";
+										this.model.ctx.strokeStyle = "rgba(" +
+									((Math.floor(this.model.activeNodes[relationshipMap[relationship][i].id].life * 255))) +
+										"," +
+										"0"+
+										"," +
+										"0"+
+										", " + 
+									 (((this.model.activeNodes[relationshipMap[relationship][i].id].life))) +
+									 ")"//"#FF0099";
 																	// this.model.ctx.lineWidth = 2;
 																	
 									}
 								}
 								if (this.model.activeNodes[relationshipMap[relationship][j].id]) {
-									this.model.activeNodes[relationshipMap[relationship][j].id].life -= 0.001
+									this.model.activeNodes[relationshipMap[relationship][j].id].life -= 0.003
 									if (this.model.activeNodes[relationshipMap[relationship][j].id].life < 0) {
 										delete this.model.activeNodes[relationshipMap[relationship][j].id];
 									}
 									else
 									{
 										// this.model.ctx.strokeStyle = "rgba(0," + Math.floor(this.model.activeNodes[relationshipMap[relationship][i].id].life * 153) + "," + Math.floor(this.model.activeNodes[relationshipMap[relationship][i].id].life * 255) + ",1.0)"//"#FF0099";
-									this.model.ctx.fillStyle = "rgb(0," + Math.floor(this.model.activeNodes[relationshipMap[relationship][j].id].life * 153) + "," + Math.floor(this.model.activeNodes[relationshipMap[relationship][j].id].life * 255) + ")";
+									this.model.ctx.fillStyle = "rgba(" +
+									((Math.floor(this.model.activeNodes[relationshipMap[relationship][j].id].life * 255))) +
+									"," +
+										"0"+
+									"," +
+										"0"+
+									 ", " +
+									 (((this.model.activeNodes[relationshipMap[relationship][j].id].life))) +
+									 ")";
 																// this.model.ctx.lineWidth = 1;
 									}
 								}
 								// this.model.ctx.strokeStyle = "#FF99FF";
+								
+
+						
+								var distX = relationshipMap[relationship][j].position.x - relationshipMap[relationship][i].position.x;
+								var distY = relationshipMap[relationship][j].position.y - relationshipMap[relationship][i].position.y;
+						
+								this.model.ctx.beginPath();
+								this.model.ctx.moveTo(relationshipMap[relationship][j].position.x, relationshipMap[relationship][j].position.y);
+
+
+								this.model.ctx.bezierCurveTo(
+									relationshipMap[relationship][j].position.x - (distX/2), relationshipMap[relationship][j].position.y,
+
+									relationshipMap[relationship][j].position.x  - (distX/2), relationshipMap[relationship][j].position.y - (distY/2),
+
+									relationshipMap[relationship][i].position.x, relationshipMap[relationship][i].position.y	
+								);
+
+								this.model.ctx.stroke();
+						
+								this.model.ctx.beginPath();
+								this.model.ctx.moveTo(relationshipMap[relationship][j].position.x, relationshipMap[relationship][j].position.y);
+								this.model.ctx.arc(relationshipMap[relationship][j].position.x, relationshipMap[relationship][j].position.y, 5, 0, 2 * Math.PI, false);
+								this.model.ctx.fill();
+							
+								this.model.ctx.beginPath();
+								this.model.ctx.moveTo(relationshipMap[relationship][i].position.x, relationshipMap[relationship][i].position.y);
+								this.model.ctx.arc(relationshipMap[relationship][i].position.x, relationshipMap[relationship][i].position.y, Math.abs((Math.sin(distX/distY)*25)), 0, 2 * Math.PI, false);
+								this.model.ctx.fill();
 							}
 							else
 							{
-								this.model.ctx.strokeStyle = "rgba(0,0,0, 1)";
+								this.model.ctx.strokeStyle = "rgba(0,0,0, .5)";
 								this.model.ctx.fillStyle = "rgba(0,0,0, 0.2)";
 							}
-						
-						
-							var distX = relationshipMap[relationship][j].position.x - relationshipMap[relationship][i].position.x;
-							var distY = relationshipMap[relationship][j].position.y - relationshipMap[relationship][i].position.y;
-						
-							this.model.ctx.beginPath();
-							this.model.ctx.moveTo(relationshipMap[relationship][j].position.x, relationshipMap[relationship][j].position.y);
-
-// this.model.ctx.lineTo(relationshipMap[relationship][j].position.x - (distX/4) + (Math.sin(distY) * 4), relationshipMap[relationship][j].position.y - (distY/3) + (Math.sin(distY) * 4));
-// this.model.ctx.lineTo(relationshipMap[relationship][j].position.x - (distX/2) - (distX/4) + (Math.sin(distY) * 4), relationshipMap[relationship][j].position.y - (distY) + (distY/3));
-// this.model.ctx.lineTo(relationshipMap[relationship][i].position.x, relationshipMap[relationship][i].position.y);
+							// this.model.ctx.lineTo(relationshipMap[relationship][j].position.x - (distX/4) + (Math.sin(distY) * 4), relationshipMap[relationship][j].position.y - (distY/3) + (Math.sin(distY) * 4));
+							// this.model.ctx.lineTo(relationshipMap[relationship][j].position.x - (distX/2) - (distX/4) + (Math.sin(distY) * 4), relationshipMap[relationship][j].position.y - (distY) + (distY/3));
+							// this.model.ctx.lineTo(relationshipMap[relationship][i].position.x, relationshipMap[relationship][i].position.y);
 
 
-this.model.ctx.bezierCurveTo(
-	relationshipMap[relationship][j].position.x - (distX/4) + (Math.sin(distY) * 4), relationshipMap[relationship][j].position.y - (distY/3) + (Math.sin(distY) * 4),
-	relationshipMap[relationship][j].position.x - (distX/2) - (distX/4) + (Math.sin(distY) * 4), relationshipMap[relationship][j].position.y - (distY) + (distY/3),
-	relationshipMap[relationship][i].position.x, relationshipMap[relationship][i].position.y	
-);
-
-
-
-							this.model.ctx.stroke();
-						
-							this.model.ctx.beginPath();
-							this.model.ctx.moveTo(relationshipMap[relationship][j].position.x, relationshipMap[relationship][j].position.y);
-							this.model.ctx.arc(relationshipMap[relationship][j].position.x, relationshipMap[relationship][j].position.y, 5, 0, 2 * Math.PI, false);
-							this.model.ctx.fill();
 
 
 							// relationship.groups
@@ -181,6 +204,8 @@ this.model.ctx.bezierCurveTo(
 			document.getElementsByTagName("body")[0].appendChild(canvas);
 			console.log("live widgets visualizer", canvas);		
 		
+					// canvas.style.backgroundColor = "#FAFAFA";
+		
 			canvas.style.position = "absolute";
 			canvas.style.top = "0px";
 			canvas.style.bottom = "0px";
@@ -188,16 +213,16 @@ this.model.ctx.bezierCurveTo(
 			canvas.style.right = "0px";
 			canvas.style.zIndex = "10000";
 			canvas.style.pointerEvents = "none";
-			canvas.style.opacity=".2"
+			canvas.style.opacity=".3"
 			
 
 			
 			// canvas.style.background="#FFF";
 
 			this.model.ctx = canvas.getContext("2d");
-	        // this.model.ctx.shadowColor = '#0099FF';
-	        // this.model.ctx.shadowBlur = 2;
-		// this.model.ctx.lineWidth = 2;
+	        // this.model.ctx.shadowColor = '#000000';
+	        // this.model.ctx.shadowBlur = 4;
+		// this.model.ctx.lineWidth = 14;
 			setInterval(this.controller.drawConnections, 120);
 		}.bind(this), 10);
 

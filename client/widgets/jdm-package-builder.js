@@ -95,6 +95,23 @@ LiveWidgets.addWidget({
 				handleMessage: function (data, channel) {
 					// console.log("jdm-package-builders", arguments);
 
+
+				
+					if (channel == "edit-artifact") {
+						
+						
+						document.getElementsByName("group-id", this.element)[0].setAttribute("value", data.groupId);
+						document.getElementsByName("artifact-id", this.element)[0].setAttribute("value", data.artifactId);
+						document.getElementsByName("artifact-version", this.element)[0].setAttribute("value", data.version);
+						
+						document.getElementsByName("package-description", this.element)[0].innerHTML = JSON.stringify(data, null ,4);
+						document.getElementsByName("package-name", this.element)[0].setAttribute("value", data.name);
+						document.getElementsByName("author-name", this.element)[0].setAttribute("value", data.developers[0].name);
+						// document.getElementsByName("package-name", this.element)[0].setAttribute("value", data.name);
+						// document.getElementsByName("package-name", this.element)[0].setAttribute("value", data.name);
+						
+					}
+
 					if (data === "save") {
 						// console.log("save", this.controller.validateDataSet())
 						if (

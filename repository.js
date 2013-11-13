@@ -116,7 +116,7 @@ io.sockets.on('connection', function(socket) {
 			  
 			  if (repo.packages[j].groupId == packageToRemove.groupId && repo.packages[j].artifactId == packageToRemove.artifactId && repo.packages[j].versions.length == 1) {
 				  
-				  removedAVersionNumber = false;
+				  // removedAVersionNumber = false;
 				  repo.packages.splice(j, 1);
 				  jlen -= 1;
 				  j -= 1;
@@ -127,10 +127,45 @@ io.sockets.on('connection', function(socket) {
 		  
 		  
 		  if (!removedAVersionNumber) {
-		  	
+			
+  			function puts(error, stdout, stderr) { 
+  				// fs.writeFile('client/repo/test/' + group + "/" + pom.artifactId + "/" + pom.version + "/pom.json", notification.data.data, function(err) {
+  				//     if(err) {
+  				//         console.log(err);
+  				//     } else {
+  				//         console.log("The file was saved!");
+  				//     }
+  				// });
+  			}
+  			exec("rm -rf " + './client/repo/packages/' + packageToRemove.groupId.split(".").join("/") + "/" + packageToRemove.artifactId + "", puts);
+			// console.log("rm -rf " + './client/repo/packages/' + packageToRemove.groupId.split(".").join("/") + "/" + packageToRemove.artifactId + "");
 		  }
+		  else
+		  {
+			
+    			function puts(error, stdout, stderr) { 
+    				// fs.writeFile('client/repo/test/' + group + "/" + pom.artifactId + "/" + pom.version + "/pom.json", notification.data.data, function(err) {
+    				//     if(err) {
+    				//         console.log(err);
+    				//     } else {
+    				//         console.log("The file was saved!");
+    				//     }
+    				// });
+    			}
+    			exec("rm -rf " + './client/repo/packages/' + packageToRemove.groupId.split(".").join("/") + "/" + packageToRemove.artifactId + "/" + packageToRemove.version, puts);
+				// console.log("rm -rf " + './client/repo/packages/' + packageToRemove.groupId.split(".").join("/") + "/" + packageToRemove.artifactId + "/" + packageToRemove.version);
+			
+		  }
+		  				// 
+		fs.writeFile("./client/repo/repo.json", JSON.stringify(repo, null, 4), function(err) {
+		    if(err) {
+		        console.log(err);
+		    } else {
+		        console.log("Repo Updated, Artifact Removed");
+		    }
+		});
 		  
-		  console.log(JSON.stringify(repo, null, 8));
+		  // console.log(JSON.stringify(repo, null, 8));
 		  
 		  
 		

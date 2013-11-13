@@ -10,6 +10,25 @@ LiveWidgets.addWidget({
 			handleMessage: function (message, channel) {
 				console.log("Activity workspace:", arguments);
 				
+				if (channel == "edit-artifact") {
+					document.getElementById("artifact-viewer").style.display="none";
+					document.getElementById("jdm-package-builder").style.display="block";
+					// document.getElementById("modules").style.display="none";
+					
+					
+					document.getElementById("passive-control").innerHTML = '<div class="back-icon" data-widget="event-trigger" data-event="click" data-group="repository-control" data-message="show-modules"><p></p></div>';
+					document.getElementById("title").innerHTML = "Artifact List";
+							
+							
+					document.getElementsByTagName("nav")[0].appendChild(document.getElementById("modules"));
+					document.getElementsByTagName("ul", document.getElementsByTagName("nav")[0])[0].style.display="none";
+					
+
+					
+					document.getElementById("modules").style.display = "block";
+					document.getElementById("package-menu").style.display = "none";
+					
+				}
 				
 				
 				if (message == "create-package")

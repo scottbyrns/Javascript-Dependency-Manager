@@ -523,6 +523,7 @@
 	
 	div.artifact-overview span select
 	{
+		cursor:pointer;
 		-webkit-appearance: none;
 		background:transparent;
 		color:#FAFAFA;
@@ -1348,5 +1349,5 @@
 	{
 /*		filter: blur(5px);*/
 /*		// Browser Specific*/
-		-webkit-filter: blur(2px);
+		-webkit-filter: blur(1px);
 	}

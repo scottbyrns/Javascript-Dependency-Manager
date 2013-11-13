@@ -47,6 +47,12 @@ LiveWidgets.addWidget({
 					{
 						this.controller.showArtifact(artifact);
 					}
+					
+					
+					else if (artifact == "edit-package") {
+						this.sendMessage(this.model.activeArtifact, "edit-artifact");
+					}
+					
 				},
 				
 				showArtifact: function (artifact) {

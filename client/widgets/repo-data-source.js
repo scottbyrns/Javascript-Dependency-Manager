@@ -14,6 +14,27 @@ LiveWidgets.addWidget({
                 // }
 				handleMessage: function (message, channel) {
 					console.log("repo-data-source", arguments);
+					if (channel == "get-version") {
+						console.log("Get Version", message);
+						console.log(this.model);
+						for (var i = 0, len = this.model.artifacts.length; i < len; i += 1) {
+							
+							var artifact = this.model.artifacts[i];
+							
+							if (artifact.groupId == message.artifact.groupId &&
+								artifact.artifactId == message.artifact.artifactId &&
+								artifact.version == message.version)
+								{
+									this.sendMessage(artifact, "show-version");
+									i = len;
+								}
+							
+						}
+						// message.version;
+// 						message.artifact;
+// 						
+// 						
+					}
 					if (message === "get-artifact-data") {
 						try {
 
@@ -52,28 +73,36 @@ LiveWidgets.addWidget({
 	
 							// console.log(listItem);
 	
-							FileManager.loadJSON(
+							for (var j = 0, jlen = this.model.repoList[i].versions.length; j < jlen; j+= 1)
+							{
 	
-								//
-								// Construct the repository path.
-								// repo/packages/groupId/artifactId/version/pom.xml
-								//
-								"https://localhost:3000/repo/packages/" + this.model.repoList[i].groupId.split(".").join("/") + "/" + this.model.repoList[i].artifactId + "/" + this.model.repoList[i].versions[(-1) + this.model.repoList[i].versions.length] + "/pom.json",
+								FileManager.loadJSON(
+	
+									//
+									// Construct the repository path.
+									// repo/packages/groupId/artifactId/version/pom.xml
+									//
+									"https://localhost:3000/repo/packages/" + this.model.repoList[i].groupId.split(".").join("/") + "/" + this.model.repoList[i].artifactId + "/" + this.model.repoList[i].versions[j] + "/pom.json",
 	
 	
-								//
-								// Constructing an anonyous callback that has a dependencyLoadCallback
-								// reference held in the execution scope of our callback.
-								//
-	
-								// Call back to the package managers install.
-								function (json) {
-									// console.log("new artifact");
-									this.model.artifacts.push(json);
-									this.sendMessage(json, "artifact-loaded");
-								}.bind(this)
+									//
+									// Constructing an anonyous callback that has a dependencyLoadCallback
+									// reference held in the execution scope of our callback.
+									//
+								
+									// Call back to the package managers install.
+									function (versions) {
+										return function (json) {
+											// console.log("new artifact");
+											json.versions = versions;
+											this.model.artifacts.push(json);
+											this.sendMessage(json, "artifact-loaded");
+										}.bind(this)
+									}.bind(this)(this.model.repoList[i].versions)
 					
-							);
+								);	
+							}
+
 						}
 					}
 					

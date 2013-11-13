@@ -66,6 +66,7 @@ LiveWidgets.addWidget({
 			},
 
 				handleMessage: function (message, channel) {
+					
 					console.log("artifact-loaded", arguments);
 
 					if (channel == "artifact-loaded") {

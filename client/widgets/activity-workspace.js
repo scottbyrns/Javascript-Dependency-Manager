@@ -59,7 +59,7 @@ LiveWidgets.addWidget({
 					
 					document.getElementById("artifact-viewer").parentNode.appendChild(document.getElementById("modules"));
 					
-					document.getElementById("passive-control").innerHTML = '';
+					document.getElementById("passive-control").innerHTML = '<div class="dot"></div>';
 					document.getElementById("title").innerHTML = "JS Package Repository";
 					
 					document.getElementById("modules").style.display = "block";

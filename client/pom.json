@@ -22,7 +22,10 @@
 	},
 	
 	"repositories": [
-		{ "name": "local", "url": "http://localhost:3000/" }
+		{
+			"name": "local",
+			"url": "http://localhost:3000/"
+		}
 	],
 	
 	"dependencies": [
@@ -67,7 +70,9 @@
 		"widgets/jdm-package-builder.js",
 		"widgets/activity-workspace.js",
 		"widgets/drag-data.js",
-		"widgets/repo-data-source.js"
+		"widgets/repo-data-source.js",
+		"widgets/live-widgets-visualizer.js",
+		"widgets/version-toggle.js"
 	],
 	
 	"configuration": {

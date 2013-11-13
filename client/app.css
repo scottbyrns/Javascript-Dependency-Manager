@@ -521,6 +521,19 @@
 		color: #FAFAFA;
 	}
 	
+	div.artifact-overview span select
+	{
+		-webkit-appearance: none;
+		background:transparent;
+		color:#FAFAFA;
+/*		background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50px' height='50px'><polyline points='46.139,15.518 25.166,36.49 4.193,15.519'/></svg>") right no-repeat rgb(65,66,61);*/
+/*		background:url(blank.jpg) no-repeat right rgb(65,66,61);*/
+		border:none;
+		font-size: 18px;
+		padding: 3px 30px 3px 10px;
+		
+	}
+	
 	div#artifact-viewer .ace_editor
 	{
 		height:100%;
@@ -678,10 +691,12 @@
 		float:right;
 /*		margin-left: -5px;
 		margin-top: 40px;*/
-		position: relative;
+		position: absolute;
+		right:20px;
 		border-top-right-radius: 5px;
 		border-radius: 5px;
 		margin: 10px 0px 10px 10px;
+		pointer-events:none;
 	}
 	
 	
@@ -723,7 +738,15 @@
 	
 	
 	
-	
+	div.dot
+	{
+		width:20px;
+		height:20px;
+		border-radius:20px;
+		background:#FAFAFA;
+		margin-left:48px;
+		margin-top:47px;
+	}
 	
 	
 	
@@ -1268,7 +1291,10 @@
 		background:rgb(65,66,61);
 	}
 	
-	
+	div.artifact-overview span
+	{
+		cursor:pointer;
+	}
 	#jdm-package-builder div.artifact-overview span
 	{
 		
@@ -1318,3 +1344,9 @@
 	
 	
 
+	canvas
+	{
+/*		filter: blur(5px);*/
+/*		// Browser Specific*/
+		-webkit-filter: blur(2px);
+	}

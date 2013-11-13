@@ -10,6 +10,13 @@ LiveWidgets.addWidget({
 
 				handleMessage: function (artifact, channel) {
 					
+					if (channel == "change-version")
+					{
+						this.sendMessage({
+							artifact: this.model.activeArtifact,
+							version: artifact
+						}, "get-version");
+					}
 					
 					if (artifact == "export-package")
 					{
@@ -34,6 +41,10 @@ LiveWidgets.addWidget({
 						artifact = decodeURIComponent(artifact);
 						artifact = JSON.parse(artifact);
 						console.log(artifact);
+						this.controller.showArtifact(artifact);
+					}
+					else if (channel == "show-version")
+					{
 						this.controller.showArtifact(artifact);
 					}
 				},
@@ -81,7 +92,18 @@ LiveWidgets.addWidget({
 					}
 					
 
+					var artifactOptions = "";
 					
+					for (var i = 0; i < artifact.versions.length; i += 1) {
+						if (artifact.versions[i] == artifact.version)
+						{
+							artifactOptions += '<option value="' + artifact.versions[i] + '" selected>' + artifact.versions[i] + '</option>';							
+						}
+						else
+						{
+							artifactOptions += '<option value="' + artifact.versions[i] + '">' + artifact.versions[i] + '</option>';
+						}
+					}
 					
 					var html = [
 						
@@ -108,8 +130,15 @@ LiveWidgets.addWidget({
 							// '<div class="delete-icon rounded" data-widget="event-trigger" data-group="repository-control" data-event="click" data-message="remove-package"><p></p></div>',
 							// '<div class="add-icon rounded" data-widget="event-trigger" data-group="repository-control" data-event="click" data-message="add-package"><p></p></div>',
 						// '</nav>',
-						'<span>' + artifact.version + '<p class="down-arrow"></p></span>',
+						'<span data-widget="version-toggle" data-group="artifact" data-versions="' + artifact.versions.join(",") + '">',
+						 // + artifact.version + '<p class="down-arrow"></p>
+						// '</span>',
 
+						'<select>',
+						artifactOptions,
+						"</select>",
+						'<p class="down-arrow"></p>',
+						'</span>',
 					'</div>',
 					
 					
@@ -131,10 +160,9 @@ LiveWidgets.addWidget({
 					
 					'<div class="artifact-snippet">',
 					
-					"<textarea onClick=\"this.select()\">\n{\n     groupId: " + artifact.groupId,
-					",\n     artifactId: " + artifact.artifactId,
-					",\n     versions: " + artifact.version,
-					"\n}\n</textarea>",
+					"<textarea onClick=\"this.select()\">\n",
+					JSON.stringify({groupId:artifact.groupId, artifactId:artifact.artifactId, version:artifact.version}, null, 4),
+					"\n</textarea>",
 		
 					'</div>',
 					
@@ -180,24 +208,6 @@ LiveWidgets.addWidget({
 					
 					com.scottbyrns.HTML5.IO.DownloadDataURL(file.name, file.file);
 					
-				    // 
-				    // function eventFire(el, etype){
-				    //     if (el.fireEvent) {
-				    //         (el.fireEvent('on' + etype));
-				    //     } else {
-				    //         var evObj = document.createEvent('Events');
-				    //         evObj.initEvent(etype, true, false);
-				    //         el.dispatchEvent(evObj);
-				    //     }
-				    // }
-				    // 
-				    // var link = document.createElement("a");
-				    // link.download = file.name;
-				    // link.href = file.file;
-				    // eventFire(link, "click");
-
-					
-					// window.location = file.file;
 				}
         },
 		constructor: function () {

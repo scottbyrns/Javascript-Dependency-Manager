@@ -194,7 +194,9 @@ com.scottbyrns.LiveWidgets.Framework({
 				
 						
 							MessageController.registerListener(groups[i], Math.floor(Math.random() * new Date()), Helpers.bind(function (messageObject) {
-								this.handleMessage(messageObject.message, messageObject.channel);
+								if (this.element.getAttribute("data-widget-id") != messageObject.widgetId) {
+									this.handleMessage(messageObject.message, messageObject.channel, messageObject.widgetId);
+								}
 							}, this));
 					
 						}
@@ -226,11 +228,36 @@ com.scottbyrns.LiveWidgets.Framework({
 				{
 				
 					MessageController.sendMessage(groups[i], {
+						widgetId: this.element.getAttribute("data-widget-id"),
 						message: message,
 						channel: channel
 					});
 					
 				}
+				this.model.outlets = this.element.getAttribute("data-outlets");
+				if (this.model.outlets) {
+					var outlets = [];
+					if (this.model.outlets.indexOf("|") > -1) {
+						outlets = this.model.outlets.split("|");
+					}
+					else
+					{
+						outlets.push(this.model.outlets);
+					}
+				
+					for (var i = 0, len = outlets.length; i < len; i += 1)
+					{
+						// console.warn(outlets[i]);
+						MessageController.sendMessage(outlets[i], {
+							groups: this.model.group,
+							widgetId: this.element.getAttribute("data-widget-id"),
+							message: message,
+							channel: channel
+						});
+					
+					}
+				}
+
 				
 			},
 			/**

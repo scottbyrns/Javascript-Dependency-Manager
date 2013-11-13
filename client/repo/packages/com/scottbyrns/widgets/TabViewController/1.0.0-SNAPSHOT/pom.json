@@ -1,0 +1,24 @@
+{
+    "name": "Tab View Controller",
+    "description": "Simple view controller widget for controlling the display of a set of child views.",
+    "groupId": "com.scottbyrns.widgets",
+    "artifactId": "TabViewController",
+    "version": "1.0.0-SNAPSHOT",
+    "url": ".",
+    "scm": ".",
+    "issueTracking": ".",
+    "developers": [
+        {}
+    ],
+    "sources": [
+        "tab-view-controller.js"
+    ],
+    "dependencies": [
+        {
+            "groupId": "com.scottbyrns",
+            "artifactId": "LiveWidgets",
+            "version": "1.0.1-SNAPSHOT"
+        }
+    ],
+    "configuration": {}
+}

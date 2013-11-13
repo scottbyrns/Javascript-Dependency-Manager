@@ -179,6 +179,13 @@
             "versions": [
                 "1.0.0-SNAPSHOT"
             ]
+        },
+        {
+            "groupId": "com.scottbyrns.widgets",
+            "artifactId": "TabViewController",
+            "versions": [
+                "1.0.0-SNAPSHOT"
+            ]
         }
     ]
 }

@@ -260,37 +260,50 @@ LiveWidgets.addWidget({
 					}
 					
 					if (channel == "dropped-file") {
-						this.model.sources.push(data);
-						console.log(data.file.name);
 						
-						var itemCell = new com.scottbyrns.Elements.Table.Cell();
-						itemCell.setValue(data.file.name);
+						
+						
 
-						var sourceRow = new com.scottbyrns.Elements.Table.Row();
-						sourceRow.addCell(itemCell.element);
 						
-						document.getElementById("source-dropzone").style.opacity="0.25"
 						
-						console.log(sourceRow);
-						document.getElementById("add-sources").appendChild(sourceRow.element)
-						// new com.scottbyrns.Elements.Table.Table().addRow();
+						
+						if (data.file.name == "pom.json") {
+							
+							data.data = JSON.parse(data.data);
+							
+							document.getElementsByName("package-name", this.element)[0].setAttribute("value", data.data.name);
+							document.getElementsByName("package-description", this.element)[0].innerHTML = data.data.description;
+							document.getElementsByName("group-id", this.element)[0].setAttribute("value", data.data.groupId);
+							document.getElementsByName("artifact-id", this.element)[0].setAttribute("value", data.data.artifactId);
+							document.getElementsByName("artifact-version", this.element)[0].setAttribute("value", data.data.version);
+							document.getElementsByName("author-name", this.element)[0].setAttribute("value", data.data.developers[0].name);
+							document.getElementsByName("homepage-url", this.element)[0].setAttribute("value", data.data.url);							
+							document.getElementsByName("version-control", this.element)[0].setAttribute("value", data.data.scm);
+							document.getElementsByName("issue-tracker-url", this.element)[0].setAttribute("value", data.data.issueTracking);
+					
+					
+							
+						}
+						else
+						{
+						
+						
+							this.model.sources.push(data);
+						
+							var itemCell = new com.scottbyrns.Elements.Table.Cell();
+							itemCell.setValue(data.file.name);
 
-						// console.log(this.table);
-						// this.element.getElementById("add-sources").append("")
-						// console.log(data);
+							var sourceRow = new com.scottbyrns.Elements.Table.Row();
+							sourceRow.addCell(itemCell.element);
 						
-						// var html = [
-						// // '<div data-widget="code-editor" data-group="editor">',
-						// 	data,
-						// // '</div>',
-						// ].join("");
-					
-						// this.element.innerHTML = html;
-					
-						// socket.emit("file-test", {"data":data});
+							document.getElementById("source-dropzone").style.opacity="0.25"
 						
+							console.log(sourceRow);
+							document.getElementById("add-sources").appendChild(sourceRow.element)
 						
-						
+							
+						}
+
 						
 					}
 					if (data != "create-package" && channel != "show-artifact")

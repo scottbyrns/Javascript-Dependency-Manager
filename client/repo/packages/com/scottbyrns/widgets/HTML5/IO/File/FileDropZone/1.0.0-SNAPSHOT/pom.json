@@ -1,0 +1,29 @@
+{
+    "name": "File Drop Zone",
+    "description": "HTML5 DropZone for files from a users system.",
+    "groupId": "com.scottbyrns.widgets.HTML5.IO.File",
+    "artifactId": "FileDropZone",
+    "version": "1.0.0-SNAPSHOT",
+    "url": "a",
+    "scm": "a",
+    "issueTracking": "a",
+    "developers": [
+        {}
+    ],
+    "sources": [
+        "file-drop-zone.js"
+    ],
+    "dependencies": [
+        {
+            "groupId": "com.scottbyrns.HTML5.IO",
+            "artifactId": "File",
+            "version": "1.0.1-SNAPSHOT"
+        },
+        {
+            "groupId": "com.scottbyrns",
+            "artifactId": "LiveWidgets",
+            "version": "1.0.1-SNAPSHOT"
+        }
+    ],
+    "configuration": {}
+}

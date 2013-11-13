@@ -1,0 +1,24 @@
+{
+    "name": "JDM Repository Data Source",
+    "description": "A live widget for connecting to the JDM Repo and providing access to it's artifact data.",
+    "groupId": "com.scottbyrns.widgets.jdm.repo",
+    "artifactId": "DataSource",
+    "version": "1.0.0-LOCALHOST",
+    "url": "http://scottbyrns.com",
+    "scm": "",
+    "issueTracking": "",
+    "developers": [
+        {}
+    ],
+    "sources": [
+        "repo-data-source.js"
+    ],
+    "dependencies": [
+        {
+            "groupId": "com.scottbyrns",
+            "artifactId": "LiveWidgets",
+            "version": "1.0.1-SNAPSHOT"
+        }
+    ],
+    "configuration": {}
+}

@@ -1,0 +1,24 @@
+{
+    "name": "Event Trigger",
+    "description": "Widget for broadcasting messages to LiveWidgets during DOM events on widget elements.",
+    "groupId": "com.scottbyrns.widgets.events",
+    "artifactId": "EventTrigger",
+    "version": "1.0.0-RELEASE",
+    "url": "a",
+    "scm": "a",
+    "issueTracking": "a",
+    "developers": [
+        {}
+    ],
+    "sources": [
+        "event-trigger.js"
+    ],
+    "dependencies": [
+        {
+            "groupId": "com.scottbyrns",
+            "artifactId": "LiveWidgets",
+            "version": "1.0.1-SNAPSHOT"
+        }
+    ],
+    "configuration": {}
+}

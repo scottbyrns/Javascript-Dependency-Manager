@@ -30,11 +30,6 @@
 	
 	"dependencies": [
 		{
-			"groupId": "com.scottbyrns",
-			"artifactId": "MessageController",
-			"version": "1.0.0-SNAPSHOT"
-		},
-		{
 			"groupId": "com.scottbyrns.Elements",
 			"artifactId": "List",
 			"version": "1.0.0-SNAPSHOT"
@@ -58,21 +53,49 @@
 			"groupId": "com.scottbyrns.HTML5.IO",
 			"artifactId": "File",
 			"version": "1.0.1-SNAPSHOT"
+		},
+		{
+		    "groupId": "com.scottbyrns",
+		    "artifactId": "LiveWidgetsVisualizer",
+		    "version": "1.0.0-SNAPSHOT"
+		},
+		{
+		    "groupId": "com.scottbyrns.widgets.jdm.repo",
+		    "artifactId": "DataSource",
+		    "version": "1.0.0-LOCALHOST"
+		},
+		{
+		    "groupId": "com.scottbyrns.widgets.events",
+		    "artifactId": "EventTrigger",
+		    "version": "1.0.0-RELEASE"
+		},
+		{
+		    "groupId": "com.scottbyrns.widgets.HTML5.IO.File",
+		    "artifactId": "FileDropZone",
+		    "version": "1.0.0-SNAPSHOT"
+		},
+		{
+		    "groupId": "com.scottbyrns.widgets.utilities.Editor",
+		    "artifactId": "CodeEditor",
+		    "version": "1.0.0-SNAPSHOT"
+		},
+		{
+		    "groupId": "com.scottbyrns.widgets.events",
+		    "artifactId": "DragData",
+		    "version": "1.0.0-SNAPSHOT"
 		}
+
+
 	],
 	
 	"sources": [
-		"widgets/event-trigger.js",
-		"widgets/code-editor.js",
+
 		"widgets/module-list.js",
 		"widgets/artifact-viewer.js",
-		"widgets/file-drop-zone.js",
 		"widgets/jdm-package-builder.js",
 		"widgets/activity-workspace.js",
-		"widgets/drag-data.js",
-		"widgets/repo-data-source.js",
-		"widgets/live-widgets-visualizer.js",
 		"widgets/version-toggle.js"
+		
 	],
 	
 	"configuration": {

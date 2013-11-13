@@ -230,4 +230,4 @@ LiveWidgets.addWidget({
 	reinit: function () {
 		
 	}
-})
+});

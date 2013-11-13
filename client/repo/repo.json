@@ -123,6 +123,48 @@
                 "1.0.0-SNAPSHOT",
                 "1.0.0-SNAPSHOT"
             ]
+        },
+        {
+            "groupId": "com.scottbyrns",
+            "artifactId": "LiveWidgetsVisualizer",
+            "versions": [
+                "1.0.0-SNAPSHOT"
+            ]
+        },
+        {
+            "groupId": "com.scottbyrns.widgets.jdm.repo",
+            "artifactId": "DataSource",
+            "versions": [
+                "1.0.0-LOCALHOST"
+            ]
+        },
+        {
+            "groupId": "com.scottbyrns.widgets.events",
+            "artifactId": "EventTrigger",
+            "versions": [
+                "1.0.0-RELEASE"
+            ]
+        },
+        {
+            "groupId": "com.scottbyrns.widgets.HTML5.IO.File",
+            "artifactId": "FileDropZone",
+            "versions": [
+                "1.0.0-SNAPSHOT"
+            ]
+        },
+        {
+            "groupId": "com.scottbyrns.widgets.utilities.Editor",
+            "artifactId": "CodeEditor",
+            "versions": [
+                "1.0.0-SNAPSHOT"
+            ]
+        },
+        {
+            "groupId": "com.scottbyrns.widgets.events",
+            "artifactId": "DragData",
+            "versions": [
+                "1.0.0-SNAPSHOT"
+            ]
         }
     ]
 }

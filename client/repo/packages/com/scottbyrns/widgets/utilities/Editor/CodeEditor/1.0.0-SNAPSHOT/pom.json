@@ -1,0 +1,29 @@
+{
+    "name": "Code Editor",
+    "description": "Ace based code editor.",
+    "groupId": "com.scottbyrns.widgets.utilities.Editor",
+    "artifactId": "CodeEditor",
+    "version": "1.0.0-SNAPSHOT",
+    "url": "a",
+    "scm": "a",
+    "issueTracking": "a",
+    "developers": [
+        {}
+    ],
+    "sources": [
+        "code-editor.js"
+    ],
+    "dependencies": [
+        {
+            "groupId": "com.github.ajaxorg",
+            "artifactId": "AceBuilds",
+            "version": "1.0.0-SNAPSHOT"
+        },
+        {
+            "groupId": "com.scottbyrns",
+            "artifactId": "LiveWidgets",
+            "version": "1.0.1-SNAPSHOT"
+        }
+    ],
+    "configuration": {}
+}

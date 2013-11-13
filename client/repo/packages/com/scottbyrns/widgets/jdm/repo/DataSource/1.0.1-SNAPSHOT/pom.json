@@ -1,0 +1,19 @@
+{
+    "name": "JDM Repository Data Source",
+    "description": "A live widget for connecting to the JDM Repo and providing access to it's artifact data.",
+    "groupId": "com.scottbyrns.widgets.jdm.repo",
+    "artifactId": "DataSource",
+    "version": "1.0.1-SNAPSHOT",
+    "url": "https://github.com/scottbyrns/JDM-Data-Source",
+    "scm": "https://github.com/scottbyrns/JDM-Data-Source",
+    "issueTracking": ".",
+    "developers": [
+        {}
+    ],
+    "sources": [
+        "repo-data-source.js",
+        "README.md"
+    ],
+    "dependencies": [],
+    "configuration": {}
+}

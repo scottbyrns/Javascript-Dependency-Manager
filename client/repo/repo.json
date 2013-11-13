@@ -135,7 +135,8 @@
             "groupId": "com.scottbyrns.widgets.jdm.repo",
             "artifactId": "DataSource",
             "versions": [
-                "1.0.0-LOCALHOST"
+                "1.0.0-LOCALHOST",
+                "1.0.1-SNAPSHOT"
             ]
         },
         {

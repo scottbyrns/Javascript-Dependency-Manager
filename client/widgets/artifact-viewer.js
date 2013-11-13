@@ -30,11 +30,26 @@ LiveWidgets.addWidget({
 					console.log("artifact-viewer", arguments);
 					if (channel == "remove-package")
 					{
-						socket.emit("remove-package", {
-							groupId: this.model.activeArtifact.groupId,
-							artifactId: this.model.activeArtifact.artifactId,
-							version: this.model.activeArtifact.version
-						});
+						
+						var r = confirm("Delete Package?");
+						if (r == true)
+						  {
+	  						var r2 = confirm("Are you sure?");
+	  						if (r2 == true)
+	  						  {
+								  
+							  
+	  	  						socket.emit("remove-package", {
+	  	  							groupId: this.model.activeArtifact.groupId,
+	  	  							artifactId: this.model.activeArtifact.artifactId,
+	  	  							version: this.model.activeArtifact.version
+	  	  						});
+								  
+								  
+							  }
+							  
+						  }
+
 					}
 					else if (channel == "show-artifact")
 					{

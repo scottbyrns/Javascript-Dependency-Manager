@@ -164,7 +164,8 @@
             "groupId": "com.scottbyrns.widgets.events",
             "artifactId": "DragData",
             "versions": [
-                "1.0.0-SNAPSHOT"
+                "1.0.0-SNAPSHOT",
+                "1.0.1-SNAPSHOT"
             ]
         },
         {

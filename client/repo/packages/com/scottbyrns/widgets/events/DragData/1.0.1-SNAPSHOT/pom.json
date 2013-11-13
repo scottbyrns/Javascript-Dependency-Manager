@@ -1,0 +1,27 @@
+{
+    "name": "Drag Data",
+    "description": "A Live Widget that copies a the value of the data-data attribute on a DOM element into a drag event on that DOM element to allow transfer of the value of data-data to the drop target of the drag event.",
+    "groupId": "com.scottbyrns.widgets.events",
+    "artifactId": "DragData",
+    "version": "1.0.1-SNAPSHOT",
+    "url": "https://github.com/scottbyrns/Drag-Data",
+    "scm": "git@github.com:scottbyrns/Drag-Data.git",
+    "issueTracking": "https://github.com/scottbyrns/Drag-Data/issues",
+    "developers": [
+        {}
+    ],
+    "sources": [
+        "drag-data.js",
+        "draggable-file-download.js",
+        "README.md",
+        "README.md"
+    ],
+    "dependencies": [
+        {
+            "groupId": "com.scottbyrns",
+            "artifactId": "LiveWidgets",
+            "version": "1.0.1-SNAPSHOT"
+        }
+    ],
+    "configuration": {}
+}

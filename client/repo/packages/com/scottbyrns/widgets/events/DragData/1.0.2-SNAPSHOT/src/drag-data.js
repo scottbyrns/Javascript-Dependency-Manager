@@ -29,16 +29,19 @@ LiveWidgets.addWidget({
 		},
         reinit: function () {
 
+			
+			this.element.addEventListener(
+				'dragend',
+				this.controller.drop,
+				true
+			);
+
 			this.element.addEventListener(
 				'dragstart',
 				this.controller.ondragstart,
 				true
 			);
 			
-			this.element.addEventListener(
-				'drop',
-				this.controller.drop,
-				true
-			);
+			// 
         }
 });

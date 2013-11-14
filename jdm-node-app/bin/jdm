@@ -17,11 +17,6 @@ var runDate = new Date();
 
 var jdmActions = {
 	
-	
-	//
-	// TODO update pom
-	// TODO avoid overwrite
-	//
 	"deploy": function () {
 		var pom = JSON.parse(fs.readFileSync('./pom.json'));
 		
@@ -57,39 +52,25 @@ var jdmActions = {
 					
 									var base64data = new Buffer(file).toString('base64');
 					
-									socket.on("package-denied-duplicate", function (data) {
-										if (data.groupId == pom.groupId && data.artifactId == pom.artifactId && data.version == pom.version) {
-											socket.disconnect('unauthorized');
-
-											exec("rm -rf " + tmpPath, function () {
-												console.log("Rejected. Duplicate artifact.")
-											});
-										}
-										else
-										{
-											// Nop
-										}
-									});
-									
-									socket.on("package-added-remotely", function (data) {
-										if (data.groupId == pom.groupId && data.artifactId == pom.artifactId && data.version == pom.version) {
-											socket.disconnect('unauthorized');
-											exec("rm -rf " + tmpPath, function () {
-													console.log("Deployment Completed.")
-											});
-										}
-										else
-										{
-											// Nop
-										}
-									});
-					
 									socket.emit("remote-deployment", {
 										pom: pom,
 										file: "data:application/tar;base64," + base64data
 									});
 									
-
+									exec("rm -rf " + tmpPath, function () {
+										
+										socket.on("package-added-remotely", function (data) {
+											if (data.groupId == pom.groupId && data.artifactId == pom.artifactId && data.version == pom.version) {
+												socket.disconnect('unauthorized');
+												console.log("Deployment Completed.")
+											}
+											else
+											{
+												// Nop
+											}
+										});
+										
+									});
 					
 								});
 				

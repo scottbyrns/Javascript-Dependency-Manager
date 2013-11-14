@@ -1,0 +1,13 @@
+{
+    "name": "jdm"
+  , "version": "1.0.0"
+  , "description": "Javascript Dependency Manager"
+  , "keywords": ["dependency", "deploy", "automation"]
+  , "author": "Scott Byrns <contact@scottbyrns.com>"
+  , "repository": { "type": "git", "url": "https://github.com/scottbyrns/Javascript-Dependency-Manager.git" }
+  , "devDependencies": { "should": ">= 0.0.1" }
+  , "scripts": { }
+  , "main": "index"
+  , "engines": { "node": ">= 0.6.x" }
+  , "files": ["index.js"]
+}

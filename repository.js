@@ -1,3 +1,4 @@
+var path = require('path');
 var sys = require('sys');
 var express = require ('express');
 var exec = require('child_process').exec;
@@ -390,6 +391,108 @@ io.sockets.on('connection', function(socket) {
 		}
 		
 
+	});
+	
+	socket.on("remote-deployment", function (package) {
+		
+		
+		
+
+		if (path.existsSync("client/repo/packages/" + package.pom.groupId.split(".").join("/") + "/" + package.pom.artifactId + "/" + package.pom.version)) { // or 
+			
+			socket.emit("package-denied-duplicate", package.pom);
+			
+		}
+		else
+		{
+		
+		
+		
+			var string = package.file;
+			var regex = /^data:.+\/(.+);base64,(.*)$/;
+		
+			var name = package.pom.groupId + package.pom.artifactId + package.pom.version;
+
+			var matches = string.match(regex);
+			var ext = matches[1];
+			var data = matches[2];
+			var buffer = new Buffer(data, 'base64');
+			fs.writeFileSync('/tmp/' + name + "." + ext, buffer);
+		
+			exec("mkdir -p tmp/" + name + "; tar -xf " + '/tmp/' + name + "." + ext + " -C tmp/" + name + "/", function () {
+			
+				exec("mkdir -p client/repo/packages/" + package.pom.groupId.split(".").join("/") + "/" + package.pom.artifactId + "/" + package.pom.version + "/src", function () {
+				
+					exec("mv tmp/" + name + "/* client/repo/packages/" + package.pom.groupId.split(".").join("/") + "/" + package.pom.artifactId + "/" + package.pom.version + "" , function () {
+					
+						fs.readFile("./client/repo/repo.json", 'utf8', function (err, repo) {
+
+						    if (err) {
+						        console.log('Error: ' + err);
+						        return;
+						    }
+
+						    repo = JSON.parse(repo);
+
+							var data = package.pom;
+
+
+
+						    // Update version array or add new artifact
+						    var update = false;
+
+						    for (var j = 0, jlen = repo.packages.length; j < jlen; j += 1) {
+
+						        if (repo.packages[j].groupId == data.groupId && repo.packages[j].artifactId == data.artifactId) {
+
+						            update = true;
+						            repo.packages[j].versions.push(data.version);
+
+						        }
+
+						    }
+
+						    if (!update) {
+
+						        repo.packages.push({
+
+						            groupId: data.groupId,
+						            artifactId: data.artifactId,
+						            versions: [data.version]
+
+						        });
+
+						    }
+
+						    fs.writeFile("./client/repo/repo.json", JSON.stringify(repo, null, 4), function (err) {
+
+						        if (err) {
+
+						            console.log(err);
+
+						        } else {
+
+									socket.emit("package-added-remotely", package.pom);
+
+						        }
+
+						    });
+
+
+						});
+					
+					
+
+					
+					});
+				
+				});
+			
+			});
+		
+			console.log(package);	
+		}
+		
 	});
 	
 	

@@ -5,6 +5,12 @@ LiveWidgets.addWidget({
 	},
 	controller: {
 		handleMessage: function (message, channel, id) {
+			
+			if (channel == "key-pressed")
+			{
+				console.log(message);
+			}
+			
 			console.warn("Live Widgets Visualizer", arguments);
 			this.model.activeNodes = this.model.activeNodes || {};
 			this.model.activeNodes[id] = {
@@ -215,6 +221,9 @@ LiveWidgets.addWidget({
 			canvas.style.pointerEvents = "none";
 			canvas.style.opacity=".3"
 			
+			canvas.addEventListener('contextmenu', function () {
+				this.style.display = 'none';
+			})
 
 			
 			// canvas.style.background="#FFF";

@@ -355,27 +355,56 @@ LiveWidgets.addWidget({
 					
 					
 					
+					// 
+					// var tr = new com.scottbyrns.Elements.Table.Row();
+					// 
+					// 
+					// var groupCell = document.createElement("td");
+					// groupCell.innerHTML = (data.groupId);
+					// 
+					// var artifactCell = document.createElement("td");
+					// artifactCell.innerHTML = (data.artifactId);
+					// 
+					// var versionCell = document.createElement("td");
+					// versionCell.innerHTML = (data.version);
+					// 
+					// 
+					// document.getElementById("dependency-list").appendChild(tr.element);
+					// 
+					// 
+					// tr.element.appendChild(groupCell);
+					// tr.element.appendChild(artifactCell);
+					// tr.element.appendChild(versionCell);
 					
-					var tr = new com.scottbyrns.Elements.Table.Row();
-					
-					
-					var groupCell = document.createElement("td");
-					groupCell.innerHTML = (data.groupId);
-					
-					var artifactCell = document.createElement("td");
-					artifactCell.innerHTML = (data.artifactId);
-					
-					var versionCell = document.createElement("td");
-					versionCell.innerHTML = (data.version);
-					
+					var dependencies = [];
+					dependencies.push('<div class="dependencies">');
+					// dependencies.push('<tr><th>Group</th><th>Artifact</th><th>Version</th></tr>');
 
-					document.getElementById("dependency-list").appendChild(tr.element);
 					
+					for (var i = 0, len = this.model.dependencies.length; i < len; i += 1) {
+						var direction = (i%2 == 0 ? "left" : "right");
+						var dependency = this.model.dependencies[i];
+						console.log(dependency);
+						dependencies.push([
+							'<span class="item ' + direction + '" data-widget="dependency-overview" data-group="repo-data-source" data-artifact="',
+							encodeURIComponent(JSON.stringify(dependency)),
+							'">',
+							'<div class="item-wrapper">',
+							'<div class="artifact-icon"></div>',
+							
+							'<h6>',
+							'Fetching...',
+							'</h6>',
+							
+							'</div>',
+							'</span>'
 
-					tr.element.appendChild(groupCell);
-					tr.element.appendChild(artifactCell);
-					tr.element.appendChild(versionCell);
+						
+							].join(''));
+					}
 					
+					dependencies.push('</div>');
+					document.getElementById("dependency-list").innerHTML = dependencies.join("");
 					
 
 

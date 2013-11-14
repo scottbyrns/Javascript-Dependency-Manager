@@ -28,6 +28,7 @@ LiveWidgets.addWidget({
 					}
 					
 					console.log("artifact-viewer", arguments);
+					
 					if (channel == "remove-package")
 					{
 						
@@ -81,17 +82,49 @@ LiveWidgets.addWidget({
 					if (artifact.dependencies.length > 0) {
 						
 
-						dependencies.push('<table class="dependencies">');
-						dependencies.push('<tr><th>Group</th><th>Artifact</th><th>Version</th></tr>');
+						// dependencies.push('<table class="dependencies">');
+						// dependencies.push('<tr><th>Group</th><th>Artifact</th><th>Version</th></tr>');
+						// 
+						// 
+						// for (var i = 0, len = artifact.dependencies.length; i < len; i += 1) {
+						// 	var dependency = artifact.dependencies[i];
+						// 	console.log(dependency);
+						// 	dependencies.push('<tr><td>' + dependency.groupId + '</td><td>' + dependency.artifactId + '</td><td>' + dependency.version + '</td></tr>');
+						// }
+						// 
+						// dependencies.push('</table>');	
+						
+						
+						
+						dependencies.push('<div class="dependencies">');
+						// dependencies.push('<tr><th>Group</th><th>Artifact</th><th>Version</th></tr>');
 
 						
 						for (var i = 0, len = artifact.dependencies.length; i < len; i += 1) {
 							var dependency = artifact.dependencies[i];
+							var direction = (i%2 == 0 ? "left" : "right");
 							console.log(dependency);
-							dependencies.push('<tr><td>' + dependency.groupId + '</td><td>' + dependency.artifactId + '</td><td>' + dependency.version + '</td></tr>');
+							dependencies.push([
+								'<span class="item ' + direction + '" data-widget="dependency-overview" data-group="repo-data-source" data-artifact="',
+								encodeURIComponent(JSON.stringify(dependency)),
+								'">',
+								
+								'<div class="artifact-icon"></div>',
+								
+								'<h6>',
+								'Fetching...',
+								'</h6>',
+								
+								
+								'</span>',
+								// '</td><td>' + dependency.artifactId + '</td><td>' + dependency.version + '</td></tr>'
+							
+								].join(''));
 						}
 						
-						dependencies.push('</table>');	
+						dependencies.push('</div>');
+						
+						
 					}
 					
 					var sources = [];
@@ -209,7 +242,6 @@ LiveWidgets.addWidget({
 					'<div data-widget="artifact-dependencies-map" data-group="dependencies-browser">',
 
 						sources.join(""),
-					
 
 					'</div>',
 					

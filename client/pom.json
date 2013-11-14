@@ -62,7 +62,7 @@
 		{
 		    "groupId": "com.scottbyrns.widgets.jdm.repo",
 		    "artifactId": "DataSource",
-		    "version": "1.0.0-LOCALHOST"
+		    "version": "1.0.2-SNAPSHOT"
 		},
 		{
 		    "groupId": "com.scottbyrns.widgets.events",
@@ -94,8 +94,9 @@
 		"widgets/artifact-viewer.js",
 		"widgets/jdm-package-builder.js",
 		"widgets/activity-workspace.js",
-		"widgets/version-toggle.js"
-		
+		"widgets/version-toggle.js",
+		"widgets/dependency-overview.js",
+		"widgets/document-controller.js"
 	],
 	
 	"configuration": {

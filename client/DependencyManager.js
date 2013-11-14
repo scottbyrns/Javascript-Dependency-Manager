@@ -627,6 +627,7 @@ ApplicationManager = function () {
 			
 			resources.whenApplicationIsReadyToStart = callback;
 			
+			
 		},
 		
 		

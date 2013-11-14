@@ -1,11 +1,26 @@
 LiveWidgets.addWidget({
 	name: "live-widgets-visualizer",
 	model: {
-
+		command: []
 	},
 	controller: {
 		handleMessage: function (message, channel, id) {
-			console.warn("Live Widgets Visualizer", arguments);
+
+			
+			if (channel == "key-pressed")
+			{
+
+				if (message == "p")
+				{
+					this.model.canvas.style.display = 'none';
+				}
+				if (message == "s")
+				{
+					this.model.canvas.style.display = 'block';
+				}
+			}
+
+			
 			this.model.activeNodes = this.model.activeNodes || {};
 			this.model.activeNodes[id] = {
 				life: 1,
@@ -215,7 +230,11 @@ LiveWidgets.addWidget({
 			canvas.style.pointerEvents = "none";
 			canvas.style.opacity=".3"
 			
-
+			canvas.addEventListener('contextmenu', function () {
+				this.style.display = 'none';
+			});
+			
+			this.model.canvas = canvas;
 			
 			// canvas.style.background="#FFF";
 

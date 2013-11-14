@@ -26,7 +26,7 @@
 
 </head>
 
-<body>
+<body data-widget="document-controller" data-outlet="dom-events">
 	<dataset data-widget="socket-io-connector" data-host="https://localhost" data-port="3000" data-secure="true"></dataset>
 
 	<div id="toolbar">
@@ -331,15 +331,14 @@
 				<div class="dependencies" id="dependencies-dropzone">
 					 <!-- data-widget="event-trigger" data-group="jdm-package-builder" data-event="dragover" data-message="drag-over" -->
 					<h3 class="dependencies">Dependencies</h3>
-					<table class="dependencies" id="dependency-list">
-						
-						<tr>
-							<th>Group</th><th>Artifact</th><th>Version</th>
-						</tr>
-
-
 					
-					</table>
+					<div class="dependencies" id="dependency-list">
+						
+						<p class="drop-information">
+							Dependencies Drop Zone
+						</p>
+						
+					</div>
 					
 					
 				</div>
@@ -406,8 +405,8 @@
 	    <script src='https://localhost:3000/DependencyManager.js'></script>
 		
 		
-		<dataset data-widget="repo-data-source" data-group="repo-data-source"></dataset>	
-		<intput type="hidden" data-widget="live-widgets-visualizer" data-group="visualizer" />
+		<dataset data-widget="repo-data-source" data-group="repo-data-source" data-server="localhost:3000"></dataset>	
+		<intput type="hidden" data-widget="live-widgets-visualizer" data-group="visualizer" data-inlets="dom-events" />
 </body>
 
 </html>

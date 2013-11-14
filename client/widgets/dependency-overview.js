@@ -50,41 +50,47 @@ LiveWidgets.addWidget({
 			
 		},
 		dragEnd: function (event) {
-			this.element.style.opacity = "1";
+			if (this.model.dragging) {
+				this.model.dragging = false;
+				this.element.style.opacity = "1";
 
 			
-			var top = this.element.getBoundingClientRect().top
-			var left= this.element.getBoundingClientRect().left
+				var top = this.element.getBoundingClientRect().top
+				var left= this.element.getBoundingClientRect().left
 			
-			var width = this.element.offsetWidth;
-			var height = this.element.offsetHeight;
+				var width = this.element.offsetWidth;
+				var height = this.element.offsetHeight;
 			
-			if (event.x < left ||
-				event.y < top ||
-				event.x > left + width ||
-				event.y > top + height) {
+				if (event.x < left ||
+					event.y < top ||
+					event.x > left + width ||
+					event.y > top + height) {
 					
-					this.sendMessage({
+						this.sendMessage({
 						
-						"groupId": this.model.artifact.groupId,
-						"artifactId": this.model.artifact.artifactId,
-						"version": this.model.artifact.version
+							"groupId": this.model.artifact.groupId,
+							"artifactId": this.model.artifact.artifactId,
+							"version": this.model.artifact.version
 					
-					}, "remove-dependency-overview");
+						}, "remove-dependency-overview");
+				}
 			}
 			
 		},
 		dragLeave: function () {
-			this.element.style.opacity = "0.0";
+			if (this.model.dragging) {
+				this.element.style.opacity = "0.0";
+			}
 		},
 		handleDrag: function () {
+			this.model.dragging = true;
 			this.element.style.opacity = "0.3";
 		},
 		
 	},
 
 	constructor: function () {
-		
+		this.model.dragging = false;
 		this.model.artifact = JSON.parse(decodeURIComponent(this.model.artifact));
 		this.model.artifact.callback = this.controller.dataFetched.bind(this);
 		

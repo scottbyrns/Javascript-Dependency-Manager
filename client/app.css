@@ -303,7 +303,10 @@
 	}
 	
 	
-	
+	nav #modules ul li
+	{
+		cursor:move;
+	}
 	#modules ul li
 	{
 		border-bottom:1px solid #DDD;
@@ -511,15 +514,33 @@
 		background:#272822;
 		color:#AAA;
 		padding:0px;
+		padding-top:176px;
 /*		display:none;*/
 		
 	}
 	
+	section form {
+		padding-top:176px;
+	}
+	
 	div.artifact-overview
 	{
-		padding:30px;
-		border-bottom:1px solid #20211b;
-		height:116px;
+		padding: 30px;
+		border-bottom: 1px solid #20211b;
+		height: 116px;
+		position: fixed;
+		top: 0px;
+		right: 0px;
+		left: 500px;
+/*		background:#272822;*/
+		background: -moz-linear-gradient(top,  rgba(39,40,34,1) 0%, rgba(39,40,34,0.75) 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(39,40,34,1)), color-stop(100%,rgba(39,40,34,0.75)));
+		background: -webkit-linear-gradient(top,  rgba(39,40,34,1) 0%,rgba(39,40,34,0.75) 100%);
+		background: -o-linear-gradient(top,  rgba(39,40,34,1) 0%,rgba(39,40,34,0.75) 100%);
+		background: -ms-linear-gradient(top,  rgba(39,40,34,1) 0%,rgba(39,40,34,0.75) 100%);
+		background: linear-gradient(to bottom,  rgba(39,40,34,1) 0%,rgba(39,40,34,0.75) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#272822', endColorstr='#bf272822',GradientType=0 );
+		z-index:1000;
 	}
 	
 	div.artifact-overview h3
@@ -1389,10 +1410,15 @@
 	
 	
 	
-	div.dependencies
+	div.dependencies span
 	{
-		
+		cursor:move;
 	}
+
+	div.dependencies span:hover
+	{
+		background:rgba(0,0,0,0.1);
+	}	
 	
 	div.dependencies span.right
 	{
@@ -1426,8 +1452,8 @@
 	
 	div.dependencies span span {
 		position:absolute;
-		right:10px;
-		top:10px;
+		right:15px;
+		top:18px;
 		display:inline-block;
 		width:150px;
 		background:rgba(65,66,61, 0.5);
@@ -1442,6 +1468,21 @@
 	{
 		background:rgba(65,66,61, 0.5);
 	}
+	
+	div.dependencies p
+	{
+		height:54px;
+	}
+	
+	div.dependencies h6
+	{
+		font-size:14px;
+		line-height:19px;
+		margin:0px;
+		margin-top:10px;
+	}
+	
+	
 	
 	p.drop-information
 	{

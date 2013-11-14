@@ -95,7 +95,21 @@ LiveWidgets.addWidget({
 				handleMessage: function (data, channel) {
 					// console.log("jdm-package-builders", arguments);
 
+					if (channel == "remove-dependency-overview") {
 
+						
+						for (var i = 0, len = this.model.dependencies.length; i < len; i += 1) {
+							if (this.model.dependencies[i].groupId == data.groupId &&
+								this.model.dependencies[i].artifactId == data.artifactId &&
+								this.model.dependencies[i].version == data.version) {
+
+
+									this.model.dependencies.splice(i, 1);
+									i = len;
+									this.controller.drawDependencies();
+								}
+						}
+					}
 				
 					if (channel == "edit-artifact") {
 						
@@ -336,47 +350,16 @@ LiveWidgets.addWidget({
 					
 					// document.getElementById("debug-out").innerHTML = JSON.stringify(this.model);
 				},
-				handleDrop: function (event) {
-					// console.log(decodeURI(event.dataTransfer.getData("Text")));
-					// console.log("handle drop", arguments);
-					console.log(event.dataTransfer.getData('application/json'));
-					var data = JSON.parse(event.dataTransfer.getData('application/json'));
+				drawDependencies: function () {
 					
-					for (var i = 0, len = this.model.dependencies.length; i < len; i += 1) {
-						if (this.model.dependencies[i].groupId == data.groupId) {
-							if (this.model.dependencies[i].artifactId == data.artifactId) {
-								return;
-							}
-						}
+					var dependencies = [];
+					
+					if (dependencies.length == this.model.dependencies) {
+						document.getElementById("dependency-list").innerHTML = this.model.defaultContent;
+						return;
 					}
 					
 					
-					this.model.dependencies.push(data);
-					
-					
-					
-					// 
-					// var tr = new com.scottbyrns.Elements.Table.Row();
-					// 
-					// 
-					// var groupCell = document.createElement("td");
-					// groupCell.innerHTML = (data.groupId);
-					// 
-					// var artifactCell = document.createElement("td");
-					// artifactCell.innerHTML = (data.artifactId);
-					// 
-					// var versionCell = document.createElement("td");
-					// versionCell.innerHTML = (data.version);
-					// 
-					// 
-					// document.getElementById("dependency-list").appendChild(tr.element);
-					// 
-					// 
-					// tr.element.appendChild(groupCell);
-					// tr.element.appendChild(artifactCell);
-					// tr.element.appendChild(versionCell);
-					
-					var dependencies = [];
 					dependencies.push('<div class="dependencies">');
 					// dependencies.push('<tr><th>Group</th><th>Artifact</th><th>Version</th></tr>');
 
@@ -386,7 +369,9 @@ LiveWidgets.addWidget({
 						var dependency = this.model.dependencies[i];
 						console.log(dependency);
 						dependencies.push([
-							'<span class="item ' + direction + '" data-widget="dependency-overview" data-group="repo-data-source" data-artifact="',
+							'<span class="item ' + direction + '" data-widget="dependency-overview" data-removeable="true" data-outlets="',
+							"jdm-package-builder-dependencies",
+							'" data-group="repo-data-source" data-artifact="',
 							encodeURIComponent(JSON.stringify(dependency)),
 							'">',
 							'<div class="item-wrapper">',
@@ -407,6 +392,26 @@ LiveWidgets.addWidget({
 					document.getElementById("dependency-list").innerHTML = dependencies.join("");
 					
 
+					
+				},
+				handleDrop: function (event) {
+					// console.log(decodeURI(event.dataTransfer.getData("Text")));
+					// console.log("handle drop", arguments);
+					console.log(event.dataTransfer.getData('application/json'));
+					var data = JSON.parse(event.dataTransfer.getData('application/json'));
+					
+					for (var i = 0, len = this.model.dependencies.length; i < len; i += 1) {
+						if (this.model.dependencies[i].groupId == data.groupId) {
+							if (this.model.dependencies[i].artifactId == data.artifactId) {
+								return;
+							}
+						}
+					}
+					
+					
+					this.model.dependencies.push(data);
+					
+					this.controller.drawDependencies();
 
 					
 				},
@@ -421,6 +426,8 @@ LiveWidgets.addWidget({
 			
 			document.getElementById("dependencies-dropzone").removeEventListener("dragover", this.controller.dragover);
 			document.getElementById("dependencies-dropzone").addEventListener("dragover", this.controller.dragover, true);
+			
+			this.model.defaultContent = document.getElementById("dependency-list").innerHTML;
 		},
         reinit: function () {
 

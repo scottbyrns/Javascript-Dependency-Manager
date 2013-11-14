@@ -178,10 +178,55 @@ com.scottbyrns.LiveWidgets.Framework({
 					this.controller = Helpers.deepClone(widget.controller, this);
 					widget.constructor.call(this);
 			
+					if (this.model.inlets) {
+
+						
+						var inlets = [];
+						if (this.model.inlets.indexOf("|") > -1) {
+							inlets = this.model.inlets.split("|");
+						}
+						else
+						{
+							inlets.push(this.model.inlets);
+						}
+				
+						for (var i = 0, len = inlets.length; i < len; i += 1)
+						{
+				
+						
+							MessageController.registerListener(inlets[i], Math.floor(Math.random() * new Date()), Helpers.bind(function (messageObject) {
+								if (this.element.getAttribute("data-widget-id") != messageObject.widgetId) {
+									this.handleMessage(messageObject.message, messageObject.channel, messageObject.widgetId);
+								}
+							}, this));
+					
+						}
+						
+					}
+			
 					if (this.model.group) {
-						MessageController.registerListener(this.model.group, Math.floor(Math.random() * new Date()), Helpers.bind(function (messageObject) {
-							this.handleMessage(messageObject.message, messageObject.channel);
-						}, this));
+						
+						var groups = [];
+						if (this.model.group.indexOf("|") > -1) {
+							groups = this.model.group.split("|");
+						}
+						else
+						{
+							groups.push(this.model.group);
+						}
+				
+						for (var i = 0, len = groups.length; i < len; i += 1)
+						{
+				
+						
+							MessageController.registerListener(groups[i], Math.floor(Math.random() * new Date()), Helpers.bind(function (messageObject) {
+								if (this.element.getAttribute("data-widget-id") != messageObject.widgetId) {
+									this.handleMessage(messageObject.message, messageObject.channel, messageObject.widgetId);
+								}
+							}, this));
+					
+						}
+						
 					}
 			
 					this.reinit();
@@ -196,10 +241,50 @@ com.scottbyrns.LiveWidgets.Framework({
 			 * @param {String} channel Channel that can be used to filter messages for requests.
 			 */
 			sendMessage: function (message, channel) {
-				MessageController.sendMessage(this.model.group, {
-					message: message,
-					channel: channel
-				});
+				var groups = [];
+				if (this.model.group && this.model.group.indexOf("|") > -1) {
+					groups = this.model.group.split("|");
+				}
+				else
+				{
+					groups.push(this.model.group);
+				}
+				
+				for (var i = 0, len = groups.length; i < len; i += 1)
+				{
+				
+					MessageController.sendMessage(groups[i], {
+						widgetId: this.element.getAttribute("data-widget-id"),
+						message: message,
+						channel: channel
+					});
+					
+				}
+				this.model.outlets = this.element.getAttribute("data-outlets");
+				if (this.model.outlets) {
+					var outlets = [];
+					if (this.model.outlets.indexOf("|") > -1) {
+						outlets = this.model.outlets.split("|");
+					}
+					else
+					{
+						outlets.push(this.model.outlets);
+					}
+				
+					for (var i = 0, len = outlets.length; i < len; i += 1)
+					{
+						// console.warn(outlets[i]);
+						MessageController.sendMessage(outlets[i], {
+							groups: this.model.group,
+							widgetId: this.element.getAttribute("data-widget-id"),
+							message: message,
+							channel: channel
+						});
+					
+					}
+				}
+
+				
 			},
 			/**
 			 * Replace the innerHTML of the widget element with a rendered template
@@ -367,12 +452,35 @@ com.scottbyrns.LiveWidgets.Framework({
 
 		Monitor = new Monitor(33);
 		Monitor.startScanning();
+		
+		
+		var VisualMode = function () {
+			
+		};
+		
+		VisualMode.prototype = {
+			toggle: function () {
+				var domElements = DOMDocument.getElementsByTagName('*');
+				// if (domElements.length == this.domSize) {
+				// 	return false;
+				// }
+				// this.domSize = domElements.length;
+				for (var el = 0, len = domElements.length; el < len; el += 1) {
+					if (domElements[el].getAttribute('data-widget')) {
+						domElements[el].style.border="3px dotted #0099FF";
+					}
+				}
+			}
+		};
+		
+		var vm = new VisualMode();
 
 		DOMWindow.LiveWidgets = {
 			addWidget: Helpers.bind(LiveWidgets.addWidget, LiveWidgets),
 			extendWidget: Helpers.bind(LiveWidgets.extendWidget, LiveWidgets),
 			stopScanning: Helpers.bind(Monitor.stopScanning, Monitor),
-			startScanning: Helpers.bind(Monitor.startScanning, Monitor)
+			startScanning: Helpers.bind(Monitor.startScanning, Monitor),
+			toggleVisualMode: Helpers.bind(vm.toggle, LiveWidgets)
 		};
 
 	}

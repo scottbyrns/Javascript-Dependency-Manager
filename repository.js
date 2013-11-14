@@ -231,9 +231,7 @@ io.sockets.on('connection', function(socket) {
 		
 					"scm": data.scm,
 					"issueTracking": data.issueTracking,
-					developers: [
-					{name:data.author}
-					],
+					developers: data.developers,
 					sources: [],
 					dependencies: [],
 					configuration: {}

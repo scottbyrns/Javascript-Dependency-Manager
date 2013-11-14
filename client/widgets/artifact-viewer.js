@@ -201,9 +201,9 @@ LiveWidgets.addWidget({
 					'<tr><th>Group</th><td>' + artifact.groupId + '</td></tr>',
 					'<tr><th>Artifact</th><td>' + artifact.artifactId + '</td></tr>',
 					'<tr><th>Author</th><td>' + artifact.developers[0].name + '</td></tr>',
-					'<tr><th>Homepage</th><td></td></tr>',
-					'<tr><th>Version Control</th><td></td></tr>',
-					'<tr><th>Issue Tracker</th><td></td></tr>',
+					'<tr><th>Homepage</th><td>' + artifact.url + '</td></tr>',
+					'<tr><th>Version Control</th><td>' + artifact.scm + '</td></tr>',
+					'<tr><th>Issue Tracker</th><td>' + artifact.issueTracking + '</td></tr>',
 					'</table>',
 					'</div>',
 					

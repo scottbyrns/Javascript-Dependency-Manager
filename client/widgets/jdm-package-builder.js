@@ -62,6 +62,8 @@ LiveWidgets.addWidget({
 	
 						"name": this.model.name,
 						"description": this.model.description,
+						
+						"icon": this.model.icon || "",
 	
 						"groupId": this.model.groupId,
 						"artifactId": this.model.artifactId,
@@ -327,11 +329,14 @@ LiveWidgets.addWidget({
 						
 					    var reader = new FileReader();
 					    reader.onload = function (event) {
-					      var image = new Image();
-					      image.src = event.target.result;
-					      image.width = 128; // a fake resize
-						document.getElementById("artifact-icon").appendChild(image);
-					      // holder.appendChild(image);
+							this.model.icon = event.target.result;
+							document.getElementById("artifact-icon").style.backgroundImage = "url(" + event.target.result + ")";
+							
+						// 					      var image = new Image();
+						// 					      image.src = event.target.result;
+						// 					      image.width = 128; // a fake resize
+						// document.getElementById("artifact-icon").appendChild(image);
+						// 					      // holder.appendChild(image);
 					    }.bind(this);
 
 					    reader.readAsDataURL(data.file);

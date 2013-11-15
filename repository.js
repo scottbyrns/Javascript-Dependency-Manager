@@ -225,16 +225,22 @@ io.sockets.on('connection', function(socket) {
 				var pom = {
 					name: data.name,
 					description: data.description,
+					
+					icon: data.icon,
+					
 					groupId: data.groupId,
 					artifactId: data.artifactId,
 					version: data.version,
+					
 					"url": data.url,
-		
 					"scm": data.scm,
 					"issueTracking": data.issueTracking,
+					
 					developers: data.developers,
+					
 					sources: [],
 					dependencies: [],
+					
 					configuration: {}
 				}
 				

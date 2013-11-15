@@ -813,7 +813,22 @@
 		margin-right:30px;
 /*		opacity:0.5;*/
 		background-color:rgb(65,66,61);
+		background-position:center center;
+		background-size: 100%;
+		overflow:hidden;
+		
+		position:relative;
 /*		border:1px solid #000;*/
+	}
+	
+	div.artifact-icon img
+	{
+	/*	height:0;
+		width:0;
+		position:absolute;
+		left:50%;
+		top:50%;
+		overflow:visible;*/
 	}
 	
 	div.logo

@@ -251,10 +251,14 @@ LiveWidgets.addWidget({
 					// '</div>',
 					
 					'<div data-widget="artifact-sources-list" data-group="artifact-sources-list"></div>',
-						
+					'<div data-widget="markdown-viewer" data-inlets="readme" class="markdown-viewer"></div>',						
 					].join("");
 					
 					this.element.innerHTML = html;
+					
+					com.scottbyrns.ajax.FileDownloader.FileDownloader.download("repo/packages/" + artifact.groupId.split(".").join("/") + "/" + artifact.artifactId + "/" + artifact.version + "/README.md", function () {
+						this.sendMessage(arguments[0], "render-markdown");
+					}.bind(this));
 				},
 				
 				downloadFile: function (file) {
@@ -265,6 +269,7 @@ LiveWidgets.addWidget({
         },
 		constructor: function () {
 			socket.on("output-file", this.controller.downloadFile);
+			this.outlets += "|readme";
 		},
         reinit: function () {
                 // this.element.removeEventListener(this.model.event, this.controller.dispatchMessageToGroupedWidgets);

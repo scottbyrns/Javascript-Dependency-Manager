@@ -181,33 +181,106 @@ var jdmActions = {
 
 
 
-process.argv.forEach(function (val, index, array) {
-	if (val == "deploy" && index == 0) {
-        var io = require('socket.io-client');
-		
-         socket = io.connect("https://localhost", {port:3000, secure: true});
-		 
-         socket.on('error', function () {
-             console.log("error", arguments);
-         });
-		 
-         socket.on('connect', function () {
+process.argv.forEach(function (input, position, dataasdf) {
+
+
+
+	if (input == "deploy") {
+	    var io = require('socket.io-client');
+	
+	     socket = io.connect("https://localhost", {port:3000, secure: true});
+	 
+	     socket.on('error', function () {
+	         console.log("error", arguments);
+	     });
+	 
+	     socket.on('connect', function () {
 			 console.log("connect");
 			 jdmActions.deploy();
-         });
-		 
-		 
+	     });
 
 	}
-	
-	if (val == "create" && index == 0) {
-		// process.argv
-	}
-	
-	if (val == "package" && index == 0) {
+
+	if (input == "package") {
 		jdmActions.package();
 	}
+
+	// console.log(process.argv);
+
+	// node jdm.js create com.scottbyrns.ajax FileDownloader 1.0.0-SNAPSHOT name="File Downloader" description="Simple javascript file downloader."
+	if (input == "create") {
+		var group = process.argv[position + 1];
+		var artifact = process.argv[position + 2];
+		var version = process.argv[position + 3];
+	
+	
+	
+		var options = {};
+	
+
+		process.argv.forEach(function (val, index, array) {
+
+			if (index < 4) {
+				return;
+			}
+
+			var args = val.split("=");
+			var key = args[0]
+			var val = args[1]
+		
+			options[key] = val;
+
+		});
+	
+	
+	
+		var pom = {
+			name: options.name || "Package Name",
+			description: options.description || "Package Description",
+			groupId: group,
+			artifactId: artifact,
+			version: version,
+			issueTracking: options.issueTracking || "",
+			scm: options.scm || "",
+			url: options.url || "",
+			developers: [{
+				name: "You"
+			}],
+			dependencies: [],
+			sources: [artifact + ".js"]
+		}
+	
+		fs.writeFile("pom.json", JSON.stringify(pom, null, 4), function(err) {
+		    if(err) {
+		        console.log(err);
+		    } else {
+				exec("mkdir src", function () {
+					fs.writeFile("src/" + artifact + ".js", group + "." + artifact + "." + artifact + " = function () {\n\n};\n\n\n" + group + "." + artifact + "." + artifact + ".prototype = {};", function(err) {
+					    if(err) {
+					        console.log(err);
+					    } else {
+							fs.writeFile("README.md", "#" + artifact + " - " + version + "\n" + group + "\n\n" + pom.description + "\n\n", function(err) {
+							    if(err) {
+							        console.log(err);
+							    } else {
+									console.log("Project Created");
+							    }
+							});
+					    }
+					});
+				});
+		    }
+		});
+
+		console.log(pom);
+	
+		// process.argv
+	}
+
+
+	
 });
+
 
 
 

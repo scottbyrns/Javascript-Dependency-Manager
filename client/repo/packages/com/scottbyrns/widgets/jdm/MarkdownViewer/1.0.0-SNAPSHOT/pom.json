@@ -1,0 +1,31 @@
+{
+    "name": "Markdown Viewer",
+    "description": "Live Widget for rendering markdown as HTML.",
+    "groupId": "com.scottbyrns.widgets.jdm",
+    "artifactId": "MarkdownViewer",
+    "version": "1.0.0-SNAPSHOT",
+    "url": "https://github.com/scottbyrns/Markdown-Viewer",
+    "scm": "https://github.com/scottbyrns/Markdown-Viewer.git",
+    "issueTracking": "https://github.com/scottbyrns/Markdown-Viewer/issues",
+    "developers": [
+        {
+            "name": "Scott Byrns"
+        }
+    ],
+    "sources": [
+        "MarkdownViewer.js"
+    ],
+    "dependencies": [
+        {
+            "groupId": "com.github.evilstreak",
+            "artifactId": "MarkdownJS",
+            "version": "0.6.0-BETA1"
+        },
+        {
+            "groupId": "com.scottbyrns",
+            "artifactId": "LiveWidgets",
+            "version": "1.0.2-SNAPSHOT"
+        }
+    ],
+    "configuration": {}
+}

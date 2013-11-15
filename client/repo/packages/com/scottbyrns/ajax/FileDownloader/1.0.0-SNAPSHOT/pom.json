@@ -1,0 +1,20 @@
+{
+    "name": "File Downloader",
+    "description": "Simple javascript file downloader.",
+    "groupId": "com.scottbyrns.ajax",
+    "artifactId": "FileDownloader",
+    "version": "1.0.0-SNAPSHOT",
+    "url": "https://github.com/scottbyrns/JS-File-Downloader",
+    "scm": "https://github.com/scottbyrns/JS-File-Downloader.git",
+    "issueTracking": "https://github.com/scottbyrns/JS-File-Downloader/issues",
+    "developers": [
+        {
+            "name": "Scott Byrns"
+        }
+    ],
+    "sources": [
+        "FileDownloader.js"
+    ],
+    "dependencies": [],
+    "configuration": {}
+}

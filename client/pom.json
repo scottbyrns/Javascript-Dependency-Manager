@@ -83,7 +83,18 @@
 		    "groupId": "com.scottbyrns.widgets.events",
 		    "artifactId": "DragData",
 		    "version": "1.0.2-SNAPSHOT"
+		},
+		{
+		    "groupId": "com.scottbyrns.widgets.jdm",
+		    "artifactId": "MarkdownViewer",
+		    "version": "1.0.0-SNAPSHOT"
+		},
+		{
+		    "groupId": "com.scottbyrns.ajax",
+		    "artifactId": "FileDownloader",
+		    "version": "1.0.0-SNAPSHOT"
 		}
+
 
 
 	],

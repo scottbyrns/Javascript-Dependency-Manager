@@ -192,6 +192,27 @@
             "versions": [
                 "1.0.0-SNAPSHOT"
             ]
+        },
+        {
+            "groupId": "com.github.evilstreak",
+            "artifactId": "MarkdownJS",
+            "versions": [
+                "0.6.0-BETA1"
+            ]
+        },
+        {
+            "groupId": "com.scottbyrns.widgets.jdm",
+            "artifactId": "MarkdownViewer",
+            "versions": [
+                "1.0.0-SNAPSHOT"
+            ]
+        },
+        {
+            "groupId": "com.scottbyrns.ajax",
+            "artifactId": "FileDownloader",
+            "versions": [
+                "1.0.0-SNAPSHOT"
+            ]
         }
     ]
 }

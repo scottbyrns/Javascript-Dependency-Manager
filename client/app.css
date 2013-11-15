@@ -455,11 +455,49 @@
 	
 	
 	
+	.markdown-viewer
+	{
+		padding:35px;
+		color:#888;
+	}
 	
 	
+	.markdown-viewer h1, 
+	.markdown-viewer h2,
+	.markdown-viewer h3,
+	.markdown-viewer h4,
+	.markdown-viewer h5,
+	.markdown-viewer h6
+	{
+		border-bottom:1px solid;
+		margin-top:40px;
+		color:#AAA;
+	}
 	
+	.markdown-viewer a,
+	.markdown-viewer strong,
+	.markdown-viewer i
+	{
+		color:#FAFAFA;
+	}
 	
+	.markdown-viewer p
+	{
+		padding-right:50px;
+		padding-bottom: 10px;
+		margin-bottom:25px;
+		color:#666;
+	}
 	
+	.markdown-viewer code
+	{
+		white-space: pre-wrap;                 /* CSS3 browsers  */
+		white-space: -moz-pre-wrap !important; /* 1999+ Mozilla  */
+		white-space: -pre-wrap;                /* Opera 4 thru 6 */
+		white-space: -o-pre-wrap;              /* Opera 7 and up */
+		word-wrap: break-word; 
+		color:#F0F0F0;
+	}
 	
 	
 	

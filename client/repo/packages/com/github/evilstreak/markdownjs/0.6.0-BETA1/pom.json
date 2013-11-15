@@ -1,0 +1,20 @@
+{
+    "name": "markdown-js",
+    "description": "A Markdown parser for javascript",
+    "groupId": "com.github.evilstreak",
+    "artifactId": "MarkdownJS",
+    "version": "0.6.0-BETA1",
+    "url": "https://github.com/evilstreak/markdown-js",
+    "scm": "https://github.com/evilstreak/markdown-js.git",
+    "issueTracking": "https://github.com/evilstreak/markdown-js/issues",
+    "developers": [
+        {
+            "name": "evilstreak"
+        }
+    ],
+    "sources": [
+        "markdown.js"
+    ],
+    "dependencies": [],
+    "configuration": {}
+}

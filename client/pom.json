@@ -108,7 +108,8 @@
 		"widgets/version-toggle.js",
 		"widgets/dependency-overview.js",
 		"widgets/document-controller.js",
-		"widgets/package-uploader.js"
+		"widgets/package-uploader.js",
+		"widgets/file-icon.js"
 	],
 	
 	"configuration": {

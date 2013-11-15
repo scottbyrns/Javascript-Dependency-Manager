@@ -139,7 +139,7 @@ LiveWidgets.addWidget({
 						for (var i = 0, len = artifact.sources.length; i < len; i += 1) {
 							var source = artifact.sources[i];
 							console.log(source);
-							sources.push('<tr><td>' + source + '</td></tr>');
+							sources.push('<tr><td><div data-widget="file-icon">' + source + '</div></td></tr>');
 						}
 						
 						sources.push('</table>');	

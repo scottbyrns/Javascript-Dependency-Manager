@@ -1468,6 +1468,11 @@
 	{
 		cursor:move;
 	}
+	
+	div.dependencies td
+	{
+		height: 145px;
+	}
 
 	div.dependencies span:hover
 	{

@@ -13,8 +13,7 @@
         }
     ],
     "sources": [
-        "repo-data-source.js",
-        "README.md"
+        "repo-data-source.js"
     ],
     "dependencies": [
         {

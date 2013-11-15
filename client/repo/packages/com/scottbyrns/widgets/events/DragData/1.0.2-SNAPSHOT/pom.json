@@ -14,9 +14,7 @@
     ],
     "sources": [
         "drag-data.js",
-        "draggable-file-download.js",
-        "README.md",
-        "README.md"
+        "draggable-file-download.js"
     ],
     "dependencies": [
         {

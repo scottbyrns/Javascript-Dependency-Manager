@@ -355,6 +355,56 @@ io.sockets.on('connection', function(socket) {
 	
 	
 	
+	socket.on("update-package", function (newPackage) {
+		
+		
+		
+		
+		
+		var data = JSON.parse(newPackage.data);
+		
+		var path = "./client/repo/packages/" + data.groupId.split(".").join("/") + "/" + data.artifactId + "/" + data.version;
+		
+		console.log(JSON.stringify(data, null, 5));
+
+
+	
+		var pom = {
+			name: data.name,
+			description: data.description,
+			groupId: data.groupId,
+			artifactId: data.artifactId,
+			version: data.version,
+			"url": data.url,
+			"scm": data.scm,
+			"issueTracking": data.issueTracking,
+			developers: data.developers,
+			sources: data.sources,
+			dependencies: data.dependencies,
+			configuration: {}
+		}
+		
+		console.log(JSON.stringify(pom, null, 5));
+		
+		fs.writeFile(path + "/pom.json", JSON.stringify(pom, null, 4), function(err) {
+		    if(err) {
+		        console.log(err);
+		    } else {
+		        console.log("The file was saved!");
+		    }
+		});
+		
+		
+		
+	});
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

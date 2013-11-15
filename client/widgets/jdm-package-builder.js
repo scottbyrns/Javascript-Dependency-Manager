@@ -89,12 +89,91 @@ LiveWidgets.addWidget({
 					
 					// console.log("Save Data", package);
 					
-					socket.emit("save-package", {data:JSON.stringify(package)});
+					if (this.model.editMode) {
+						socket.emit("update-package", {data:JSON.stringify(package)});
+					}
+					else
+					{
+						socket.emit("save-package", {data:JSON.stringify(package)});
+					}
 				},
 				
 				handleMessage: function (data, channel) {
 					// console.log("jdm-package-builders", arguments);
+				
+					if (channel == "edit-artifact") {
+						
+						this.model.editMode = true;
+						
+						document.getElementsByName("group-id", this.element)[0].setAttribute("value", data.groupId);
+						document.getElementsByName("artifact-id", this.element)[0].setAttribute("value", data.artifactId);
+						document.getElementsByName("artifact-version", this.element)[0].setAttribute("value", data.version);
+						
+						
+						document.getElementsByName("group-id", this.element)[0].setAttribute("disabled", "disabled");
+						document.getElementsByName("artifact-id", this.element)[0].setAttribute("disabled", "disabled");
+						document.getElementsByName("artifact-version", this.element)[0].setAttribute("disabled", "disabled");
+						
+						document.getElementById("source-dropzone").style.display="none";
+						
+						
+						
+						document.getElementsByName("package-description", this.element)[0].innerHTML = data.description;
+						document.getElementsByName("package-name", this.element)[0].setAttribute("value", data.name);
+						document.getElementsByName("author-name", this.element)[0].setAttribute("value", data.developers[0].name);
+						document.getElementsByName("homepage-url", this.element)[0].setAttribute("value", data.url);
+						document.getElementsByName("version-control", this.element)[0].setAttribute("value", data.scm);
+						document.getElementsByName("issue-tracker-url", this.element)[0].setAttribute("value", data.issueTracking);
+						
+						this.model.dependencies = data.dependencies;
+						
+						this.controller.drawDependencies();
+						
+						// alert(JSON.stringify(data.sources))
+						document.getElementById("add-sources").innerHTML = "";
+						for (var i = 0, len = data.sources.length; i < len; i += 1) {
+							var itemCell = new com.scottbyrns.Elements.Table.Cell();
+							itemCell.setValue(data.sources[i]);
 
+							var sourceRow = new com.scottbyrns.Elements.Table.Row();
+							sourceRow.addCell(itemCell.element);
+						
+							document.getElementById("source-dropzone").style.opacity="0.25"
+						
+							// console.log(sourceRow);
+							document.getElementById("add-sources").appendChild(sourceRow.element)
+							
+						}
+						
+						this.model.sources = data.sources;
+						
+
+						this.controller.handleMessage("package-name");
+						this.controller.handleMessage("package-description");
+						this.controller.handleMessage("group-id");
+						this.controller.handleMessage("artifact-id");
+						this.controller.handleMessage("artifact-version");
+						this.controller.handleMessage("author-name");
+						this.controller.handleMessage("homepage-url");
+						this.controller.handleMessage("version-control");
+						this.controller.handleMessage("issue-tracker-url");
+
+						
+						
+						
+						// document.getElementsByName("package-name", this.element)[0].setAttribute("value", data.name);
+						// document.getElementsByName("package-name", this.element)[0].setAttribute("value", data.name);
+						
+					}
+					else {
+						
+						
+						
+					}
+					
+					
+					
+					
 					if (channel == "remove-dependency-overview") {
 
 						
@@ -111,20 +190,6 @@ LiveWidgets.addWidget({
 						}
 					}
 				
-					if (channel == "edit-artifact") {
-						
-						
-						document.getElementsByName("group-id", this.element)[0].setAttribute("value", data.groupId);
-						document.getElementsByName("artifact-id", this.element)[0].setAttribute("value", data.artifactId);
-						document.getElementsByName("artifact-version", this.element)[0].setAttribute("value", data.version);
-						
-						document.getElementsByName("package-description", this.element)[0].innerHTML = JSON.stringify(data, null ,4);
-						document.getElementsByName("package-name", this.element)[0].setAttribute("value", data.name);
-						document.getElementsByName("author-name", this.element)[0].setAttribute("value", data.developers[0].name);
-						// document.getElementsByName("package-name", this.element)[0].setAttribute("value", data.name);
-						// document.getElementsByName("package-name", this.element)[0].setAttribute("value", data.name);
-						
-					}
 
 					if (data === "save") {
 						// console.log("save", this.controller.validateDataSet())
@@ -243,11 +308,6 @@ LiveWidgets.addWidget({
 						if (this.model.issueTrackerUrl != "") {
 							document.getElementsByName("issue-tracker-url", this.element)[0].setAttribute("class", "filled");
 						}
-						
-						
-						
-						// var cell = document.getElementsByName("issue-tracker-url", this.element)[0].parentNode;
-						// cell.innerHTML = this.model.issueTrackerUrl;
 						
 					}
 
@@ -421,6 +481,7 @@ LiveWidgets.addWidget({
 				
         },
 		constructor: function () {
+			this.model.editMode = false;
 			document.getElementById("dependencies-dropzone").removeEventListener("drop", this.controller.handleDrop);
 			document.getElementById("dependencies-dropzone").addEventListener("drop", this.controller.handleDrop, true);
 			

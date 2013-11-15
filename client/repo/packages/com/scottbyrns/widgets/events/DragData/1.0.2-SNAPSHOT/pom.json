@@ -8,7 +8,9 @@
     "scm": "git@github.com:scottbyrns/Drag-Data.git",
     "issueTracking": "https://github.com/scottbyrns/Drag-Data/issues",
     "developers": [
-        {}
+        {
+            "name": "Scott Byrns"
+        }
     ],
     "sources": [
         "drag-data.js",

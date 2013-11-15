@@ -244,15 +244,32 @@ io.sockets.on('connection', function(socket) {
 					var fileContent = data.sources[i].data;
 					var fileName = data.sources[i].file.name;
 
-					pom.sources.push(fileName);
+					if (fileName == "README.md") {
+						
+						fs.writeFile(path + "../README.md", fileContent, function(err) {
+						    if(err) {
+						        console.log(err);
+						    } else {
+						        console.log("The file was saved!");
+						    }
+						});
+						
+					}
+					else
+					{
 
-					fs.writeFile(path + fileName, fileContent, function(err) {
-					    if(err) {
-					        console.log(err);
-					    } else {
-					        console.log("The file was saved!");
-					    }
-					});
+						pom.sources.push(fileName);
+
+						fs.writeFile(path + fileName, fileContent, function(err) {
+						    if(err) {
+						        console.log(err);
+						    } else {
+						        console.log("The file was saved!");
+						    }
+						});
+					
+						
+					}
 					
 				}
 				
@@ -378,7 +395,7 @@ io.sockets.on('connection', function(socket) {
 			fs.readFile("/tmp/" + tar.file.name.replace(".tar", "") + "/pom.json", function (err, file) {
 
 				console.log(file);
-				console.log("The file was saved!");
+				console.log("TODO Extract tar to repo.");
 
 			});
 			
@@ -449,11 +466,17 @@ io.sockets.on('connection', function(socket) {
 		console.log(JSON.stringify(pom, null, 5));
 		
 		fs.writeFile(path + "/pom.json", JSON.stringify(pom, null, 4), function(err) {
+			
 		    if(err) {
+				
 		        console.log(err);
+				
 		    } else {
+				
 		        console.log("The file was saved!");
+				
 		    }
+			
 		});
 		
 		

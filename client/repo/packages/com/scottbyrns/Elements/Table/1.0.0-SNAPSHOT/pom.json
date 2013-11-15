@@ -1,31 +1,24 @@
 {
-	
-	"name": "HTML Tables",
-	"description": "Various classes for building tables.",
-
-	"groupId": "com.scottbyrns.Elements",
-	"artifactId": "Table",
-	"version": "1.0.0-SNAPSHOT",
-	
-	"developers": [
-		{
-			"name":"Scott Byrns"
-		}
-	],
-	
-	"dependencies": [
-		
-	],
-	
-	"sources": [
-		"Table.js",
-		"Column.js",
-		"Row.js",
-		"Cell.js"
-	],
-	
-	"configuration": {
-		
-	}
-	
+    "name": "HTML Tables",
+    "description": "Various classes for building tables.",
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAABgCAYAAADW4bYkAAAABmJLR0QA/wD/AP+gvaeTAAAAB3RJTUUH2wgTCSw3SKwA0gAAAlhJREFUeJzt3L1qFUEAR/GToCIkYKFICAlEC7UwIDY22vkEgiA+gTY+i6+hNim0Umy0sLa1EUlx/UAhEMQYE5sUYZ2brHf2fuyf84NphtnMXA5s2IS7IEmSpmGuxZpF4Py4D6KRfAa2R714BXgC7AL7jpkcv4BnwOqQhkMtA59m4AM42o0BsFYKOczTGTi04//G81LI0u/gBeA7cKp0gWbWHrAEfD08OV9YuIJx+2geuFiabDJuf51sTpQCK4iBwxk43ImKazeAd5X7P+D457cB8Lhyn767Btzr6oet0+6562EHe71psc/7Dvbpu/u0a3KzeaG36HAGDmfgcAYOZ+BwBg5n4HAGDmfgcAYOZ+BwBg5n4HAGDmfgcDX/8H8E3Knc/2qLNReAl5X79N3SqBfWBL5yMMZtEbg9gX0ieYsOZ+BwBg5n4HAGDmfgcAYOV/Mc/A3Yqtx/GTh9zJodYLNyn77r9D0pfrNh9vjNBpUZOJyBwxk4nIHDGTicgcMZOJyBwxk4nIHDGTicgcMZOJyBwxk4nIHDGTicgcMZOJyBwxk4nIHDGTicgcMZOJyBwxk4nIHDGTicgcMZOJyBwxk4nIHDGTicgcMZOJyBw9W8CO06cLdy/3Mt1pzpYJ++uzHqhXOFuXV8+Vhf3QLeHp7wFh3OwOEMHK4UeGfip1BXdpsTpcCbwO/xn0Ud2wc+NidLgbeBjXGfRp17DQzaLl49WNzmHcWO6Y8fwOViySOsAS+APzPwARzlsQe84oi4pT90NJ0FLgELLdZqcn4CH4Av0z6IJEn6118Qr2/BflsTKAAAAABJRU5ErkJggg==",
+    "groupId": "com.scottbyrns.Elements",
+    "artifactId": "Table",
+    "version": "1.0.0-SNAPSHOT",
+    "url": "undefined",
+    "scm": "undefined",
+    "issueTracking": "undefined",
+    "developers": [
+        {
+            "name": "Scott Byrns"
+        }
+    ],
+    "sources": [
+        "Table.js",
+        "Column.js",
+        "Row.js",
+        "Cell.js"
+    ],
+    "dependencies": [],
+    "configuration": {}
 }

@@ -48,6 +48,8 @@ LiveWidgets.addWidget({
 			
 			this.model.artifact = artifact;
 			
+			this.element.getElementsByClassName("artifact-icon")[0].style.backgroundImage = 'url(' + artifact.icon + ')';
+			
 		},
 		dragEnd: function (event) {
 			if (this.model.dragging) {

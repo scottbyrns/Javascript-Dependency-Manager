@@ -85,6 +85,7 @@ LiveWidgets.addWidget({
 						'draggable="true"' ,
 						'data-data="' + encodeURIComponent(JSON.stringify(message)) + '"',
 						">",
+						'<div class="artifact-icon"></div>',
 							"<h5>" + message.name + "</h5>",
 							
 							"<p>" + message.description + "</p>",
@@ -103,6 +104,7 @@ LiveWidgets.addWidget({
 						listItem.element.setAttribute("id", message.groupId + message.artifactId + message.version);
 
 						listItem.element.innerHTML = artifact;// + "\n" + listItem2.element.innerHTML;
+						listItem.element.getElementsByClassName("artifact-icon")[0].style.backgroundImage = "url(" + message.icon + ")";
 					}
 					
 					// if (message == "get-artifact-data") {
@@ -161,8 +163,12 @@ LiveWidgets.addWidget({
 			
             document.getElementById("search", this.element).focus();
 		
+
 			setTimeout(function () {
 				this.sendMessage("download-repo-data");
+			}.bind(this), 80);
+			setTimeout(function () {
+
 				this.sendMessage("get-artifact-data", {
 					context:this,
 					callback: function (term) {
@@ -171,6 +177,6 @@ LiveWidgets.addWidget({
 						}.bind(this)
 					}.bind(this)("nop")
 				});
-			}.bind(this), 80);
+			}.bind(this), 500);
         }
 });

@@ -45,11 +45,6 @@
 			"version": "1.0.0-SNAPSHOT"
 		},
 		{
-			"groupId": "com.github.ajaxorg",
-			"artifactId": "AceBuilds",
-			"version": "1.0.0-SNAPSHOT"
-		},
-		{
 			"groupId": "com.scottbyrns.HTML5.IO",
 			"artifactId": "File",
 			"version": "1.0.2-SNAPSHOT"
@@ -75,11 +70,6 @@
 		    "version": "1.0.0-SNAPSHOT"
 		},
 		{
-		    "groupId": "com.scottbyrns.widgets.utilities.Editor",
-		    "artifactId": "CodeEditor",
-		    "version": "1.0.0-SNAPSHOT"
-		},
-		{
 		    "groupId": "com.scottbyrns.widgets.events",
 		    "artifactId": "DragData",
 		    "version": "1.0.2-SNAPSHOT"
@@ -101,7 +91,7 @@
 	
 	"sources": [
 
-		"widgets/module-list.js",
+
 		"widgets/artifact-viewer.js",
 		"widgets/jdm-package-builder.js",
 		"widgets/activity-workspace.js",
@@ -109,7 +99,11 @@
 		"widgets/dependency-overview.js",
 		"widgets/document-controller.js",
 		"widgets/package-uploader.js",
-		"widgets/file-icon.js"
+		"widgets/file-icon.js",
+		
+		
+		
+		"widgets/module-list.js"
 	],
 	
 	"configuration": {

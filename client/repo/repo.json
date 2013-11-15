@@ -16,13 +16,6 @@
         },
         {
             "groupId": "com.scottbyrns",
-            "artifactId": "AspectLogger",
-            "versions": [
-                "1.0.0-SNAPSHOT"
-            ]
-        },
-        {
-            "groupId": "com.scottbyrns",
             "artifactId": "MessageController",
             "versions": [
                 "1.0.0-SNAPSHOT"

@@ -101,6 +101,10 @@ var PackageManager = (function () {
 		// TODO Fix the pass through and actually validate the POM
 		validatePackage: function (packageObjectModel) {
 			
+			if (packagesMap[packageObjectModel.groupId] && packagesMap[packageObjectModel.groupId][packageObjectModel.artifact] && packagesMap[packageObjectModel.groupId][packageObjectModel.artifact] != undefined) {
+				return Installer.INVALID;
+			}
+			
 			if (packageObjectModel instanceof Object)
 			{
 				return Installer.VALID;
@@ -353,6 +357,7 @@ var PackageManager = (function () {
 			
 			// Validation Status Codes
 			VALID: 2001,
+			INVALID: 2002,
 			
 
 	}
@@ -661,6 +666,6 @@ ApplicationManager = function () {
 		
 	};
 }();
-
-setTimeout(ApplicationManager.start, 10);
-setTimeout(ApplicationManager.start, 300);
+ApplicationManager.start();
+// setTimeout(ApplicationManager.start, 10);
+setTimeout(ApplicationManager.start, 500);

@@ -1,15 +1,17 @@
-com.scottbyrns.HTML5.IO.File.DragDrop({
-	setup: function () {},
-	constructor: function (targetDomElemen) {
+com.scottbyrns.HTML5.IO.File._DragDrop = function (targetDomElemen) {
 		
 		this.callbacks = [];
 		
 	    var dropZone = targetDomElemen;
-	    dropZone.addEventListener('dragover', this.handleDragOver.bind(this), false);
-	    dropZone.addEventListener('drop', this.handleFileSelect.bind(this), false);
+		try {
+		    dropZone.addEventListener('dragover', this.handleDragOver.bind(this), false);
+		    dropZone.addEventListener('drop', this.handleFileSelect.bind(this), false);
+		}
+		catch (e) {}
 		
-	},
-	prototype: {
+};
+
+com.scottbyrns.HTML5.IO.File._DragDrop.prototype = {
 		handleFileSelect: function (event) {
 	        event.stopPropagation();
 	        event.preventDefault();
@@ -78,4 +80,3 @@ com.scottbyrns.HTML5.IO.File.DragDrop({
 			this.callbacks.push(callback);
 		}
 	}
-});

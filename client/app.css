@@ -313,6 +313,7 @@
 /*		padding:18px 20px;*/
 		cursor:pointer;
 		position:relative;
+		min-height:149px;
 	}
 	
 	#workspace #modules ul li
@@ -799,26 +800,54 @@
 	
 	
 	
-	
-	
-	div.artifact-icon
+	.artifact-icon:hover
 	{
+		-webkit-filter: grayscale(0);
+	}
+	
+	#modules .artifact-icon
+	{
+		margin-right:20px;
+		opacity:0.3;
+		-webkit-filter: grayscale(50%) blur(2px);
+	}
+	
+	#modules li:hover .artifact-icon	
+	{
+		-webkit-filter: grayscale(20%);
+		opacity:0.7;
+	}
+	
+	#workspace #modules p
+	{
+		width:80%;
+	}
+	
+	.artifact-icon
+	{
+		-webkit-filter: grayscale(30%);
 /*		background-image: url(http://dribbble.s3.amazonaws.com/users/35/screenshots/347322/prism-icon.png);*/
 		height: 113px;
-		width: 115px;
-		background-position: -51px, -50px;
+		width: 113px;
+		background-position: -50%, -50% !important;
 		border-radius: 22px;
-		display: inline-block;
+
+		display: inline-block !important;
 		float:left;
 		margin-right:30px;
 /*		opacity:0.5;*/
-		background-color:rgb(65,66,61);
-		background-position:center center;
-		background-size: 100%;
-		overflow:hidden;
-		
-		position:relative;
+		background-color:rgb(65,66,61) !important;
+		background-position:center center !important;
+		background-size: 70% !important;
+		overflow:hidden !important;
+		padding:0px !important;
+		position:relative !important;
+		background-repeat:no-repeat !important;
 /*		border:1px solid #000;*/
+	}
+	
+	aside .artifact-icon {
+		background-color:#FAFAFA !important;
 	}
 	
 	div.artifact-icon img
@@ -1478,10 +1507,15 @@
 	
 	
 	
-	
+	div.dependencies p,
+	div.dependencies h6
+	{
+		color:rgba(255,255,255,0.2);
+	}
 	div.dependencies span
 	{
 		cursor:move;
+
 	}
 	
 	div.dependencies td

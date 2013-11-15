@@ -256,6 +256,9 @@ LiveWidgets.addWidget({
 					
 					this.element.innerHTML = html;
 					
+					this.element.getElementsByClassName("artifact-icon")[0].style.backgroundImage = "url(" + artifact.icon + ")";
+					// alert(artifact.icon)
+					
 					com.scottbyrns.ajax.FileDownloader.FileDownloader.download("repo/packages/" + artifact.groupId.split(".").join("/") + "/" + artifact.artifactId + "/" + artifact.version + "/README.md", function () {
 						this.sendMessage(arguments[0], "render-markdown");
 					}.bind(this));

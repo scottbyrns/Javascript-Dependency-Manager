@@ -52,7 +52,7 @@
 		{
 			"groupId": "com.scottbyrns.HTML5.IO",
 			"artifactId": "File",
-			"version": "1.0.1-SNAPSHOT"
+			"version": "1.0.2-SNAPSHOT"
 		},
 		{
 		    "groupId": "com.scottbyrns",
@@ -96,7 +96,8 @@
 		"widgets/activity-workspace.js",
 		"widgets/version-toggle.js",
 		"widgets/dependency-overview.js",
-		"widgets/document-controller.js"
+		"widgets/document-controller.js",
+		"widgets/package-uploader.js"
 	],
 	
 	"configuration": {

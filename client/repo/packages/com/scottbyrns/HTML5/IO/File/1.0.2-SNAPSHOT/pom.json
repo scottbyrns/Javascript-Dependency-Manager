@@ -1,0 +1,22 @@
+{
+    "name": "File Handling",
+    "description": "File handling classes.",
+    "groupId": "com.scottbyrns.HTML5.IO",
+    "artifactId": "File",
+    "version": "1.0.2-SNAPSHOT",
+    "url": "https://github.com/scottbyrns/HTML5-File-IO",
+    "scm": "https://github.com/scottbyrns/HTML5-File-IO.git",
+    "issueTracking": "https://github.com/scottbyrns/HTML5-File-IO/issues",
+    "developers": [
+        {
+            "name": "Scott Byrns"
+        }
+    ],
+    "sources": [
+        "DownloadDataURL.js",
+        "DragDrop.js",
+		"README.md"
+    ],
+    "dependencies": [],
+    "configuration": {}
+}

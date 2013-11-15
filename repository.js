@@ -351,7 +351,56 @@ io.sockets.on('connection', function(socket) {
 	
 	
 	
+	socket.on("package-upload", function (tar) {
+		
+		// console.log(tar);
+		
+		// var fileName = "package-upload" + Math.random();
+		
+		var string = tar.url;
+		var regex = /^data:.+\/(.+);base64,(.*)$/;
 	
+		// var name = package.pom.groupId + package.pom.artifactId + package.pom.version;
+
+		var matches = string.match(regex);
+		var ext = matches[1];
+		var data = matches[2];
+		var buffer = new Buffer(data, 'base64');
+		
+		
+		
+		fs.writeFileSync('/tmp/' + tar.file.name, buffer);
+
+		exec("cd /tmp; " + 'tar -xf /tmp/' + tar.file.name, function () {
+			
+			
+			
+			fs.readFile("/tmp/" + tar.file.name.replace(".tar", "") + "/pom.json", function (err, file) {
+
+				console.log(file);
+				console.log("The file was saved!");
+
+			});
+			
+			
+
+		});
+		
+		// fs.writeFile('/tmp/' + tar.file.name, (tar.data), function(err) {
+		//     if(err) {
+		//         console.log(err);
+		//     } else {
+		// 		
+		// 		exec("cd /tmp; " + 'tar -xf /tmp/' + fileName + ".tar" + " /tmp/" + fileName, function () {
+		// 			console.log(fileName);
+		// 		});
+		// 			console.log(tar.file.name);				
+		//         console.log("The file was saved!");
+		//     }
+		// });
+		
+		
+	});
 	
 	
 	

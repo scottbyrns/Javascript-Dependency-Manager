@@ -179,14 +179,19 @@ com.scottbyrns.LiveWidgets.Framework({
 					widget.constructor.call(this);
 			
 					if (this.model.inlets) {
-												alert('asdf')
+						
 						var inlets = [];
+						
 						if (this.model.inlets.indexOf("|") > -1) {
+							
 							inlets = this.model.inlets.split("|");
+							
 						}
 						else
 						{
+							
 							inlets.push(this.model.inlets);
+							
 						}
 				
 						for (var i = 0, len = inlets.length; i < len; i += 1)

@@ -8,7 +8,9 @@
     "scm": "git@github.com:scottbyrns/JDM-Data-Source.git",
     "issueTracking": "https://github.com/scottbyrns/JDM-Data-Source/issues",
     "developers": [
-        {}
+        {
+            "name": "Scott Byrns"
+        }
     ],
     "sources": [
         "repo-data-source.js",
@@ -18,7 +20,7 @@
         {
             "groupId": "com.scottbyrns",
             "artifactId": "LiveWidgets",
-            "version": "1.0.1-SNAPSHOT"
+            "version": "1.0.2-SNAPSHOT"
         }
     ],
     "configuration": {}

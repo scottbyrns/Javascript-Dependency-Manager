@@ -4,11 +4,13 @@
     "groupId": "com.scottbyrns.widgets",
     "artifactId": "TabViewController",
     "version": "1.0.0-SNAPSHOT",
-    "url": ".",
-    "scm": ".",
-    "issueTracking": ".",
+    "url": "https://github.com/scottbyrns/HTML5-File-IO",
+    "scm": "https://github.com/scottbyrns/HTML5-File-IO.git",
+    "issueTracking": "https://github.com/scottbyrns/HTML5-File-IO/issues",
     "developers": [
-        {}
+        {
+            "name": "Scott Byrns"
+        }
     ],
     "sources": [
         "tab-view-controller.js"
@@ -17,7 +19,7 @@
         {
             "groupId": "com.scottbyrns",
             "artifactId": "LiveWidgets",
-            "version": "1.0.1-SNAPSHOT"
+            "version": "1.0.2-SNAPSHOT"
         }
     ],
     "configuration": {}

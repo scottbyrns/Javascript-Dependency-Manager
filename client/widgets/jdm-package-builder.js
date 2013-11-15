@@ -125,7 +125,17 @@ LiveWidgets.addWidget({
 						document.getElementsByName("version-control", this.element)[0].setAttribute("value", data.scm);
 						document.getElementsByName("issue-tracker-url", this.element)[0].setAttribute("value", data.issueTracking);
 						
-						this.model.dependencies = data.dependencies;
+						this.model.dependencies = [];
+						
+						for (var i = 0, len = data.dependencies.length; i < len; i += 1) {
+							
+							this.model.dependencies.push({
+								groupId: data.dependencies[i].groupId,
+								artifactId: data.dependencies[i].artifactId,
+								version: data.dependencies[i].version
+							});
+							
+						}
 						
 						this.controller.drawDependencies();
 						

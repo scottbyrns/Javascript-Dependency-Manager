@@ -367,8 +367,21 @@ io.sockets.on('connection', function(socket) {
 		
 		console.log(JSON.stringify(data, null, 5));
 
-
-	
+		
+		
+		var dependencies = [];
+		
+		for (var i = 0, len = data.dependencies.length; i < len; i += 1) {
+			
+			dependencies.push({
+				groupId: data.dependencies[i].groupId,
+				artifactId: data.dependencies[i].artifactId,
+				version: data.dependencies[i].version
+			});
+			
+		}
+		
+		
 		var pom = {
 			name: data.name,
 			description: data.description,
@@ -380,7 +393,7 @@ io.sockets.on('connection', function(socket) {
 			"issueTracking": data.issueTracking,
 			developers: data.developers,
 			sources: data.sources,
-			dependencies: data.dependencies,
+			dependencies: dependencies,
 			configuration: {}
 		}
 		

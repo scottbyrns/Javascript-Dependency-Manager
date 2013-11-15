@@ -4,25 +4,27 @@
     "groupId": "com.scottbyrns.widgets.HTML5.io",
     "artifactId": "SocketIOConnector",
     "version": "1.0.0-SNAPSHOT",
-    "url": "a",
-    "scm": "a",
-    "issueTracking": "a",
+    "url": "https://github.com/scottbyrns/Socket-IO-Connector",
+    "scm": "https://github.com/scottbyrns/Socket-IO-Connector.git",
+    "issueTracking": "https://github.com/scottbyrns/Socket-IO-Connector/issues",
     "developers": [
-        {}
+        {
+            "name": "Scott Byrns"
+        }
     ],
     "sources": [
         "socket-io-connector.js"
     ],
     "dependencies": [
         {
-            "groupId": "com.scottbyrns",
-            "artifactId": "LiveWidgets",
-            "version": "1.0.1-SNAPSHOT"
-        },
-        {
             "groupId": "io.socket",
             "artifactId": "SocketIO",
             "version": "1.0.0-LOCALHOST"
+        },
+        {
+            "groupId": "com.scottbyrns",
+            "artifactId": "LiveWidgets",
+            "version": "1.0.2-SNAPSHOT"
         }
     ],
     "configuration": {}

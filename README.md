@@ -86,6 +86,7 @@ In general the internet is ready for a fresh evolution of the aged web 2.0 ajax 
 
 
 
+
 ## Spec
 
 ### Group ID
@@ -116,3 +117,19 @@ In general the internet is ready for a fresh evolution of the aged web 2.0 ajax 
 ### URL
 
 ### IssueTracking
+
+
+
+
+
+## Console
+
+### Artifact List
+![alt text](https://raw.github.com/scottbyrns/Javascript-Dependency-Manager/master/client/documentation/main-view.png "asdf")
+
+### View Artifact
+![alt text](https://raw.github.com/scottbyrns/Javascript-Dependency-Manager/master/client/documentation/artifact-overview.png "asdf")
+### Creat Artifact
+![alt text](https://raw.github.com/scottbyrns/Javascript-Dependency-Manager/master/client/documentation/create-artifact.png "asdf")
+### Edit Artifact
+

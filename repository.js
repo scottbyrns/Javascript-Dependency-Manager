@@ -492,7 +492,7 @@ io.sockets.on('connection', function(socket) {
 		
 		
 		if (data.readmeData) {
-			fs.writeFile(path + "../README.md", data.readmeData, function(err) {
+			fs.writeFile(path + "/README.md", data.readmeData, function(err) {
 			    if(err) {
 			        console.log(err);
 			    } else {

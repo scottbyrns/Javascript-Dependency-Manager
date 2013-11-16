@@ -3,6 +3,9 @@ com.scottbyrns.widgets.jdm
 
 Live Widget for rendering markdown as HTML.
 
+## Editor Features
+
+Provides access to EpicEditor features through the message layer.
 
 ### Handled Messages
 

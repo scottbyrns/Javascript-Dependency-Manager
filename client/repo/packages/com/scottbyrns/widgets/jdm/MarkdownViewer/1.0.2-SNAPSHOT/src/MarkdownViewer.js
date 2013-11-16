@@ -25,7 +25,7 @@ LiveWidgets.addWidget({
 		},
 		
 		notifyReadmeSave: function () {
-			this.sendMessage(this.model.textarea.innerHTML, "md-edit-complete");
+			this.sendMessage(this.model.editor.exportFile(), "md-edit-complete");
 		},
 		
 		

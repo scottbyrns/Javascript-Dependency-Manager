@@ -97,7 +97,7 @@ LiveWidgets.addWidget({
 					};
 					
 					if (this.model.readmeData) {
-						package.reademeData = this.model.readmeData;
+						package.readmeData = this.model.readmeData;
 					}
 					
 					// console.log("Save Data", package);
@@ -112,7 +112,7 @@ LiveWidgets.addWidget({
 				},
 				
 				handleMessage: function (data, channel) {
-					// console.log("jdm-package-builders", arguments);
+					console.log("jdm-package-builders", arguments);
 				
 					if (channel == "md-edit-complete")
 					{

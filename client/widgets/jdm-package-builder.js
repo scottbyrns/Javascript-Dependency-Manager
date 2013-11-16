@@ -172,6 +172,8 @@ LiveWidgets.addWidget({
 
 						
 						
+						this.model.icon = data.icon;
+						document.getElementById("artifact-icon").style.backgroundImage = "url(" + data.icon + ")";
 						
 						// document.getElementsByName("package-name", this.element)[0].setAttribute("value", data.name);
 						// document.getElementsByName("package-name", this.element)[0].setAttribute("value", data.name);

@@ -372,6 +372,34 @@ LiveWidgets.addWidget({
 							document.getElementsByName("version-control", this.element)[0].setAttribute("value", data.data.scm);
 							document.getElementsByName("issue-tracker-url", this.element)[0].setAttribute("value", data.data.issueTracking);
 					
+							this.model.icon = data.data.icon;
+							document.getElementById("artifact-icon").style.backgroundImage = "url(" + data.data.icon + ")";
+					
+					
+							this.model.dependencies = [];
+						
+							for (var i = 0, len = data.data.dependencies.length; i < len; i += 1) {
+							
+								this.model.dependencies.push({
+									groupId: data.data.dependencies[i].groupId,
+									artifactId: data.data.dependencies[i].artifactId,
+									version: data.data.dependencies[i].version
+								});
+							
+							}
+						
+							this.controller.drawDependencies();
+						
+
+							this.controller.handleMessage("package-name");
+							this.controller.handleMessage("package-description");
+							this.controller.handleMessage("group-id");
+							this.controller.handleMessage("artifact-id");
+							this.controller.handleMessage("artifact-version");
+							this.controller.handleMessage("author-name");
+							this.controller.handleMessage("homepage-url");
+							this.controller.handleMessage("version-control");
+							this.controller.handleMessage("issue-tracker-url");
 					
 							
 						}

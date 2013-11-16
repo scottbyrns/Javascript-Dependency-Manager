@@ -57,7 +57,7 @@
 		{
 		    "groupId": "com.scottbyrns.widgets.jdm.repo",
 		    "artifactId": "DataSource",
-		    "version": "1.0.3-SNAPSHOT"
+		    "version": "1.0.4-SNAPSHOT"
 		},
 		{
 		    "groupId": "com.scottbyrns.widgets.events",

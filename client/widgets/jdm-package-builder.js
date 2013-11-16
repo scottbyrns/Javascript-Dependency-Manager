@@ -55,9 +55,16 @@ LiveWidgets.addWidget({
 					return true;
 				},
 				
+				showReadme: function () {
+					
+				},
+				
 				saveDataToServer: function () {
 					// console.log(this.model.dependencies);
 					// console.log(this.model.sources);
+					
+
+					
 					var package = {
 	
 						"name": this.model.name,
@@ -89,6 +96,10 @@ LiveWidgets.addWidget({
 	
 					};
 					
+					if (this.model.readmeData) {
+						package.reademeData = this.model.readmeData;
+					}
+					
 					// console.log("Save Data", package);
 					
 					if (this.model.editMode) {
@@ -103,9 +114,19 @@ LiveWidgets.addWidget({
 				handleMessage: function (data, channel) {
 					// console.log("jdm-package-builders", arguments);
 				
+					if (channel == "md-edit-complete")
+					{
+						this.model.readmeData = data;
+					}
+				
 					if (channel == "edit-artifact") {
 						
 						this.model.editMode = true;
+						
+					
+						com.scottbyrns.ajax.FileDownloader.FileDownloader.download("repo/packages/" + data.groupId.split(".").join("/") + "/" + data.artifactId + "/" + data.version + "/README.md", function () {
+							this.sendMessage(arguments[0], "edit-markdown");
+						}.bind(this));
 						
 						document.getElementsByName("group-id", this.element)[0].setAttribute("value", data.groupId);
 						document.getElementsByName("artifact-id", this.element)[0].setAttribute("value", data.artifactId);
@@ -353,7 +374,9 @@ LiveWidgets.addWidget({
 					if (channel == "dropped-file") {
 						
 						
-						
+						if (data.file.name == "README.md") {
+							this.sendMessage(data.data, "edit-markdown");
+						}
 
 						
 						

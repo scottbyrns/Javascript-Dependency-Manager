@@ -252,6 +252,10 @@ io.sockets.on('connection', function(socket) {
 
 					if (fileName == "README.md") {
 						
+						if (data.readmeData) {
+							fileContent = data.readmeData;
+						}
+						
 						fs.writeFile(path + "../README.md", fileContent, function(err) {
 						    if(err) {
 						        console.log(err);
@@ -485,6 +489,19 @@ io.sockets.on('connection', function(socket) {
 		    }
 			
 		});
+		
+		
+		if (data.readmeData) {
+			fs.writeFile(path + "../README.md", data.readmeData, function(err) {
+			    if(err) {
+			        console.log(err);
+			    } else {
+			        console.log("The file was saved!");
+			    }
+			});
+		}
+		
+
 		
 		
 		

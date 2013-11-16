@@ -1,0 +1,37 @@
+{
+    "name": "Markdown Viewer",
+    "description": "Live Widget for rendering markdown as HTML.",
+    "icon": "data:image/png;base64,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",
+    "groupId": "com.scottbyrns.widgets.jdm",
+    "artifactId": "MarkdownViewer",
+    "version": "1.0.2-SNAPSHOT",
+    "url": "https://github.com/scottbyrns/JDM-Markdown-Viewer",
+    "scm": "https://github.com/scottbyrns/JDM-Markdown-Viewer.git",
+    "issueTracking": "https://github.com/scottbyrns/JDM-Markdown-Viewer/issues",
+    "developers": [
+        {
+            "name": "Scott Byrns"
+        }
+    ],
+    "sources": [
+        "MarkdownViewer.js"
+    ],
+    "dependencies": [
+        {
+            "groupId": "com.github.evilstreak",
+            "artifactId": "MarkdownJS",
+            "version": "0.6.0-BETA1"
+        },
+        {
+            "groupId": "com.scottbyrns",
+            "artifactId": "LiveWidgets",
+            "version": "1.0.2-SNAPSHOT"
+        },
+        {
+            "groupId": "com.epiceditor",
+            "artifactId": "Editor",
+            "version": "0.2.2-BETA"
+        }
+    ],
+    "configuration": {}
+}

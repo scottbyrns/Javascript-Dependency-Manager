@@ -199,7 +199,8 @@
             "groupId": "com.scottbyrns.widgets.jdm",
             "artifactId": "MarkdownViewer",
             "versions": [
-                "1.0.0-SNAPSHOT"
+                "1.0.0-SNAPSHOT",
+                "1.0.2-SNAPSHOT"
             ]
         },
         {

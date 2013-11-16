@@ -251,7 +251,7 @@ LiveWidgets.addWidget({
 					// '</div>',
 					
 					'<div data-widget="artifact-sources-list" data-group="artifact-sources-list"></div>',
-					'<div data-widget="markdown-viewer" data-inlets="readme" class="markdown-viewer"></div>',						
+					'<div data-widget="markdown-viewer" data-inlets="readme" class="markdown-viewer"></div>',
 					].join("");
 					
 					this.element.innerHTML = html;

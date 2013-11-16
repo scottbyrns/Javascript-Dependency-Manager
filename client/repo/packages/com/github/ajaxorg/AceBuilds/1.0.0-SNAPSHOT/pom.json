@@ -5,9 +5,9 @@
     "groupId": "com.github.ajaxorg",
     "artifactId": "AceBuilds",
     "version": "1.0.0-SNAPSHOT",
-    "url": "undefined",
-    "scm": "undefined",
-    "issueTracking": "undefined",
+    "url": "http://ace.c9.io/",
+    "scm": "git://github.com/ajaxorg/ace.git",
+    "issueTracking": "https://github.com/ajaxorg/ace/issues",
     "developers": [
         {
             "name": "ajaxorg"

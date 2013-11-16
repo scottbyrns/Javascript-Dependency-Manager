@@ -5,9 +5,9 @@
     "groupId": "com.scottbyrns",
     "artifactId": "JavascriptUnit",
     "version": "1.0.0-SNAPSHOT",
-    "url": "undefined",
-    "scm": "undefined",
-    "issueTracking": "undefined",
+    "url": "https://github.com/scottbyrns/JavascriptUnit",
+    "scm": "https://github.com/scottbyrns/JavascriptUnit.git",
+    "issueTracking": "https://github.com/scottbyrns/JavascriptUnit/issues",
     "developers": [
         {
             "name": "Scott Byrns"

@@ -132,7 +132,8 @@
             "versions": [
                 "1.0.0-LOCALHOST",
                 "1.0.1-SNAPSHOT",
-                "1.0.2-SNAPSHOT"
+                "1.0.2-SNAPSHOT",
+                "1.0.3-SNAPSHOT"
             ]
         },
         {
@@ -205,6 +206,20 @@
             "artifactId": "FileDownloader",
             "versions": [
                 "1.0.0-SNAPSHOT"
+            ]
+        },
+        {
+            "groupId": "com.scottbyrns",
+            "artifactId": "DomExtensions",
+            "versions": [
+                "1.0.3-ALPHA"
+            ]
+        },
+        {
+            "groupId": "com.epiceditor",
+            "artifactId": "Editor",
+            "versions": [
+                "0.2.2-BETA"
             ]
         }
     ]

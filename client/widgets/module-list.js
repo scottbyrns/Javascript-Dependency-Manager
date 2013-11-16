@@ -120,7 +120,7 @@ LiveWidgets.addWidget({
         },
 		constructor: function () {
 
-			var repoList = PackageManager.getRepositoryMap().src.packages;
+			// var repoList = PackageManager.getRepositoryMap().src.packages;
 			this.model.navigationList = new com.scottbyrns.Elements.List.DynamicList(this.element);
 
 
@@ -166,7 +166,7 @@ LiveWidgets.addWidget({
 
 			setTimeout(function () {
 				this.sendMessage("download-repo-data");
-			}.bind(this), 80);
+			}.bind(this), 1380);
 			setTimeout(function () {
 
 				this.sendMessage("get-artifact-data", {
@@ -177,6 +177,6 @@ LiveWidgets.addWidget({
 						}.bind(this)
 					}.bind(this)("nop")
 				});
-			}.bind(this), 500);
+			}.bind(this), 1500);
         }
 });

@@ -809,7 +809,7 @@
 	{
 		margin-right:20px;
 		opacity:0.3;
-		-webkit-filter: grayscale(50%) blur(2px);
+		-webkit-filter: grayscale(50%);
 	}
 	
 	#modules li:hover .artifact-icon	

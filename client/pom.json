@@ -57,7 +57,7 @@
 		{
 		    "groupId": "com.scottbyrns.widgets.jdm.repo",
 		    "artifactId": "DataSource",
-		    "version": "1.0.2-SNAPSHOT"
+		    "version": "1.0.3-SNAPSHOT"
 		},
 		{
 		    "groupId": "com.scottbyrns.widgets.events",
@@ -83,9 +83,12 @@
 		    "groupId": "com.scottbyrns.ajax",
 		    "artifactId": "FileDownloader",
 		    "version": "1.0.0-SNAPSHOT"
+		},
+		{
+		    "groupId": "com.epiceditor",
+		    "artifactId": "Editor",
+		    "version": "0.2.2-BETA"
 		}
-
-
 
 	],
 	

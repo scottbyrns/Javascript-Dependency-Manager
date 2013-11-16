@@ -39,6 +39,10 @@ LiveWidgets.addWidget({
 					
 					
 					document.getElementById("passive-control").innerHTML = '<div class="back-icon" data-widget="event-trigger" data-event="click" data-group="repository-control" data-message="show-modules"><p></p></div>';
+					var a = document.createElement("datalist");
+					document.getElementById("passive-control").appendChild(document.createElement("datalist"));
+					// document.getElementById("passive-control").removeChild(a);
+					
 					document.getElementById("title").innerHTML = "Artifact List";
 							
 							
@@ -49,6 +53,7 @@ LiveWidgets.addWidget({
 					
 					document.getElementById("modules").style.display = "block";
 					document.getElementById("package-menu").style.display = "none";
+					
 					
 				}
 				
@@ -71,6 +76,7 @@ LiveWidgets.addWidget({
 					
 					document.getElementById("modules").style.display = "block";
 					document.getElementById("package-menu").style.display = "none";
+					
 				}
 				
 				if (channel == "show-artifact")

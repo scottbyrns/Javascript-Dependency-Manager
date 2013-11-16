@@ -145,7 +145,7 @@ LiveWidgets.addWidget({
 						document.getElementById("add-sources").innerHTML = "";
 						for (var i = 0, len = data.sources.length; i < len; i += 1) {
 							var itemCell = new com.scottbyrns.Elements.Table.Cell();
-							itemCell.setValue(data.sources[i]);
+							itemCell.setValue('<div data-widget="file-icon">' + data.sources[i] + '</div>');
 
 							var sourceRow = new com.scottbyrns.Elements.Table.Row();
 							sourceRow.addCell(itemCell.element);

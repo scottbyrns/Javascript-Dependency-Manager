@@ -1,0 +1,27 @@
+{
+    "name": "Form Input Element",
+    "description": "Form input element extension.",
+    "icon": "data:image/png;base64,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",
+    "groupId": "com.scottbyrns.widgets.form",
+    "artifactId": "FormInputElement",
+    "version": "1.0.0-SNAPSHOT",
+    "url": "https://github.com/scottbyrns/DOM-Extensions-Form-Input-Element",
+    "scm": "https://github.com/scottbyrns/DOM-Extensions-Form-Input-Element.git",
+    "issueTracking": "https://github.com/scottbyrns/DOM-Extensions-Form-Input-Element/issues",
+    "developers": [
+        {
+            "name": "Scott Byrns"
+        }
+    ],
+    "sources": [
+        "form-input-element.js"
+    ],
+    "dependencies": [
+        {
+            "groupId": "com.scottbyrns",
+            "artifactId": "LiveWidgets",
+            "version": "1.0.2-SNAPSHOT"
+        }
+    ],
+    "configuration": {}
+}

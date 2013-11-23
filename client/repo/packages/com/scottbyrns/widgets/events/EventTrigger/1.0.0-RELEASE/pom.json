@@ -5,12 +5,12 @@
     "groupId": "com.scottbyrns.widgets.events",
     "artifactId": "EventTrigger",
     "version": "1.0.0-RELEASE",
-    "url": "a",
-    "scm": "a",
-    "issueTracking": "a",
+    "url": "https://github.com/scottbyrns/Event-Trigger",
+    "scm": "https://github.com/scottbyrns/Event-Trigger.git",
+    "issueTracking": "https://github.com/scottbyrns/Event-Trigger/issues",
     "developers": [
         {
-            "name": "undefined"
+            "name": "Scott Byrns"
         }
     ],
     "sources": [
@@ -20,7 +20,7 @@
         {
             "groupId": "com.scottbyrns",
             "artifactId": "LiveWidgets",
-            "version": "1.0.1-SNAPSHOT"
+            "version": "1.0.2-SNAPSHOT"
         }
     ],
     "configuration": {}

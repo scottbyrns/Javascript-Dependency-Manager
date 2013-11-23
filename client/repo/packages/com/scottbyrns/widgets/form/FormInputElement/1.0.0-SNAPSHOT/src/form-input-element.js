@@ -1,4 +1,4 @@
-LiveWidget.addWidget({
+LiveWidgets.addWidget({
 	
 	name: "form-input-element",
 	

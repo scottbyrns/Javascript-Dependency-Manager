@@ -16,21 +16,32 @@ var app = express(options);
 
 // Configure server
 app.configure(function () {
+	
+	
 	// Allow cross domain requests.
 	app.use(function(req, res, next) {
+		
 	  res.header("Access-Control-Allow-Origin", "*");
 	  res.header("Access-Control-Allow-Headers", "X-Requested-With");
       res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
       res.header('Access-Control-Allow-Headers', 'Content-Type');
 
 	  next();
+	  
 	});
+	
+	
     //parses request body and populates request.body
     app.use(express.bodyParser());
+	
+	
     //checks request.body for HTTP method overrides
     app.use(express.methodOverride());
+	
+	
     //perform route lookup based on url and HTTP method
     app.use(app.router);
+	
     //Where to serve static content
     // app.use(express.static('./'));
 	
@@ -654,6 +665,10 @@ io.sockets.on('connection', function(socket) {
 		
 	});
 	
+	socket.on("ping", function () {
+		console.log('ping')
+		socket.emit("pong");
+	})
 	
 	socket.on("create-project-stub-from-an-existing-pom", function (notification) {
 		// console.log("Mute");

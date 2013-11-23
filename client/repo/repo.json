@@ -178,7 +178,9 @@
             "groupId": "com.scottbyrns.widgets.HTML5.io",
             "artifactId": "SocketIOConnector",
             "versions": [
-                "1.0.0-SNAPSHOT"
+                "1.0.0-SNAPSHOT",
+                "1.0.1-SNAPSHOT",
+                "1.0.1-SNAPSHOT"
             ]
         },
         {

@@ -72,7 +72,7 @@ FileManager = function () {
 
 
 			
-		}
+		},
 		
 		loadFileAsync: function (path, callback) {
 			

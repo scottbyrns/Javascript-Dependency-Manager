@@ -31,7 +31,22 @@ FileManager = function () {
 		    req.send(null);
 			
 		},
-		
+
+		loadJSONAsync: function (path, callback) {
+			// path = path;
+		    var req = new XMLHttpRequest();
+		    req.open('GET', path, true);
+		    req.onreadystatechange = function(){
+		        if (req.readyState == 4) {
+					callback(JSON.parse(req.responseText));
+		            // var s = document.createElement("script");
+		            // s.appendChild(document.createTextNode(req.responseText));
+		            // document.head.appendChild(s);
+		        }
+		    };
+		    req.send(null);
+			
+		},		
 		
 		//
 		// Load the file at the provided path and
@@ -43,6 +58,28 @@ FileManager = function () {
 		
 		    var req = new XMLHttpRequest();
 		    req.open('GET', path, false);
+		    req.onreadystatechange = function(callback){
+				return function () {
+			        if (req.readyState == 4) {
+						callback((req.responseText));
+			            // var s = document.createElement("script");
+			            // s.appendChild(document.createTextNode(req.responseText));
+			            // document.head.appendChild(s);
+			        }
+				};
+		    }(callback);
+		    req.send(null);
+
+
+			
+		}
+		
+		loadFileAsync: function (path, callback) {
+			
+			path = "https://localhost:3000/" + path;
+		
+		    var req = new XMLHttpRequest();
+		    req.open('GET', path, true);
 		    req.onreadystatechange = function(callback){
 				return function () {
 			        if (req.readyState == 4) {

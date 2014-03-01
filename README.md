@@ -84,8 +84,13 @@ In general the internet is ready for a fresh evolution of the aged web 2.0 ajax 
 * SSL Certificate // TODO Append Cert Generation Instructions
 
 
+##### Running Server
 
+```
 
+node repository.js
+
+```
 
 ## Spec
 
@@ -131,5 +136,6 @@ In general the internet is ready for a fresh evolution of the aged web 2.0 ajax 
 ![alt text](https://raw.github.com/scottbyrns/Javascript-Dependency-Manager/master/client/documentation/artifact-overview.png "asdf")
 ### Creat Artifact
 ![alt text](https://raw.github.com/scottbyrns/Javascript-Dependency-Manager/master/client/documentation/create-artifact.png "asdf")
+
 ### Edit Artifact
 
